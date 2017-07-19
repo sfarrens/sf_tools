@@ -92,7 +92,7 @@
             
             
               <ul class="current">
-<li class="toctree-l1"><a class="reference internal" href="examples.html">1. CreePy Examples</a></li>
+<li class="toctree-l1"><a class="reference internal" href="examples.html">1. sf_tools Examples</a></li>
 <li class="toctree-l1 current"><a class="reference internal" href="sf_tools.html">2. sf_tools package</a><ul class="current">
 <li class="toctree-l2 current"><a class="reference internal" href="sf_tools.html#subpackages">2.1. Subpackages</a><ul class="current">
 <li class="toctree-l3"><a class="reference internal" href="sf_tools.base.html">2.1.1. sf_tools.base package</a></li>
@@ -213,7 +213,9 @@
 <dd><p>Reweight</p>
 <p>This method implements the reweighting from section 4 in <a class="reference internal" href="sf_tools.signal.html#cwb2007" id="id2">[CWB2007]</a></p>
 <p class="rubric">Notes</p>
-<p>Reweighting implemented as w = w (1 / (1 + <a href="#id3"><span class="problematic" id="id4">|x^w|</span></a>/(n * sigma)))</p>
+<p>Reweighting implemented as:</p>
+<div class="math">
+\[w = w \left( \frac{1}{1 + \frac{|x^w|}{n * \sigma}} \right)\]</div>
 </dd></dl>
 
 </dd></dl>
