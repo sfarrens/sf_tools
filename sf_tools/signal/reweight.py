@@ -42,7 +42,12 @@ class cwbReweight(object):
 
         Notes
         -----
-        Reweighting implemented as w = w (1 / (1 + |x^w|/(n * sigma)))
+
+        Reweighting implemented as:
+
+        .. math::
+
+            w = w \left( \frac{1}{1 + \frac{|x^w|}{n * \sigma}} \right)
 
         """
 
