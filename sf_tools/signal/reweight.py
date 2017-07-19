@@ -47,7 +47,7 @@ class cwbReweight(object):
 
         .. math::
 
-            w = w \left( \frac{1}{1 + \frac{|x^w|}{n * \sigma}} \right)
+            w = w \left( \frac{1}{1 + \frac{|x^w|}{n \sigma}} \right)
 
         """
 
