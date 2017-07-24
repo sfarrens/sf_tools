@@ -6,211 +6,69 @@ This module contains classes of different cost functions for optimization.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.3
+:Version: 2.0
 
-:Date: 19/07/2017
+:Date: 24/07/2017
 
 """
 
 import numpy as np
-from sf_tools.math.matrix import nuclear_norm
-from sf_tools.base.transform import cube2matrix
 from sf_tools.plot.cost_plot import plotCost
 
 
-class costTest(object):
-    """Test cost function class
+class costObj(object):
 
-    This class implements a simple l2 norm test
+    """Generic cost function object
 
-    Parameters
-    ----------
-    y : np.ndarray
-        Input original data array
-    operator : class
-        Degredation operator class
-
-    """
-
-    def __init__(self, y, operator):
-
-        self.y = y
-        self.op = operator
-
-    def get_cost(self, x):
-        """Get cost function
-
-        This method returns the l2 norm error of the difference between the
-        original data and the data obtained after optimisation
-
-        Parameters
-        ----------
-        x : np.ndarray
-            Input optimised data array
-
-        """
-
-        return np.linalg.norm(self.y - self.op(x))
-
-
-class costFunction(object):
-    """Cost function class
-
-    This class implements the cost function for deconvolution
+    This class updates the cost according to the input cost functio class and
+    tests for convergence
 
     Parameters
     ----------
-    y : np.ndarray
-        Input original data array
-    grad : class
-        Gradient operator class
-    wavelet : class, optional
-        Wavelet operator class ("sparse" mode only)
-    weights : np.ndarray, optional
-        Array of wavelet thresholding weights ("sparse" mode only)
-    lambda_reg : float, optional
-        Low-rank regularization parameter ("lowr" mode only)
-    mode : str {'lowr', 'sparse'}, optional
-        Deconvolution mode (default is "lowr")
-    positivity : bool, optional
-        Option to test positivity contraint (defult is "True")
+    costFunc : class
+        Class for calculating the cost
+    initial_cost : float, optional
+        Initial value of the cost (default is "1e6")
     tolerance : float, optional
         Tolerance threshold for convergence (default is "1e-4")
-    window : int, optional
-        Iteration interval to test for convergence (default is "5")
-    print_cost : bool, optional
-        Option to print cost function value at each iteration (default is
-        "True")
-    residual : bool, optional
-        Option to calculate the residual (default is
-        "False")
-    output : str, optional
+    cost_interval : int, optional
+        Iteration interval to calculate cost (default is "1")
+    test_range : int, optional
+        Number of cost values to be used in test (default is "4")
+    verbose : bool, optional
+        Option for verbose output (default is "True")
+    plot_output : str, optional
         Output file name for cost function plot
+
+    Notes
+    -----
+    The costFunc class must contain a method called `calc_cost()`.
 
     """
 
-    def __init__(self, y, grad, wavelet=None, weights=None,
-                 lambda_reg=None, mode='lowr',
-                 positivity=True, tolerance=1e-4, window=1, print_cost=True,
-                 residual=False, output=None):
+    def __init__(self, costFunc, initial_cost=1e6, tolerance=1e-4,
+                 cost_interval=1, test_range=4, verbose=True,
+                 plot_output=None):
 
-        self.y = y
-        self.grad = grad
-        self.wavelet = wavelet
-        self.lambda_reg = lambda_reg
-        self.mode = mode
-        self.positivity = positivity
-        self.update_weights(weights)
-        self.cost = 1e6
-        self.cost_list = []
-        self.tolerance = tolerance
-        self.print_cost = print_cost
-        self.residual = residual
-        self.iteration = 1
-        self.output = output
-        self.window = window
-        self.test_list = []
+        if not hasattr(costFunc, 'calc_cost'):
+            raise ValueError('costFunc must contain "calc_cost" method.')
 
-    def update_weights(self, weights):
-        """Update weights
+        self.costFunc = costFunc
+        self.cost = initial_cost
+        self._cost_list = []
+        self._cost_interval = cost_interval
+        self._iteration = 1
+        self._test_list = []
+        self._test_range = test_range
+        self._tolerance = tolerance
+        self._plot_output = plot_output
+        self._verbose = verbose
 
-        Update the values of the wavelet threshold weights ("sparse" mode only)
-
-        Parameters
-        ----------
-        weights : np.ndarray
-            Array of wavelet thresholding weights
-
-        """
-
-        self.weights = weights
-
-    def l2norm(self, x):
-        """Calculate l2 norm
-
-        This method returns the l2 norm error of the difference between the
-        original data and the data obtained after optimisation
-
-        Parameters
-        ----------
-        x : np.ndarray
-            Deconvolved data array
-
-        Returns
-        -------
-        float l2 norm value
-
-        """
-
-        l2_norm = np.linalg.norm(self.y - self.grad.op(x))
-
-        if self.print_cost:
-            print ' - L2 NORM:', l2_norm
-
-        return l2_norm
-
-    def l1norm(self, x):
-        """Calculate l1 norm
-
-        This method returns the l1 norm error of the weighted wavelet
-        coefficients
-
-        Parameters
-        ----------
-        x : np.ndarray
-            Deconvolved data array
-
-        Returns
-        -------
-        float l1 norm value
-
-        """
-
-        x = self.weights * self.wavelet.op(x)
-
-        l1_norm = np.sum(np.abs(x))
-
-        if self.print_cost:
-            print ' - L1 NORM:', l1_norm
-
-        return l1_norm
-
-    def nucnorm(self, x):
-        """Calculate nuclear norm
-
-        This method returns the nuclear norm error of the deconvolved data in
-        matrix form
-
-        Parameters
-        ----------
-        x : np.ndarray
-            Deconvolved data array
-
-        Returns
-        -------
-        float nuclear norm value
-
-        """
-
-        x_prime = cube2matrix(x)
-
-        nuc_norm = nuclear_norm(x_prime)
-
-        if self.print_cost:
-            print ' - NUCLEAR NORM:', nuc_norm
-
-        return nuc_norm
-
-    def check_cost(self, x):
+    def _check_cost(self):
         """Check cost function
 
         This method tests the cost function for convergence in the specified
-        interval of iterations
-
-        Parameters
-        ----------
-        x : np.ndarray
-            Deconvolved data array
+        interval of iterations using the last n (test_range) cost values
 
         Returns
         -------
@@ -218,59 +76,37 @@ class costFunction(object):
 
         """
 
-        if self.iteration % (4 * self.window):
+        # Add current cost value to the test list
+        self._test_list.append(self.cost)
 
-            self.test_list.append(self.cost)
+        # Check if enough cost values have been collected
+        if len(self._test_list) == self._test_range:
+
+            # The mean of the first half of the test list
+            t1 = np.mean(self._test_list[len(self._test_list) / 2:], axis=0)
+            # The mean of the second half of the test list
+            t2 = np.mean(self._test_list[:len(self._test_list) / 2], axis=0)
+            # Calculate the change across the test list
+            cost_diff = (np.linalg.norm(t1 - t2) / np.linalg.norm(t1))
+            # Reset the test list
+            self._test_list = []
+
+            if self._verbose:
+                print ' - CONVERGENCE TEST - '
+                print ' - CHANGE IN COST:', cost_diff
+                print ''
+
+            # Check for convergence
+            return cost_diff <= self._tolerance
+
+        else:
 
             return False
 
-        else:
-
-            self.test_list.append(self.cost)
-
-            # a = (self.test_list[-2] - self.test_list[-1]) / self.window
-            # b = np.abs(np.gradient(self.test_list[-2:], self.window)[-1])
-
-            t1 = np.average(self.test_list[-4:-2], axis=0)
-            t2 = np.average(self.test_list[-2:], axis=0)
-            self.test_list = []
-
-            test = (np.linalg.norm(t1 - t2) / np.linalg.norm(t1))
-
-            if self.print_cost:
-                print ' - CONVERGENCE TEST:', test
-                print ''
-
-            return test <= self.tolerance
-
-    def check_residual(self, x):
-        """Check residual
-
-        This method calculates the residual between the deconvolution and the
-        observed data
-
-        Parameters
-        ----------
-        x : np.ndarray
-            Deconvolved data array
-
-        """
-
-        self.res = np.std(self.y - self.grad.op(x)) / np.linalg.norm(self.y)
-
-        if self.print_cost:
-            print ' - STD RESIDUAL:', self.res
-
-    def get_cost(self, x):
+    def get_cost(self, *args, **kwargs):
         """Get cost function
 
-        This method calculates the full cost function and checks the result for
-        convergence
-
-        Parameters
-        ----------
-        x : np.ndarray
-            Deconvolved data array
+        This method calculates the current cost and tests for convergence
 
         Returns
         -------
@@ -278,54 +114,37 @@ class costFunction(object):
 
         """
 
-        if self.iteration % self.window:
+        # Check if the cost should be calculated
+        if self._iteration % self._cost_interval:
 
-            test = False
+            test_result = False
 
         else:
 
-            if self.print_cost:
-                print ' - ITERATION:', self.iteration
+            if self._verbose:
+                print ' - ITERATION:', self._iteration
 
-            self.cost_old = self.cost
+            # Calculate the current cost
+            self.cost = self.costFunc.calc_cost(*args, **kwargs)
+            self._cost_list.append(self.cost)
 
-            if self.residual:
-                self.check_residual(x)
-
-            if self.positivity and self.print_cost:
-                print ' - MIN(X):', np.min(x)
-
-            if self.mode == 'all':
-                self.cost = (0.5 * self.l2norm(x) ** 2 + self.l1norm(x) +
-                             self.nucnorm(x))
-
-            elif self.mode == 'sparse':
-                self.cost = 0.5 * self.l2norm(x) ** 2 + self.l1norm(x)
-
-            elif self.mode == 'lowr':
-                self.cost = (0.5 * self.l2norm(x) ** 2 + self.lambda_reg *
-                             self.nucnorm(x))
-
-            elif self.mode == 'grad':
-                self.cost = 0.5 * self.l2norm(x) ** 2
-
-            self.cost_list.append(self.cost)
-
-            if self.print_cost:
+            if self._verbose:
                 print ' - Log10 COST:', np.log10(self.cost)
                 print ''
 
-            test = self.check_cost(x)
+            # Test for convergence
+            test_result = self._check_cost()
 
-        self.iteration += 1
+        # Update the current iteration number
+        self._iteration += 1
 
-        return test
+        return test_result
 
     def plot_cost(self):
-        """Plot cost function
+        """Plot the cost function
 
         This method plots the cost function as function of iteration number
 
         """
 
-        plotCost(self.cost_list, self.output)
+        plotCost(self._cost_list, self._plot_output)
