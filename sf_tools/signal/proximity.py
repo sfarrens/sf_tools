@@ -16,21 +16,8 @@ import numpy as np
 from noise import thresh
 from svd import svd_thresh, svd_thresh_coef
 from optimisation import ForwardBackward
+from positivity import positive
 from sf_tools.base.transform import *
-
-
-def positivity_operator(data):
-    """Positivity operator
-
-    This method preserves only the positive coefficients of the input data
-
-    Parameters
-    ----------
-    data : np.ndarray
-        Input data array
-    """
-
-    return data * (data > 0)
 
 
 class Positive(object):
@@ -59,7 +46,7 @@ class Positive(object):
 
         """
 
-        return positivity_operator(data)
+        return positive(data)
 
 
 class Threshold(object):
