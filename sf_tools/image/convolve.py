@@ -117,7 +117,37 @@ def convolve(data, kernel, method='astropy'):
         return fftconvolve(data, kernel, mode='same')
 
 
-def psf_convolve(data, psf, psf_rot=False, psf_type='fixed'):
+def convolve_stack(data, kernel, rot_kernel=False, method='astropy'):
+    """Convolve stack of data with stack of kernels
+
+    This method convolves the input data with a given kernel using FFT and
+    is the default convolution used for all routines
+
+    Parameters
+    ----------
+    data : np.ndarray
+        Input data array, normally a 2D image
+    kernel : np.ndarray
+        Input kernel array, normally a 2D kernel
+    rot_kernel : bool
+        Option to rotate kernels by 180 degrees
+    method : str {'astropy', 'scipy'}, optional
+        Convolution method (default is 'astropy')
+
+    Returns
+    -------
+    np.ndarray convolved data
+
+    """
+
+    if rot_kernel:
+        kernel = rotate_stack(kernel)
+
+    return np.array([convolve(data_i, kernel_i, method=method) for data_i,
+                    kernel_i in zip(data, kernel)])
+
+
+def psf_convolve(data, psf, psf_rot=False, psf_type='fixed', method='astropy'):
     """Convolve data with PSF
 
     This method convolves an image with a PSF
@@ -133,6 +163,8 @@ def psf_convolve(data, psf, psf_rot=False, psf_type='fixed'):
         Option to rotate PSF by 180 degrees
     psf_type : str {'fixed', 'obj_var'}, optional
         PSF type (default is 'fixed')
+    method : str {'astropy', 'scipy'}, optional
+        Convolution method (default is 'astropy')
 
         'fixed':
             The PSF is fixed, i.e. it is the same for each image
@@ -161,11 +193,12 @@ def psf_convolve(data, psf, psf_rot=False, psf_type='fixed'):
         psf = rotate_stack(psf)
 
     if psf_type == 'fixed':
-        return np.array([convolve(data_i, psf) for data_i in data])
+        return np.array([convolve(data_i, psf, method=method) for data_i in
+                        data])
 
     elif psf_type == 'obj_var':
-        return np.array([convolve(data_i, psf_i) for data_i, psf_i in
-                        zip(data, psf)])
+
+        return convolve_stack(data, psf)
 
 
 def pseudo_inverse(image, kernel, weight=None):
