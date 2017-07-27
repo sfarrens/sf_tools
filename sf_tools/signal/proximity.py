@@ -67,7 +67,7 @@ class Threshold(object):
 
         self.update_weights(weights)
 
-    def update_weights(self, weights):
+    def update_weights(self, weights, thresh_type='soft'):
         """Update weights
 
         This method update the values of the weights
