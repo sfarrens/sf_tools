@@ -65,20 +65,6 @@ class Threshold(object):
 
     def __init__(self, weights, thresh_type='soft'):
 
-        self.update_weights(weights)
-
-    def update_weights(self, weights, thresh_type='soft'):
-        """Update weights
-
-        This method update the values of the weights
-
-        Parameters
-        ----------
-        weights : np.ndarray
-            Input array of weights
-
-        """
-
         self.weights = weights
         self.thresh_type = thresh_type
 
