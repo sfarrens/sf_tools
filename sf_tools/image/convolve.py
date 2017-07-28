@@ -17,7 +17,7 @@ import numpy as np
 from scipy.signal import fftconvolve
 from scipy.fftpack import fftn, ifftn, fftshift, ifftshift
 from astropy.convolution import convolve_fft
-from creepy.base.np_adjust import rotate, rotate_stack
+from sf_tools.base.np_adjust import rotate, rotate_stack
 
 
 def convolve_np(image, kernel):

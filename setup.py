@@ -4,7 +4,7 @@ setup(
     name='sf_tools',
     author='sfarrens',
     author_email='samuel.farrens@gmail.com',
-    version='0.1.dev1',
+    version='0.2.dev',
     url='https://github.com/sfarrens/sf_tools',
     download_url='https://github.com/sfarrens/sf_tools/archive/0.1.tar.gz',
     packages=find_packages(),

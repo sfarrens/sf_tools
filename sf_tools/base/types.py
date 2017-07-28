@@ -94,7 +94,7 @@ def val2int(val):
 
     Examples
     --------
-    >>> from creepy.base.types import val2int
+    >>> from sf_tools.base.types import val2int
     >>> x = np.arange(5).astype(float)
     >>> x
     array([ 0.,  1.,  2.,  3.,  4.])
@@ -136,7 +136,7 @@ def val2float(val):
 
     Examples
     --------
-    >>> from creepy.base.types import val2float
+    >>> from sf_tools.base.types import val2float
     >>> x = np.arange(5)
     >>> x
     array([0, 1, 2, 3, 4])
@@ -179,7 +179,7 @@ def val2str(val):
 
     Examples
     --------
-    >>> from creepy.base.types import val2str
+    >>> from sf_tools.base.types import val2str
     >>> x = np.arange(5)
     >>> x
     array([0, 1, 2, 3, 4])
@@ -228,7 +228,7 @@ def nan2val(array, val=0.0):
 
     Examples
     --------
-    >>> from creepy.base.types import nan2val
+    >>> from sf_tools.base.types import nan2val
     >>> x = [1., 2., np.nan, 4.]
     >>> x
     [1.0, 2.0, nan, 4.0]

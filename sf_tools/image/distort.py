@@ -15,7 +15,7 @@ This module contains methods for playing around with image properties.
 
 import numpy as np
 from itertools import product
-from creepy.base.np_adjust import pad2d
+from sf_tools.base.np_adjust import pad2d
 
 
 def downsample(image, factor):

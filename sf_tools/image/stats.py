@@ -14,7 +14,7 @@ This module contains methods for the statistical analysis of images.
 
 
 import numpy as np
-from creepy.base.np_adjust import pad2d
+from sf_tools.base.np_adjust import pad2d
 
 
 class SAT():

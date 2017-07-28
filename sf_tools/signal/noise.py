@@ -44,7 +44,7 @@ def add_noise(data, sigma=1.0, noise_type='gauss'):
     Examples
     --------
     >>> import numpy as np
-    >>> from creepy.signal.noise import add_noise
+    >>> from sf_tools.signal.noise import add_noise
     >>> x = np.arange(9).reshape(3, 3).astype(float)
     >>> x
     array([[ 0.,  1.,  2.],
@@ -57,7 +57,7 @@ def add_noise(data, sigma=1.0, noise_type='gauss'):
            [ 11.,  15.,  18.]])
 
     >>> import numpy as np
-    >>> from creepy.signal.noise import add_noise
+    >>> from sf_tools.signal.noise import add_noise
     >>> x = np.zeros(5)
     >>> x
     array([ 0.,  0.,  0.,  0.,  0.])
@@ -138,7 +138,7 @@ def thresh(data, threshold, threshold_type='hard'):
     Examples
     --------
     >>> import numpy as np
-    >>> from creepy.signal.noise import thresh
+    >>> from sf_tools.signal.noise import thresh
     >>> np.random.seed(1)
     >>> x = np.random.randint(-9, 9, 10)
     >>> x
@@ -147,7 +147,7 @@ def thresh(data, threshold, threshold_type='hard'):
     array([-4,  0,  0,  0,  0,  0, -4,  6, -9,  7])
 
     >>> import numpy as np
-    >>> from creepy.signal.noise import thresh
+    >>> from sf_tools.signal.noise import thresh
     >>> np.random.seed(1)
     >>> x = np.random.ranf((3, 3))
     >>> x

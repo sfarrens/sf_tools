@@ -14,10 +14,10 @@ This module contains methods for thresholding singular values.
 
 import numpy as np
 from scipy.linalg import svd, diagsvd
-from creepy.image.convolve import convolve
-from creepy.signal.noise import thresh
-from creepy.base.transform import cube2matrix, matrix2cube
-from creepy.interface.errors import warn
+from sf_tools.image.convolve import convolve
+from sf_tools.signal.noise import thresh
+from sf_tools.base.transform import cube2matrix, matrix2cube
+from sf_tools.interface.errors import warn
 
 
 def find_n_pc(u, factor=0.5):

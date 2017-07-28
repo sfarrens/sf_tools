@@ -32,7 +32,7 @@ def deg2rad(angle):
 
     Examples
     --------
-    >>> from creepy.math.angle import deg2rad
+    >>> from sf_tools.math.angle import deg2rad
     >>> deg2rad(45.)
     0.7853981633974483
 
@@ -64,7 +64,7 @@ def rad2deg(angle):
 
     Examples
     --------
-    >>> from creepy.math.angle import deg2rad
+    >>> from sf_tools.math.angle import deg2rad
     >>> rad2deg(1.)
     57.29577951308232
 
@@ -99,7 +99,7 @@ def ang_sep(point1, point2):
 
     Examples
     --------
-    >>> from creepy.math.angle import ang_sep
+    >>> from sf_tools.math.angle import ang_sep
     >>> ang_sep((30.0, 0.0), (47.0, 10.0))
     19.647958606833164
 

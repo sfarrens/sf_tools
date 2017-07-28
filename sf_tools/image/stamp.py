@@ -16,7 +16,7 @@ images.
 
 import numpy as np
 from itertools import product, izip
-from creepy.base.np_adjust import pad2d
+from sf_tools.base.np_adjust import pad2d
 
 
 def patch_centres(data_shape, layout):

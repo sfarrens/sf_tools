@@ -37,7 +37,7 @@ def rotate(data):
 
     Examples
     --------
-    >>> from creepy.base.np_adjust import rotate
+    >>> from sf_tools.base.np_adjust import rotate
     >>> x = np.arange(9).reshape((3, 3))
     >>> x
     array([[0, 1, 2],
@@ -69,7 +69,7 @@ def rotate_stack(data):
 
     Examples
     --------
-    >>> from creepy.base.np_adjust import rotate_stack
+    >>> from sf_tools.base.np_adjust import rotate_stack
     >>> x = np.arange(18).reshape((2, 3, 3))
     >>> x
     array([[[ 0,  1,  2],
@@ -113,7 +113,7 @@ def pad2d(data, padding):
 
     Examples
     --------
-    >>> from creepy.base.np_adjust import pad2d
+    >>> from sf_tools.base.np_adjust import pad2d
     >>> x = np.arange(9).reshape((3, 3))
     >>> x
     array([[0, 1, 2],
@@ -158,7 +158,7 @@ def x_bins(vals):
 
     Examples
     --------
-    >>> from creepy.base.np_adjust import x_bins
+    >>> from sf_tools.base.np_adjust import x_bins
     >>> data = np.array([1, 2, 1, 3, 1, 1])
     >>> hist, bins = np.histogram(data)
     >>> hist
@@ -193,7 +193,7 @@ def x_bins_step(vals):
 
     Examples
     --------
-    >>> from creepy.base.np_adjust import x_bins
+    >>> from sf_tools.base.np_adjust import x_bins
     >>> data = np.array([1, 2, 1, 3, 1, 1])
     >>> hist, bins = np.histogram(data)
     >>> hist
@@ -268,7 +268,7 @@ def fancy_transpose(data, roll=1):
 
     Examples
     --------
-    >>> from creepy.base.np_adjust import fancy_transpose
+    >>> from sf_tools.base.np_adjust import fancy_transpose
     >>> x = np.arange(27).reshape(3, 3, 3)
     >>> x
     array([[[ 0,  1,  2],
