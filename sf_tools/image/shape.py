@@ -289,9 +289,9 @@ class Ellipticity():
         if match:
             xx = (1-self.e[0]/2)*self.x - self.e[1]/2*self.y
             yy = (1+self.e[0]/2)*self.y - self.e[1]/2*self.x
-            self.x = xx
-            self.y = yy
-        self.weights = np.exp(-(self.x ** 2 + self.y ** 2) /
+        else:
+            xx,yy = self.x, self.y
+        self.weights = np.exp(-(xx ** 2 + yy ** 2) /
                               (2 * self.sigma ** 2))
 
     def update_centroid(self):
