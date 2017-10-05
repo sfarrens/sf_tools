@@ -4,15 +4,31 @@
 
 This module contains methods and classes for estimating galaxy shapes.
 
-:Author: Samuel Farrens <samuel.farrens@gmail.com>
+:Authors: Samuel Farrens <samuel.farrens@gmail.com>, Morgan A. Schmitz <morgan.schmitz@cea.fr>
 
-:Version: 1.3
+:Version: 1.4
 
-:Date: 25/10/2016
+:Date: 05/10/2017
 
 Notes
 -----
 Some of the methods in this module are based on work by Fred Ngole.
+
+References
+----------
+
+.. [C2013] Cropper et al., Defining a Weak Lensing Experiment in Space, 2013,
+    MNRAS, 431, 3103C. [https://arxiv.org/abs/1210.7691]
+
+.. [BM2007] Baker and Moallem, Iteratively weighted centroiding for
+    Shack-Hartman wave-front sensors, 2007n, Optics Express, 15, 8, 5147.
+    [https://www.osapublishing.org/oe/abstract.cfm?uri=oe-15-8-5147]
+
+.. [NS2016] Ngolé and Starck, PSFs field learning based on Optimal Transport
+    distances, 2016, SIAM
+    
+.. [M2011] Melchior et al., Weak gravitational lensing with DEIMOS, 2011,
+    MNRAS, 412, 1552-1558
 
 """
 
@@ -202,7 +218,7 @@ class Ellipticity():
     ##
     #  Method that initialises the class.
     #
-    def __init__(self, data, sigma=1000, centroid=None, moments=None):
+    def __init__(self, data, sigma=1000, centroid=None, moments=None, match=False):
         """Class initialiser
 
         Parameters
@@ -212,16 +228,20 @@ class Ellipticity():
         sigma : int, optional
             Estimation error (default is '1000')
         centroid : np.ndarray, optional
-            Centroid positions [x, y] of the input image (defualt is 'None')
+            Centroid positions [x, y] of the input image (default is 'None')
         moments : np.ndarray, optional
             Quadrupole moments [[q00, q01], [q10, q11]] of the input image
-            (defualt is 'None')
-
+            (default is 'None')
+        match : bool, optional
+            Whether to match the weighting function to source ellipticity
+            (default is 'False')
+            
         """
 
         self.data = data
         self.sigma = sigma
         self.ranges = np.array([np.arange(i) for i in data.shape])
+        self.match = match
 
         if not isinstance(moments, type(None)):
             self.moments = np.array(moments).reshape(2, 2)
@@ -245,7 +265,7 @@ class Ellipticity():
         self.y = np.outer(np.ones(self.data.shape[0]),
                           self.ranges[1] - self.centroid[1])
 
-    def update_weights(self):
+    def update_weights(self, match=False):
         """Update the weights
 
         This method updates the value of the weights using the current values
@@ -266,6 +286,11 @@ class Ellipticity():
         """
 
         self.update_xy()
+        if match:
+            xx = (1-self.e[0]/2)*self.x - self.e[1]/2*self.y
+            yy = (1+self.e[0]/2)*self.y - self.e[1]/2*self.x
+            self.x = xx
+            self.y = yy
         self.weights = np.exp(-(self.x ** 2 + self.y ** 2) /
                               (2 * self.sigma ** 2))
 
@@ -319,19 +344,22 @@ class Ellipticity():
 
         """
 
-        # Set initial value for the weights.
-        self.weights = np.ones(self.data.shape)
+        # Set initial value for centroid and weights (with no matching).
+        self.centroid = np.array(self.data.shape)/2
+        self.update_weights()
 
         # Iteratively calculate the centroid.
         for i in range(n_iter):
+            # Calculate the quadrupole moments.
+            self.get_moments()
+            
+            # Update the weights.
+            self.update_weights(self.match)
 
             # Update the centroid value.
             self.update_centroid()
-
-            # Update the weights.
-            self.update_weights()
-
-        # Calculate the quadrupole moments.
+            
+        # Perform one last moments update.
         self.get_moments()
 
     def get_moments(self):
@@ -361,6 +389,18 @@ class Ellipticity():
 
         # Calculate the ellipticities.
         self.get_ellipse()
+        
+    def get_n_moments(self, n):
+        """ Calculate higher-order moments
+
+        This method calculates higher-order moments.
+        
+
+        """
+
+        # Calculate moments.
+        q = np.array([np.sum(self.data * self.weights * self.x**i * self.y**(n-i)) for i in range(n+1)])
+        return q
 
     def get_ellipse(self):
         """Calculate the ellipticities
@@ -392,3 +432,34 @@ class Ellipticity():
         self.e = np.array([(self.moments[0, 0] - self.moments[1, 1]) / self.r2,
                           (self.moments[0, 1] + self.moments[1, 0]) /
                           self.r2])
+
+    def get_deweighted_moments(self, n_w=6):
+        r"""Compute `deweighted' moments
+        
+        This method computes 'deweighted' moments, that is, corrected for the
+        effects of a non-unity weighting function up to a certain Taylor order
+        $n_w$, as in [M2011]. 
+        
+        """
+        
+        e_w = Ellipticity(self.weights).e
+        c_1 = (1 - e_w[0])**2 + e_w[1]**2
+        c_2 = (1 + e_w[0])**2 + e_w[1]**2
+        self.deweighted_moments = self.get_n_moments(2)
+        if n_w >= 2:
+            q4 = self.get_n_moments(4)
+            self.deweighted_moments += np.array([1./(2*self.sigma**2) * (c_1*q4[i+2] - 4*e_w[1]*q4[i+1] + c_2*q4[i]) for i in range(3)])
+        if n_w >= 4:
+            q6 = self.get_n_moments(6)
+            self.deweighted_moments += np.array([1./(8*self.sigma**4) * (
+                    c_1**2*q6[i+4] - 8*c_1*e_w[1]*q6[i+3] + (2*c_1*c_2 + 16*e_w[1]**2)*q6[i+2] -
+                    8*c_2*e_w[1]*q6[i+1] + c_2**2*q6[i]) for i in range(3)])
+        if n_w >= 6:
+            q8 = self.get_n_moments(8)
+            self.deweighted_moments += np.array([1./(48*self.sigma**6) * (
+                    c_1**3*q8[i+6] - 12*c_1**2*e_w[1]*q8[i+5] + (3*c_1**2*c_2 + 48*c_1*e_w[1]**2)*q8[i+4] -
+                    (24*c_1*c_2*e_w[1] + 64*e_w[1]**3)*q8[i+3] + (3*c_1*c_2**2 + 48*c_2*e_w[1]**2)*q8[i+2] -
+                    12*c_2**2*e_w[1]*q8[i+1] + c_2**3*q8[i]) for i in range(3)])
+        # compute deweighted ellipticities
+        self.deweighted_e = np.array([self.deweighted_moments[2] - self.deweighted_moments[0], self.deweighted_moments[1]]) / (
+                self.deweighted_moments[2]+self.deweighted_moments[0])
