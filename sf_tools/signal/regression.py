@@ -12,7 +12,7 @@ This module contains methods for linear regression.
 
 """
 
-
+from builtins import zip
 import numpy as np
 from scipy.odr import *
 

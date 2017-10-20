@@ -12,6 +12,7 @@ This module contains methods for making plots.
 
 """
 
+from __future__ import print_function
 import numpy as np
 import matplotlib.pyplot as plt
 
@@ -43,4 +44,4 @@ def plotCost(cost_list, output=None):
     plt.savefig(file_name)
     plt.close()
 
-    print ' - Saving cost function data to:', file_name
+    print(' - Saving cost function data to:', file_name)

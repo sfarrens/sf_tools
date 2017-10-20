@@ -7,9 +7,9 @@ reconstructions.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.1
+:Version: 1.2
 
-:Date: 29/01/2017
+:Date: 20/10/2017
 
 Notes
 -----
@@ -17,9 +17,9 @@ Some of the methods in this module are based on work by Fred Ngole.
 
 """
 
-
+from __future__ import division
 import numpy as np
-from shape import ellipticity_atoms
+from sf_tools.image.shape import ellipticity_atoms
 
 
 def nmse(image1, image2, metric=np.mean):

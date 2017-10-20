@@ -6,12 +6,14 @@ This module contains methods for transforming data.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.1
+:Version: 1.2
 
-:Date: 06/01/2017
+:Date: 20/10/2017
 
 """
 
+from __future__ import division
+from builtins import range
 import numpy as np
 from scipy.ndimage import gaussian_filter
 from itertools import islice, product
@@ -46,7 +48,7 @@ def cube2map(data_cube, layout):
                          'data layers.')
 
     return np.vstack([np.hstack(data_cube[slice(layout[1] * i, layout[1] *
-                      (i + 1))]) for i in xrange(layout[0])])
+                      (i + 1))]) for i in range(layout[0])])
 
 
 def map2cube(data_map, layout):
@@ -77,11 +79,11 @@ def map2cube(data_map, layout):
         raise ValueError('The desired layout must be a multiple of the number '
                          'pixels in the data map.')
 
-    d_shape = np.array(data_map.shape) / np.array(layout)
+    d_shape = np.array(data_map.shape) // np.array(layout)
 
     return np.array([data_map[(slice(i * d_shape[0], (i + 1) * d_shape[0]),
                     slice(j * d_shape[1], (j + 1) * d_shape[1]))] for i in
-                    xrange(layout[0]) for j in xrange(layout[1])])
+                    range(layout[0]) for j in range(layout[1])])
 
 
 def map2matrix(data_map, layout):
@@ -113,15 +115,15 @@ def map2matrix(data_map, layout):
     n_obj = np.prod(layout)
 
     # Get the shape of the galaxy images
-    gal_shape = (np.array(data_map.shape) / layout)[0]
+    gal_shape = (np.array(data_map.shape) // layout)[0]
 
     # Stack objects from map
     data_matrix = []
 
     for i in range(n_obj):
-        lower = (gal_shape * (i / layout[1]),
+        lower = (gal_shape * (i // layout[1]),
                  gal_shape * (i % layout[1]))
-        upper = (gal_shape * (i / layout[1] + 1),
+        upper = (gal_shape * (i // layout[1] + 1),
                  gal_shape * (i % layout[1] + 1))
         data_matrix.append((data_map[lower[0]:upper[0],
                             lower[1]:upper[1]]).reshape(gal_shape ** 2))
@@ -156,7 +158,7 @@ def matrix2map(data_matrix, map_shape):
 
     # Get the shape and layout of the galaxy images
     gal_shape = np.sqrt(data_matrix.shape[0])
-    layout = np.array(map_shape / np.repeat(gal_shape, 2), dtype='int')
+    layout = np.array(map_shape // np.repeat(gal_shape, 2), dtype='int')
 
     # Map objects from matrix
     data_map = np.zeros(map_shape)
@@ -164,9 +166,9 @@ def matrix2map(data_matrix, map_shape):
     temp = data_matrix.reshape(gal_shape, gal_shape, data_matrix.shape[1])
 
     for i in range(data_matrix.shape[1]):
-        lower = (gal_shape * (i / layout[1]),
+        lower = (gal_shape * (i // layout[1]),
                  gal_shape * (i % layout[1]))
-        upper = (gal_shape * (i / layout[1] + 1),
+        upper = (gal_shape * (i // layout[1] + 1),
                  gal_shape * (i % layout[1] + 1))
         data_map[lower[0]:upper[0], lower[1]:upper[1]] = temp[:, :, i]
 

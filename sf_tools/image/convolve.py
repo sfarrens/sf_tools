@@ -6,13 +6,14 @@ This module contains methods for convolution.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.0
+:Version: 1.1
 
-:Date: 03/04/2017
+:Date: 20/10/2017
 
 """
 
-
+from __future__ import division
+from builtins import zip
 import numpy as np
 from scipy.signal import fftconvolve
 from scipy.fftpack import fftn, ifftn, fftshift, ifftshift

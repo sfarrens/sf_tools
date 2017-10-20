@@ -6,13 +6,13 @@ This module contains methods for various mathematical operations.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.0
+:Version: 1.1
 
-:Date: 04/04/2017
+:Date: 20/10/2017
 
 """
 
-
+from __future__ import division
 import numpy as np
 
 
@@ -37,7 +37,7 @@ def factor(n):
     for x in range(1, int(np.sqrt(n)) + 1):
         if n % x == 0:
             factors.add(x)
-            factors.add(n//x)
+            factors.add(n // x)
 
     return np.array(sorted(factors))
 
@@ -61,10 +61,10 @@ def mfactor(n):
     f = factor(n)
 
     if f.size % 2:
-        return np.repeat(f[f.size / 2], 2)
+        return np.repeat(f[f.size // 2], 2)
 
     else:
-        return f[f.size / 2 - 1:f.size / 2 + 1]
+        return f[f.size // 2 - 1:f.size // 2 + 1]
 
 
 def k_val(n, L):

@@ -6,12 +6,13 @@ This module contains classes of different cost functions for optimization.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 2.0
+:Version: 2.1
 
-:Date: 24/07/2017
+:Date: 20/10/2017
 
 """
 
+from __future__ import division, print_function
 import numpy as np
 from sf_tools.plot.cost_plot import plotCost
 
@@ -83,18 +84,18 @@ class costObj(object):
         if len(self._test_list) == self._test_range:
 
             # The mean of the first half of the test list
-            t1 = np.mean(self._test_list[len(self._test_list) / 2:], axis=0)
+            t1 = np.mean(self._test_list[len(self._test_list) // 2:], axis=0)
             # The mean of the second half of the test list
-            t2 = np.mean(self._test_list[:len(self._test_list) / 2], axis=0)
+            t2 = np.mean(self._test_list[:len(self._test_list) // 2], axis=0)
             # Calculate the change across the test list
             cost_diff = (np.linalg.norm(t1 - t2) / np.linalg.norm(t1))
             # Reset the test list
             self._test_list = []
 
             if self._verbose:
-                print ' - CONVERGENCE TEST - '
-                print ' - CHANGE IN COST:', cost_diff
-                print ''
+                print(' - CONVERGENCE TEST - ')
+                print(' - CHANGE IN COST:', cost_diff)
+                print('')
 
             # Check for convergence
             return cost_diff <= self._tolerance
@@ -122,15 +123,15 @@ class costObj(object):
         else:
 
             if self._verbose:
-                print ' - ITERATION:', self._iteration
+                print(' - ITERATION:', self._iteration)
 
             # Calculate the current cost
             self.cost = self.costFunc.calc_cost(*args, **kwargs)
             self._cost_list.append(self.cost)
 
             if self._verbose:
-                print ' - Log10 COST:', np.log10(self.cost)
-                print ''
+                print(' - Log10 COST:', np.log10(self.cost))
+                print('')
 
             # Test for convergence
             test_result = self._check_cost()

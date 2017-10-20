@@ -10,7 +10,7 @@ This module contains methods for testing signal and operator properties.
 
 """
 
-
+from __future__ import print_function
 import numpy as np
 
 
@@ -55,4 +55,4 @@ def transpose_test(operator, operator_t, x_shape, x_args, y_shape=None,
     x_mty = np.sum(np.multiply(x, operator_t(y, *y_args)))
 
     # Test the difference between the two.
-    print ' - |<MX, Y> - <X, M.TY>| =', np.abs(mx_y - x_mty)
+    print(' - |<MX, Y> - <X, M.TY>| =', np.abs(mx_y - x_mty))

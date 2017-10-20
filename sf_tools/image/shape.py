@@ -6,9 +6,9 @@ This module contains methods and classes for estimating galaxy shapes.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.3
+:Version: 1.4
 
-:Date: 25/10/2016
+:Date: 20/10/2017
 
 Notes
 -----
@@ -16,7 +16,7 @@ Some of the methods in this module are based on work by Fred Ngole.
 
 """
 
-
+from __future__ import division
 import numpy as np
 
 

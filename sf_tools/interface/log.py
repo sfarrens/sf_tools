@@ -6,12 +6,13 @@ This module contains methods for handing logging.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.1
+:Version: 1.2
 
-:Date: 03/04/2017
+:Date: 20/10/2017
 
 """
 
+from __future__ import print_function
 import sys
 import logging
 
@@ -36,7 +37,7 @@ def set_up_log(filename, verbose=True):
     filename += '.log'
 
     if verbose:
-        print 'Preparing log file:', filename
+        print('Preparing log file:', filename)
 
     # Capture warnings.
     logging.captureWarnings(True)
@@ -74,7 +75,7 @@ def close_log(log, verbose=True):
     """
 
     if verbose:
-        print 'Closing log'
+        print('Closing log')
 
     # Send closing message.
     log.info('The log file has been closed.')

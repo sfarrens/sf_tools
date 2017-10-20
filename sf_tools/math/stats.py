@@ -6,13 +6,14 @@ This module contains methods for basic statistics.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.1
+:Version: 1.2
 
-:Date: 03/04/2017
+:Date: 20/10/2017
 
 """
 
-
+from __future__ import division
+from builtins import zip
 import numpy as np
 from scipy.stats import chi2
 from astropy.convolution import Gaussian2DKernel
@@ -54,7 +55,6 @@ def gaussian(point, mean, sigma, amplitude=None):
     """
 
     if isinstance(amplitude, type(None)):
-        # amplitude = 1 / (sigma * np.sqrt(2 * np.pi))
         amplitude = 1
 
     val = np.array([((x - mu) / sig) ** 2 for x, mu, sig in

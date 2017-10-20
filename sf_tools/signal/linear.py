@@ -12,8 +12,9 @@ This module contains linear operator classes.
 
 """
 
+from builtins import range, zip
 import numpy as np
-from wavelet import *
+from sf_tools.signal.wavelet import *
 from sf_tools.math.matrix import rotate
 
 
@@ -168,7 +169,7 @@ class LinearCombo(object):
 
         res = np.empty(len(self.operators), dtype=np.ndarray)
 
-        for i in xrange(len(self.operators)):
+        for i in range(len(self.operators)):
             res[i] = self.operators[i].op(data)
 
         return res

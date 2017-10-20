@@ -9,13 +9,14 @@ images.
 
 :Version: 1.0
 
-:Date: 03/04/2017
+:Date: 20/10/2017
 
 """
 
-
+from __future__ import division
+from builtins import zip
 import numpy as np
-from itertools import product, izip
+from itertools import product
 from sf_tools.base.np_adjust import pad2d
 
 
@@ -46,8 +47,8 @@ def patch_centres(data_shape, layout):
         raise ValueError('The the layout must be of size 2.')
 
     ranges = np.array(list(product(*np.array([np.arange(x) for x in layout]))))
-    patch_shape = data_shape / layout
-    patch_centre = patch_shape / 2
+    patch_shape = data_shape // layout
+    patch_centre = patch_shape // 2
 
     return patch_centre + patch_size * ranges
 
@@ -94,7 +95,7 @@ def postage_stamp(data, pos, pixel_rad):
         raise ValueError('The array position must have a size of 2.')
 
     # Check if the pixel radius is within the bounds of the input array.
-    if (np.any(pixel_rad < 1) or np.any(np.array(data.shape) / 2 -
+    if (np.any(pixel_rad < 1) or np.any(np.array(data.shape) // 2 -
                                         pixel_rad < 0)):
         raise ValueError('The pixel radius values must have a value of at '
                          'least 1 and at most half the size of the input '
@@ -260,7 +261,7 @@ class FetchStamps(object):
         if pos.size != 2:
             raise ValueError('The pixel position must have a size of 2.')
         stamp = self.pad_data[[slice(a - b, a + b + 1) for a, b in
-                              izip(pos, self.pixel_rad)]]
+                              zip(pos, self.pixel_rad)]]
         if isinstance(func, type(None)):
             return stamp
         else:

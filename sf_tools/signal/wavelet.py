@@ -6,12 +6,14 @@ This module contains methods for performing wavelet transformations using iSAP
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.1
+:Version: 1.2
 
-:Date: 06/01/2017
+:Date: 20/10/2017
 
 """
 
+from __future__ import division
+from builtins import zip
 import numpy as np
 from os import remove
 from subprocess import check_call
@@ -98,7 +100,7 @@ def get_mr_filters(data_shape, opt=None, coarse=False):
 
     # Create fake data.
     fake_data = np.zeros(data_shape)
-    fake_data[zip(data_shape / 2)] = 1
+    fake_data[list(zip(data_shape // 2))] = 1
 
     # Call mr_transform.
     mr_filters = call_mr_transform(fake_data, opt=opt)

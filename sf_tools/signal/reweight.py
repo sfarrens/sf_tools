@@ -6,12 +6,13 @@ This module contains classes for reweighting optimisation implementations
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.2
+:Version: 1.3
 
-:Date: 19/07/2017
+:Date: 20/10/2017
 
 """
 
+from __future__ import division
 import numpy as np
 
 

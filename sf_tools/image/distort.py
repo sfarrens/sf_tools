@@ -6,13 +6,13 @@ This module contains methods for playing around with image properties.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.0
+:Version: 1.1
 
-:Date: 04/04/2017
+:Date: 20/10/2017
 
 """
 
-
+from __future__ import division
 import numpy as np
 from itertools import product
 from sf_tools.base.np_adjust import pad2d
@@ -114,7 +114,7 @@ def rot_and_roll(data):
 
     """
 
-    return roll_2d(np.rot90(data, 2), -(np.array(data.shape) / 2))
+    return roll_2d(np.rot90(data, 2), -(np.array(data.shape) // 2))
 
 
 def gen_mask(kernel_shape, image_shape):
@@ -147,7 +147,7 @@ def gen_mask(kernel_shape, image_shape):
     if shape_diff[1] > 0:
         mask[:, -shape_diff[1]:] = False
 
-    return roll_2d(mask, -(kernel_shape / 2))
+    return roll_2d(mask, -(kernel_shape // 2))
 
 
 def roll_sequence(data_shape):
@@ -254,7 +254,7 @@ def rearrange_kernel(kernel, data_shape=None):
                          'data shape')
 
     # Set the kernel radius.
-    kernel_rad = kernel_shape / 2
+    kernel_rad = kernel_shape // 2
 
     # Rotate, pad and roll the input kernel.
     kernel_rot = np.pad(np.rot90(kernel, 2), ((0, shape_diff[0]),

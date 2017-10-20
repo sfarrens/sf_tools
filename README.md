@@ -8,7 +8,7 @@ target="_blank">https://sfarrens.github.io</a>
 
 ## Introduction
 
-sf_tools is a series of Python 2.7 modules with applications to signal
+sf_tools is a series of Python modules with applications to signal
 processing and statistics.
 
 Extensive documentation coming soon!

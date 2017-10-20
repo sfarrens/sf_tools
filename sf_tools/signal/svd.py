@@ -6,12 +6,14 @@ This module contains methods for thresholding singular values.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.1
+:Version: 1.2
 
-:Date: 04/01/2017
+:Date: 20/10/2017
 
 """
 
+from __future__ import division
+from builtins import zip
 import numpy as np
 from scipy.linalg import svd, diagsvd
 from sf_tools.image.convolve import convolve
@@ -46,8 +48,8 @@ def find_n_pc(u, factor=0.5):
               for a in u.T]
 
     # Return the required number of principal components.
-    return np.sum(((a[zip(gal_shape / 2)] ** 2 <= factor * np.sum(a ** 2))
-                   for a in u_auto))
+    return np.sum(((a[list(zip(gal_shape // 2))] ** 2 <= factor *
+                  np.sum(a ** 2)) for a in u_auto))
 
 
 def svd_thresh(data, threshold=None, n_pc=None, thresh_type='hard'):

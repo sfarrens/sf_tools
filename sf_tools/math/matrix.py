@@ -4,13 +4,14 @@ This module contains methods for matrix operations.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.1
+:Version: 1.2
 
-:Date: 03/04/2017
+:Date: 20/10/2017
 
 """
 
-
+from __future__ import division
+from builtins import range, zip
 import numpy as np
 from itertools import product
 
@@ -161,7 +162,7 @@ def rotate(matrix, angle):
     if shape[0] != shape[1]:
         raise ValueError('Input matrix must be square.')
 
-    shift = (np.array(shape) - 1) / 2
+    shift = (np.array(shape) - 1) // 2
 
     index = np.array(list(product(*np.array([np.arange(val) for val in
                      shape])))) - shift
@@ -169,7 +170,7 @@ def rotate(matrix, angle):
     new_index = np.array(np.dot(index, rot_matrix(angle)), dtype='int') + shift
     new_index[new_index >= shape[0]] -= shape[0]
 
-    return matrix[zip(new_index.T)].reshape(shape.T)
+    return matrix[list(zip(new_index.T))].reshape(shape.T)
 
 
 class PowerMethod(object):
@@ -224,19 +225,19 @@ class PowerMethod(object):
         x_old = self.set_initial_x()
 
         # Iterate until the L2 norm of x converges.
-        for i in xrange(max_iter):
+        for i in range(max_iter):
 
             x_new = self.op(x_old) / np.linalg.norm(x_old)
 
             if(np.abs(np.linalg.norm(x_new) - np.linalg.norm(x_old)) <
                tolerance):
-                print (' - Power Method converged after %d iterations!' %
-                       (i + 1))
+                print(' - Power Method converged after %d iterations!' %
+                      (i + 1))
                 break
 
             elif i == max_iter - 1:
-                print (' - Power Method did not converge after %d '
-                       'iterations!' % max_iter)
+                print(' - Power Method did not converge after %d '
+                      'iterations!' % max_iter)
 
             np.copyto(x_old, x_new)
 

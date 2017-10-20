@@ -6,9 +6,9 @@ This module contains classes for optimisation algoritms.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.2
+:Version: 1.3
 
-:Date: 05/01/2017
+:Date: 20/10/2017
 
 NOTES
 -----
@@ -52,6 +52,8 @@ The following notation is used to implement the algorithms:
 
 """
 
+from __future__ import division, print_function
+from builtins import range, zip
 import numpy as np
 
 
@@ -184,7 +186,7 @@ class ForwardBackward(FISTA):
 
         # Test primal variable for convergence.
         if np.sum(np.abs(self.z_old - self.z_new)) <= 1e-6:
-            print ' - converged!'
+            print(' - converged!')
             self.converge = True
 
         # Update old values for next iteration.
@@ -212,11 +214,11 @@ class ForwardBackward(FISTA):
 
         """
 
-        for i in xrange(max_iter):
+        for i in range(max_iter):
             self.update()
 
             if self.converge:
-                print ' - Converged!'
+                print(' - Converged!')
                 break
 
         self.x_final = self.z_new
@@ -271,7 +273,7 @@ class GenForwardBackward(object):
                              'Current sum of weights = ' +
                              str(np.sum(self.weights)))
 
-        self.z = np.array([self.x_old for i in xrange(self.prox_list.size)])
+        self.z = np.array([self.x_old for i in range(self.prox_list.size)])
 
         self.converge = False
         if auto_iterate:
@@ -292,7 +294,7 @@ class GenForwardBackward(object):
         self.grad.get_grad(self.x_old)
 
         # Update z values.
-        for i in xrange(self.prox_list.size):
+        for i in range(self.prox_list.size):
             z_temp = (2 * self.x_old - self.z[i] - self.grad.inv_spec_rad *
                       self.grad.grad)
             z_prox = self.prox_list[i].op(z_temp,
@@ -328,11 +330,11 @@ class GenForwardBackward(object):
 
         """
 
-        for i in xrange(max_iter):
+        for i in range(max_iter):
             self.update()
 
             if self.converge:
-                print ' - Converged!'
+                print(' - Converged!')
                 break
 
         self.x_final = self.x_new
@@ -473,11 +475,11 @@ class Condat(object):
 
         """
 
-        for i in xrange(max_iter):
+        for i in range(max_iter):
             self.update()
 
             if self.converge:
-                print ' - Converged!'
+                print(' - Converged!')
                 break
 
         self.x_final = self.x_new

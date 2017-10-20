@@ -12,11 +12,12 @@ This module contains classes of proximity operators for optimisation
 
 """
 
+from builtins import range
 import numpy as np
-from noise import thresh
-from svd import svd_thresh, svd_thresh_coef
-from optimisation import ForwardBackward
-from positivity import positive
+from sf_tools.signal.noise import thresh
+from sf_tools.signal.svd import svd_thresh, svd_thresh_coef
+from sf_tools.signal.optimisation import ForwardBackward
+from sf_tools.signal.positivity import positive
 from sf_tools.base.transform import *
 
 
@@ -191,7 +192,7 @@ class ProximityCombo(object):
 
         res = np.empty(len(self.operators), dtype=np.ndarray)
 
-        for i in xrange(len(self.operators)):
+        for i in range(len(self.operators)):
             res[i] = self.operators[i].op(data[i], extra_factor=extra_factor)
 
         return res
