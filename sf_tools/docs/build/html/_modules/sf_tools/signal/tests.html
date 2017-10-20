@@ -180,7 +180,7 @@
 
 <span class="sd">&quot;&quot;&quot;</span>
 
-
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">print_function</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 
 
@@ -225,7 +225,7 @@
     <span class="n">x_mty</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">sum</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">multiply</span><span class="p">(</span><span class="n">x</span><span class="p">,</span> <span class="n">operator_t</span><span class="p">(</span><span class="n">y</span><span class="p">,</span> <span class="o">*</span><span class="n">y_args</span><span class="p">)))</span>
 
     <span class="c1"># Test the difference between the two.</span>
-    <span class="nb">print</span> <span class="s1">&#39; - |&lt;MX, Y&gt; - &lt;X, M.TY&gt;| =&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">mx_y</span> <span class="o">-</span> <span class="n">x_mty</span><span class="p">)</span></div>
+    <span class="nb">print</span><span class="p">(</span><span class="s1">&#39; - |&lt;MX, Y&gt; - &lt;X, M.TY&gt;| =&#39;</span><span class="p">,</span> <span class="n">np</span><span class="o">.</span><span class="n">abs</span><span class="p">(</span><span class="n">mx_y</span> <span class="o">-</span> <span class="n">x_mty</span><span class="p">))</span></div>
 </pre></div>
 
            </div>

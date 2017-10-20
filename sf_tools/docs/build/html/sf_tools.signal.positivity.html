@@ -8,7 +8,7 @@
   
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   
-  <title>2.1.6.1.1. sf_tools.signal.cost module &mdash; sf_tools 1.0 documentation</title>
+  <title>2.1.6.1.7. sf_tools.signal.positivity module &mdash; sf_tools 1.0 documentation</title>
   
 
   
@@ -37,8 +37,8 @@
         <link rel="search" title="Search" href="search.html"/>
     <link rel="top" title="sf_tools 1.0 documentation" href="index.html"/>
         <link rel="up" title="2.1.6. sf_tools.signal package" href="sf_tools.signal.html"/>
-        <link rel="next" title="2.1.6.1.2. sf_tools.signal.filter module" href="sf_tools.signal.filter.html"/>
-        <link rel="prev" title="2.1.6. sf_tools.signal package" href="sf_tools.signal.html"/> 
+        <link rel="next" title="2.1.6.1.8. sf_tools.signal.proximity module" href="sf_tools.signal.proximity.html"/>
+        <link rel="prev" title="2.1.6.1.6. sf_tools.signal.optimisation module" href="sf_tools.signal.optimisation.html"/> 
 
   
   <script src="_static/js/modernizr.min.js"></script>
@@ -154,13 +154,13 @@
         
           <li><a href="sf_tools.signal.html">2.1.6. sf_tools.signal package</a> &raquo;</li>
         
-      <li>2.1.6.1.1. sf_tools.signal.cost module</li>
+      <li>2.1.6.1.7. sf_tools.signal.positivity module</li>
     
     
       <li class="wy-breadcrumbs-aside">
         
             
-            <a href="_sources/sf_tools.signal.cost.rst.txt" rel="nofollow"> View page source</a>
+            <a href="_sources/sf_tools.signal.positivity.rst.txt" rel="nofollow"> View page source</a>
           
         
       </li>
@@ -173,72 +173,41 @@
           <div role="main" class="document" itemscope="itemscope" itemtype="http://schema.org/Article">
            <div itemprop="articleBody">
             
-  <div class="section" id="module-sf_tools.signal.cost">
-<span id="sf-tools-signal-cost-module"></span><h1>2.1.6.1.1. sf_tools.signal.cost module<a class="headerlink" href="#module-sf_tools.signal.cost" title="Permalink to this headline">¶</a></h1>
-<p>COST FUNCTIONS</p>
-<p>This module contains classes of different cost functions for optimization.</p>
+  <div class="section" id="module-sf_tools.signal.positivity">
+<span id="sf-tools-signal-positivity-module"></span><h1>2.1.6.1.7. sf_tools.signal.positivity module<a class="headerlink" href="#module-sf_tools.signal.positivity" title="Permalink to this headline">¶</a></h1>
+<p>POSITIVITY</p>
+<p>This module contains a function that retains only positive coefficients in
+an array</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Samuel Farrens &lt;<a class="reference external" href="mailto:samuel&#46;farrens&#37;&#52;&#48;gmail&#46;com">samuel<span>&#46;</span>farrens<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Version:</th><td class="field-body">2.1</td>
+<tr class="field-even field"><th class="field-name">Version:</th><td class="field-body">1.0</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">20/10/2017</td>
+<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">26/07/2017</td>
 </tr>
 </tbody>
 </table>
-<dl class="class">
-<dt id="sf_tools.signal.cost.costObj">
-<em class="property">class </em><code class="descclassname">sf_tools.signal.cost.</code><code class="descname">costObj</code><span class="sig-paren">(</span><em>costFunc</em>, <em>initial_cost=1000000.0</em>, <em>tolerance=0.0001</em>, <em>cost_interval=1</em>, <em>test_range=4</em>, <em>verbose=True</em>, <em>plot_output=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/cost.html#costObj"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.cost.costObj" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Generic cost function object</p>
-<p>This class updates the cost according to the input cost functio class and
-tests for convergence</p>
+<dl class="function">
+<dt id="sf_tools.signal.positivity.positive">
+<code class="descclassname">sf_tools.signal.positivity.</code><code class="descname">positive</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/positivity.html#positive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.positivity.positive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Positivity operator</p>
+<p>This method preserves only the positive coefficients of the input data, all
+negative coefficients are set to zero</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>costFunc</strong> (<em>class</em>) &#8211; Class for calculating the cost</li>
-<li><strong>initial_cost</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>, </em><em>optional</em>) &#8211; Initial value of the cost (default is &#8220;1e6&#8221;)</li>
-<li><strong>tolerance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>, </em><em>optional</em>) &#8211; Tolerance threshold for convergence (default is &#8220;1e-4&#8221;)</li>
-<li><strong>cost_interval</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) &#8211; Iteration interval to calculate cost (default is &#8220;1&#8221;)</li>
-<li><strong>test_range</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) &#8211; Number of cost values to be used in test (default is &#8220;4&#8221;)</li>
-<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) &#8211; Option for verbose output (default is &#8220;True&#8221;)</li>
-<li><strong>plot_output</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em>, </em><em>optional</em>) &#8211; Output file name for cost function plot</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em><em>, </em><em>list</em><em> or </em><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; Input data array</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray array with only positive coefficients</td>
 </tr>
 </tbody>
 </table>
-<p class="rubric">Notes</p>
-<p>The costFunc class must contain a method called <cite>calc_cost()</cite>.</p>
-<dl class="method">
-<dt id="sf_tools.signal.cost.costObj.get_cost">
-<code class="descname">get_cost</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/cost.html#costObj.get_cost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.cost.costObj.get_cost" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get cost function</p>
-<p>This method calculates the current cost and tests for convergence</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
-</tr>
-<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool result of the convergence test</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="sf_tools.signal.cost.costObj.plot_cost">
-<code class="descname">plot_cost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/cost.html#costObj.plot_cost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.cost.costObj.plot_cost" title="Permalink to this definition">¶</a></dt>
-<dd><p>Plot the cost function</p>
-<p>This method plots the cost function as function of iteration number</p>
-</dd></dl>
-
 </dd></dl>
 
 </div>
@@ -253,10 +222,10 @@ tests for convergence</p>
   
     <div class="rst-footer-buttons" role="navigation" aria-label="footer navigation">
       
-        <a href="sf_tools.signal.filter.html" class="btn btn-neutral float-right" title="2.1.6.1.2. sf_tools.signal.filter module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
+        <a href="sf_tools.signal.proximity.html" class="btn btn-neutral float-right" title="2.1.6.1.8. sf_tools.signal.proximity module" accesskey="n" rel="next">Next <span class="fa fa-arrow-circle-right"></span></a>
       
       
-        <a href="sf_tools.signal.html" class="btn btn-neutral" title="2.1.6. sf_tools.signal package" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
+        <a href="sf_tools.signal.optimisation.html" class="btn btn-neutral" title="2.1.6.1.6. sf_tools.signal.optimisation module" accesskey="p" rel="prev"><span class="fa fa-arrow-circle-left"></span> Previous</a>
       
     </div>
   

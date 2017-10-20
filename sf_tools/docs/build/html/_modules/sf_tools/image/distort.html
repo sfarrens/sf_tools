@@ -176,16 +176,16 @@
 
 <span class="sd">:Author: Samuel Farrens &lt;samuel.farrens@gmail.com&gt;</span>
 
-<span class="sd">:Version: 1.0</span>
+<span class="sd">:Version: 1.1</span>
 
-<span class="sd">:Date: 04/04/2017</span>
+<span class="sd">:Date: 20/10/2017</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 
-
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">itertools</span> <span class="k">import</span> <span class="n">product</span>
-<span class="kn">from</span> <span class="nn">creepy.base.np_adjust</span> <span class="k">import</span> <span class="n">pad2d</span>
+<span class="kn">from</span> <span class="nn">sf_tools.base.np_adjust</span> <span class="k">import</span> <span class="n">pad2d</span>
 
 
 <div class="viewcode-block" id="downsample"><a class="viewcode-back" href="../../../sf_tools.image.distort.html#sf_tools.image.distort.downsample">[docs]</a><span class="k">def</span> <span class="nf">downsample</span><span class="p">(</span><span class="n">image</span><span class="p">,</span> <span class="n">factor</span><span class="p">):</span>
@@ -284,7 +284,7 @@
 
 <span class="sd">    &quot;&quot;&quot;</span>
 
-    <span class="k">return</span> <span class="n">roll_2d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="o">-</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span></div>
+    <span class="k">return</span> <span class="n">roll_2d</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">data</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="o">-</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">(</span><span class="n">data</span><span class="o">.</span><span class="n">shape</span><span class="p">)</span> <span class="o">//</span> <span class="mi">2</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="gen_mask"><a class="viewcode-back" href="../../../sf_tools.image.distort.html#sf_tools.image.distort.gen_mask">[docs]</a><span class="k">def</span> <span class="nf">gen_mask</span><span class="p">(</span><span class="n">kernel_shape</span><span class="p">,</span> <span class="n">image_shape</span><span class="p">):</span>
@@ -317,7 +317,7 @@
     <span class="k">if</span> <span class="n">shape_diff</span><span class="p">[</span><span class="mi">1</span><span class="p">]</span> <span class="o">&gt;</span> <span class="mi">0</span><span class="p">:</span>
         <span class="n">mask</span><span class="p">[:,</span> <span class="o">-</span><span class="n">shape_diff</span><span class="p">[</span><span class="mi">1</span><span class="p">]:]</span> <span class="o">=</span> <span class="kc">False</span>
 
-    <span class="k">return</span> <span class="n">roll_2d</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">kernel_shape</span> <span class="o">/</span> <span class="mi">2</span><span class="p">))</span></div>
+    <span class="k">return</span> <span class="n">roll_2d</span><span class="p">(</span><span class="n">mask</span><span class="p">,</span> <span class="o">-</span><span class="p">(</span><span class="n">kernel_shape</span> <span class="o">//</span> <span class="mi">2</span><span class="p">))</span></div>
 
 
 <div class="viewcode-block" id="roll_sequence"><a class="viewcode-back" href="../../../sf_tools.image.distort.html#sf_tools.image.distort.roll_sequence">[docs]</a><span class="k">def</span> <span class="nf">roll_sequence</span><span class="p">(</span><span class="n">data_shape</span><span class="p">):</span>
@@ -424,7 +424,7 @@
                          <span class="s1">&#39;data shape&#39;</span><span class="p">)</span>
 
     <span class="c1"># Set the kernel radius.</span>
-    <span class="n">kernel_rad</span> <span class="o">=</span> <span class="n">kernel_shape</span> <span class="o">/</span> <span class="mi">2</span>
+    <span class="n">kernel_rad</span> <span class="o">=</span> <span class="n">kernel_shape</span> <span class="o">//</span> <span class="mi">2</span>
 
     <span class="c1"># Rotate, pad and roll the input kernel.</span>
     <span class="n">kernel_rot</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">pad</span><span class="p">(</span><span class="n">np</span><span class="o">.</span><span class="n">rot90</span><span class="p">(</span><span class="n">kernel</span><span class="p">,</span> <span class="mi">2</span><span class="p">),</span> <span class="p">((</span><span class="mi">0</span><span class="p">,</span> <span class="n">shape_diff</span><span class="p">[</span><span class="mi">0</span><span class="p">]),</span>
