@@ -183,9 +183,9 @@
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Author:</th><td class="field-body">Samuel Farrens &lt;<a class="reference external" href="mailto:samuel&#46;farrens&#37;&#52;&#48;gmail&#46;com">samuel<span>&#46;</span>farrens<span>&#64;</span>gmail<span>&#46;</span>com</a>&gt;</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Version:</th><td class="field-body">1.0</td>
+<tr class="field-even field"><th class="field-name">Version:</th><td class="field-body">1.1</td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">03/04/2017</td>
+<tr class="field-odd field"><th class="field-name">Date:</th><td class="field-body">20/10/2017</td>
 </tr>
 </tbody>
 </table>
@@ -257,6 +257,34 @@ Astropy (<a class="reference external" href="http://www.astropy.org/">http://www
 </dd></dl>
 
 <dl class="function">
+<dt id="sf_tools.image.convolve.convolve_stack">
+<code class="descclassname">sf_tools.image.convolve.</code><code class="descname">convolve_stack</code><span class="sig-paren">(</span><em>data</em>, <em>kernel</em>, <em>rot_kernel=False</em>, <em>method='astropy'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/convolve.html#convolve_stack"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.convolve.convolve_stack" title="Permalink to this definition">¶</a></dt>
+<dd><p>Convolve stack of data with stack of kernels</p>
+<p>This method convolves the input data with a given kernel using FFT and
+is the default convolution used for all routines</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input data array, normally a 2D image</li>
+<li><strong>kernel</strong> (<em>np.ndarray</em>) &#8211; Input kernel array, normally a 2D kernel</li>
+<li><strong>rot_kernel</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Option to rotate kernels by 180 degrees</li>
+<li><strong>method</strong> (<em>str {'astropy'</em><em>, </em><em>'scipy'}</em><em>, </em><em>optional</em>) &#8211; Convolution method (default is &#8216;astropy&#8217;)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.ndarray convolved data</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
 <dt id="sf_tools.image.convolve.deconvolve_np">
 <code class="descclassname">sf_tools.image.convolve.</code><code class="descname">deconvolve_np</code><span class="sig-paren">(</span><em>image</em>, <em>kernel</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/convolve.html#deconvolve_np"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.convolve.deconvolve_np" title="Permalink to this definition">¶</a></dt>
 <dd><p>Deconvolve with Numpy FFT</p>
@@ -310,7 +338,7 @@ kernel using FFT</p>
 
 <dl class="function">
 <dt id="sf_tools.image.convolve.psf_convolve">
-<code class="descclassname">sf_tools.image.convolve.</code><code class="descname">psf_convolve</code><span class="sig-paren">(</span><em>data</em>, <em>psf</em>, <em>psf_rot=False</em>, <em>psf_type='fixed'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/convolve.html#psf_convolve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.convolve.psf_convolve" title="Permalink to this definition">¶</a></dt>
+<code class="descclassname">sf_tools.image.convolve.</code><code class="descname">psf_convolve</code><span class="sig-paren">(</span><em>data</em>, <em>psf</em>, <em>psf_rot=False</em>, <em>psf_type='fixed'</em>, <em>method='astropy'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/convolve.html#psf_convolve"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.convolve.psf_convolve" title="Permalink to this definition">¶</a></dt>
 <dd><p>Convolve data with PSF</p>
 <p>This method convolves an image with a PSF</p>
 <table class="docutils field-list" frame="void" rules="none">
@@ -322,7 +350,8 @@ kernel using FFT</p>
 <li><strong>psf</strong> (<em>np.ndarray</em>) &#8211; Input PSF array, normally either a single 2D PSF or an array of 2D
 PSFs</li>
 <li><strong>psf_rot</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Option to rotate PSF by 180 degrees</li>
-<li><strong>psf_type</strong> (<em>str {'fixed'</em><em>, </em><em>'obj_var'}</em><em>, </em><em>optional</em>) &#8211; <p>PSF type (default is &#8216;fixed&#8217;)</p>
+<li><strong>psf_type</strong> (<em>str {'fixed'</em><em>, </em><em>'obj_var'}</em><em>, </em><em>optional</em>) &#8211; PSF type (default is &#8216;fixed&#8217;)</li>
+<li><strong>method</strong> (<em>str {'astropy'</em><em>, </em><em>'scipy'}</em><em>, </em><em>optional</em>) &#8211; <p>Convolution method (default is &#8216;astropy&#8217;)</p>
 <dl class="docutils">
 <dt>&#8216;fixed&#8217;:</dt>
 <dd>The PSF is fixed, i.e. it is the same for each image</dd>

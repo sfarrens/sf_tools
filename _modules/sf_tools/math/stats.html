@@ -176,13 +176,14 @@
 
 <span class="sd">:Author: Samuel Farrens &lt;samuel.farrens@gmail.com&gt;</span>
 
-<span class="sd">:Version: 1.1</span>
+<span class="sd">:Version: 1.2</span>
 
-<span class="sd">:Date: 03/04/2017</span>
+<span class="sd">:Date: 20/10/2017</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 
-
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">zip</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">scipy.stats</span> <span class="k">import</span> <span class="n">chi2</span>
 <span class="kn">from</span> <span class="nn">astropy.convolution</span> <span class="k">import</span> <span class="n">Gaussian2DKernel</span>
@@ -224,7 +225,6 @@
 <span class="sd">    &quot;&quot;&quot;</span>
 
     <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">amplitude</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)):</span>
-        <span class="c1"># amplitude = 1 / (sigma * np.sqrt(2 * np.pi))</span>
         <span class="n">amplitude</span> <span class="o">=</span> <span class="mi">1</span>
 
     <span class="n">val</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([((</span><span class="n">x</span> <span class="o">-</span> <span class="n">mu</span><span class="p">)</span> <span class="o">/</span> <span class="n">sig</span><span class="p">)</span> <span class="o">**</span> <span class="mi">2</span> <span class="k">for</span> <span class="n">x</span><span class="p">,</span> <span class="n">mu</span><span class="p">,</span> <span class="n">sig</span> <span class="ow">in</span>

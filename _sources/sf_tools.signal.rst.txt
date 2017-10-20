@@ -12,6 +12,7 @@ Submodules
    sf_tools.signal.linear
    sf_tools.signal.noise
    sf_tools.signal.optimisation
+   sf_tools.signal.positivity
    sf_tools.signal.proximity
    sf_tools.signal.regression
    sf_tools.signal.reweight

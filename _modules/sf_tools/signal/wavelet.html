@@ -176,12 +176,14 @@
 
 <span class="sd">:Author: Samuel Farrens &lt;samuel.farrens@gmail.com&gt;</span>
 
-<span class="sd">:Version: 1.1</span>
+<span class="sd">:Version: 1.2</span>
 
-<span class="sd">:Date: 06/01/2017</span>
+<span class="sd">:Date: 20/10/2017</span>
 
 <span class="sd">&quot;&quot;&quot;</span>
 
+<span class="kn">from</span> <span class="nn">__future__</span> <span class="k">import</span> <span class="n">division</span>
+<span class="kn">from</span> <span class="nn">builtins</span> <span class="k">import</span> <span class="nb">zip</span>
 <span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
 <span class="kn">from</span> <span class="nn">os</span> <span class="k">import</span> <span class="n">remove</span>
 <span class="kn">from</span> <span class="nn">subprocess</span> <span class="k">import</span> <span class="n">check_call</span>
@@ -268,7 +270,7 @@
 
     <span class="c1"># Create fake data.</span>
     <span class="n">fake_data</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">(</span><span class="n">data_shape</span><span class="p">)</span>
-    <span class="n">fake_data</span><span class="p">[</span><span class="nb">zip</span><span class="p">(</span><span class="n">data_shape</span> <span class="o">/</span> <span class="mi">2</span><span class="p">)]</span> <span class="o">=</span> <span class="mi">1</span>
+    <span class="n">fake_data</span><span class="p">[</span><span class="nb">list</span><span class="p">(</span><span class="nb">zip</span><span class="p">(</span><span class="n">data_shape</span> <span class="o">//</span> <span class="mi">2</span><span class="p">))]</span> <span class="o">=</span> <span class="mi">1</span>
 
     <span class="c1"># Call mr_transform.</span>
     <span class="n">mr_filters</span> <span class="o">=</span> <span class="n">call_mr_transform</span><span class="p">(</span><span class="n">fake_data</span><span class="p">,</span> <span class="n">opt</span><span class="o">=</span><span class="n">opt</span><span class="p">)</span>
