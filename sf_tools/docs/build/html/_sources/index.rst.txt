@@ -16,26 +16,40 @@ SF_TOOLS is a series of Python 2.7 modules with applications to astrophysics,
 cosmology, signal processing and statistics.
 
 Dependencies:
-*************
+-------------
+
+Required Packages
+^^^^^^^^^^^^^^^^^
 
 SF_TOOLS requires that the following packages be installed:
 
 - Numpy [Tested with v 1.11.3]
 - Scipy [Tested with v 0.18.1]
 - Astropy [Tested with v 1.1.2]
+
+These packages can be installed with PIP as follows:
+
+.. code-block:: bash
+
+   $ pip install numpy scipy astropy
+
+Optional Packages
+^^^^^^^^^^^^^^^^^
+
+The following packages can optionally be installed to add extra functionality:
+
 - Matplotlib [Tested with v 1.5.3]
 - Termcolor [Tested with v 1.1.0]
 
 These packages can be installed with PIP as follows:
 
-
 .. code-block:: bash
 
-   $ pip install numpy scipy astropy matplotlib termcolor
+   $ pip install matplotlib termcolor
 
 
 Installation:
-*************
+-------------
 
 To clone the sf_tools repository from GitHub run the following command:
 
@@ -57,7 +71,7 @@ To install using `pip` run the following command:
 
 
 Package Contents:
-*****************
+-----------------
 
 .. toctree::
    :numbered:
