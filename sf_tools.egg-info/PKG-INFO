@@ -1,12 +1,13 @@
 Metadata-Version: 1.1
 Name: sf-tools
-Version: 1.0
+Version: 1.1
 Summary: UNKNOWN
 Home-page: https://github.com/sfarrens/sf_tools
 Author: sfarrens
 Author-email: samuel.farrens@gmail.com
 License: MIT
 Download-URL: https://github.com/sfarrens/sf_tools/archive/0.1.tar.gz
+Description-Content-Type: UNKNOWN
 Description: # sf_tools
         
         > Author: <font color='#f78c40'>Samuel Farrens</font>
