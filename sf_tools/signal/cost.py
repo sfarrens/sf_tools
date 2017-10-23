@@ -6,15 +6,20 @@ This module contains classes of different cost functions for optimization.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 2.1
+:Version: 2.2
 
-:Date: 20/10/2017
+:Date: 23/10/2017
 
 """
 
 from __future__ import division, print_function
 import numpy as np
-from sf_tools.plot.cost_plot import plotCost
+try:
+    from sf_tools.plot.cost_plot import plotCost
+except ImportError:
+    import_fail = True
+else:
+    import_fail = False
 
 
 class costObj(object):
@@ -148,4 +153,8 @@ class costObj(object):
 
         """
 
-        plotCost(self._cost_list, self._plot_output)
+        if import_fail:
+            pass
+
+        else:
+            plotCost(self._cost_list, self._plot_output)

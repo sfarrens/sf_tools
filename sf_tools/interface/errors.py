@@ -6,9 +6,9 @@ This module contains methods for handing warnings and errors.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.1
+:Version: 1.2
 
-:Date: 03/04/2017
+:Date: 23/10/2017
 
 """
 
@@ -16,7 +16,12 @@ This module contains methods for handing warnings and errors.
 import sys
 import os.path
 import warnings
-from termcolor import colored
+try:
+    from termcolor import colored
+except ImportError:
+    import_fail = True
+else:
+    import_fail = False
 
 
 def warn(warn_string, log=None):
@@ -33,8 +38,13 @@ def warn(warn_string, log=None):
 
     """
 
+    if import_fail:
+        warn_txt = 'WARNING'
+    else:
+        warn_txt = colored('WARNING', 'yellow')
+
     # Print warning to stdout.
-    sys.stderr.write(colored('WARNING', 'yellow') + ': ' + warn_string + '\n')
+    sys.stderr.write(warn_txt + ': ' + warn_string + '\n')
 
     # Check if a logging structure is provided.
     if not isinstance(log, type(None)):
@@ -56,8 +66,13 @@ def catch_error(exception, log=None):
 
     """
 
+    if import_fail:
+        err_txt = 'ERROR'
+    else:
+        err_txt = colored('ERROR', 'red')
+
     # Print exception to stdout.
-    stream_txt = colored('ERROR', 'red') + ': ' + str(exception) + '\n'
+    stream_txt = err_txt + ': ' + str(exception) + '\n'
     sys.stderr.write(stream_txt)
 
     # Check if a logging structure is provided.
