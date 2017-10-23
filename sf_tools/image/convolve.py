@@ -6,9 +6,9 @@ This module contains methods for convolution.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.1
+:Version: 1.2
 
-:Date: 20/10/2017
+:Date: 23/10/2017
 
 """
 
@@ -112,7 +112,8 @@ def convolve(data, kernel, method='astropy'):
         raise ValueError('Invalid method. Options are "astropy" or "scipy".')
 
     if method == 'astropy':
-        return convolve_fft(data, kernel, boundary='wrap', crop=True)
+        return convolve_fft(data, kernel, boundary='wrap', crop=False,
+                            nan_treatment='fill', normalize_kernel=False)
 
     elif method == 'scipy':
         return fftconvolve(data, kernel, mode='same')
