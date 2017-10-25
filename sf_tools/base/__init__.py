@@ -7,8 +7,10 @@ transformations and adjustments to the default output of Numpy functions.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.0
+:Version: 1.1
 
-:Date: 06/04/2017
+:Date: 25/10/2017
 
 """
+
+__all__ = ['np_adjust', 'transform', 'types']
