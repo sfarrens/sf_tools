@@ -3,7 +3,7 @@ SF_TOOLS
 
 :Author: Samuel Farrens `(samuel.farrens@gmail.com) <samuel.farrens@gmail.com>`_
 
-:Version: 1.0
+:Version: 1.0.0
 
 :Date: 25/10/2017
 
@@ -14,7 +14,7 @@ SF_TOOLS
   <a href="https://sfarrens.github.io/sf_tools/"
   target="_blank">https://sfarrens.github.io/sf_tools/</a>
 
-SF_TOOLS is a series of Python 2.7 modules with applications to image analysis,
+SF_TOOLS is a series of Python modules with applications to image analysis,
 signal processing and statistics.
 
 Dependencies
