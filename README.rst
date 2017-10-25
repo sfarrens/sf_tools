@@ -7,6 +7,13 @@ SF_TOOLS
 
 :Date: 25/10/2017
 
+:Documentation: |link-to-docs|
+
+.. |link-to-docs| raw:: html
+
+  <a href="https://sfarrens.github.io/sf_tools/"
+  target="_blank">https://sfarrens.github.io/sf_tools/</a>
+
 SF_TOOLS is a series of Python 2.7 modules with applications to image analysis,
 signal processing and statistics.
 
