@@ -1,5 +1,5 @@
-SF_TOOLS Documentation
-======================
+SF_TOOLS
+========
 
 :Author: Samuel Farrens `(samuel.farrens@gmail.com) <samuel.farrens@gmail.com>`_
 
