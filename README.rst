@@ -3,7 +3,7 @@ SF_TOOLS
 
 :Author: Samuel Farrens `(samuel.farrens@gmail.com) <samuel.farrens@gmail.com>`_
 
-:Version: 1.0.0
+:Version: 1.0.1
 
 :Date: 25/10/2017
 

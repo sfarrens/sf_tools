@@ -1,3 +1,4 @@
+README.rst
 README.txt
 setup.cfg
 setup.py

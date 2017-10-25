@@ -7,7 +7,7 @@ signal processing and statistics.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.0.0
+:Version: 1.0.1
 
 :Date: 25/10/2017
 
@@ -15,5 +15,5 @@ signal processing and statistics.
 
 from sf_tools.base import *
 
-version_info = (1, 0, 0)
+version_info = (1, 0, 1)
 __version__ = '.'.join(str(c) for c in version_info)
