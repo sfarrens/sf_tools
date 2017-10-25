@@ -8,7 +8,7 @@ SF_TOOLS Documentation
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.0
+:Version: 1.0.0
 
 :Date: 19/07/2017
 
