@@ -17,6 +17,16 @@ SF_TOOLS
 SF_TOOLS is a series of Python modules with applications to image analysis,
 signal processing and statistics.
 
+Contents
+========
+
+1. `Dependencies`_
+
+   1. `Required Packages`_
+   2. `Optional Packages`_
+
+2. `Installation`_
+
 Dependencies
 ============
 

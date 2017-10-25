@@ -10,46 +10,88 @@ SF_TOOLS Documentation
 
 :Version: 1.0.0
 
-:Date: 19/07/2017
+:Date: 25/10/2017
 
 SF_TOOLS is a series of Python 2.7 modules with applications to image analysis,
 signal processing and statistics.
 
-Dependencies:
--------------
+Contents
+========
+
+1. `Dependencies`_
+
+   1. `Required Packages`_
+   2. `Optional Packages`_
+
+2. `Installation`_
+
+3. `Package Contents`_
+
+Dependencies
+============
 
 Required Packages
-^^^^^^^^^^^^^^^^^
+-----------------
 
-SF_TOOLS requires that the following packages be installed:
+In order to run the code in this repository the following packages must be
+installed:
 
-- Numpy [Tested with v 1.11.3]
-- Scipy [Tested with v 0.18.1]
-- Astropy [Tested with v 1.1.2]
+* |link-to-python| [Tested with v 2.7.11 and 3.6.3]
 
-These packages can be installed with PIP as follows:
+* |link-to-numpy| [Tested with v 1.13.3]
 
-.. code-block:: bash
+* |link-to-scipy| [Tested with v 0.18.1]
 
-   $ pip install numpy scipy astropy
+* |link-to-future| [Tested with v 0.16.0]
+
+* |link-to-astropy| [Tested with v 1.3]
+
+.. |link-to-python| raw:: html
+
+  <a href="https://www.python.org/"
+  target="_blank">Python</a>
+
+.. |link-to-numpy| raw:: html
+
+  <a href="http://www.numpy.org/"
+  target="_blank">Numpy</a>
+
+.. |link-to-scipy| raw:: html
+
+  <a href="http://www.scipy.org/"
+  target="_blank">Scipy</a>
+
+.. |link-to-future| raw:: html
+
+  <a href="http://python-future.org/quickstart.html"
+  target="_blank">Future</a>
+
+.. |link-to-astropy| raw:: html
+
+  <a href="http://www.astropy.org/"
+  target="_blank">Astropy</a>
 
 Optional Packages
-^^^^^^^^^^^^^^^^^
+-----------------
 
 The following packages can optionally be installed to add extra functionality:
 
-- Matplotlib [Tested with v 1.5.3]
-- Termcolor [Tested with v 1.1.0]
+* |link-to-matplotlib| [Tested with v 2.0.2]
 
-These packages can be installed with PIP as follows:
+* |link-to-termcolor| [Tested with v 1.1.0]
 
-.. code-block:: bash
+.. |link-to-matplotlib| raw:: html
 
-   $ pip install matplotlib termcolor
+  <a href="http://matplotlib.org/"
+  target="_blank">Matplotlib</a>
 
+.. |link-to-termcolor| raw:: html
 
-Installation:
--------------
+  <a href="https://pypi.python.org/pypi/termcolor"
+  target="_blank">Termcolor</a>
+
+Installation
+============
 
 To clone the sf_tools repository from GitHub run the following command:
 
@@ -69,9 +111,8 @@ To install using `pip` run the following command:
 
   $ pip install sf_tools
 
-
-Package Contents:
------------------
+Package Contents
+================
 
 .. toctree::
    :numbered:
