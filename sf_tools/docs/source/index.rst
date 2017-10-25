@@ -12,8 +12,8 @@ SF_TOOLS Documentation
 
 :Date: 19/07/2017
 
-SF_TOOLS is a series of Python 2.7 modules with applications to astrophysics,
-cosmology, signal processing and statistics.
+SF_TOOLS is a series of Python 2.7 modules with applications to image analysis,
+signal processing and statistics.
 
 Dependencies:
 -------------

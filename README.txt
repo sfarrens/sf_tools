@@ -1,12 +1,11 @@
 # sf_tools
 
-> Author: <font color='#f78c40'>Samuel Farrens</font>
-> Year: 2017
-> Email: [samuel.farrens@gmail.com](mailto:samuel.farrens@gmail.com)
-> Website: <a href="https://sfarrens.github.io"
-target="_blank">https://sfarrens.github.io</a>
+Author: Samuel Farrens
+Year: 2017
+Email: samuel.farrens@gmail.com
+Website: https://sfarrens.github.io
 
-sf_tools is a series of Python modules with applications to signal
+sf_tools is a series of Python modules with applications to image analysis, signal
 processing and statistics.
 
-Extensive documentation coming soon!
+Full documentation available here: https://sfarrens.github.io/sf_tools/
