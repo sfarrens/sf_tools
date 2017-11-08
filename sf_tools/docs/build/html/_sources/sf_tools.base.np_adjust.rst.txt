@@ -1,5 +1,5 @@
-sf_tools.base.np_adjust module
-==============================
+sf\_tools\.base\.np\_adjust module
+==================================
 
 .. automodule:: sf_tools.base.np_adjust
     :members:

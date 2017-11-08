@@ -189,55 +189,6 @@
 </tr>
 </tbody>
 </table>
-<dl class="class">
-<dt id="sf_tools.math.matrix.PowerMethod">
-<em class="property">class </em><code class="descclassname">sf_tools.math.matrix.</code><code class="descname">PowerMethod</code><span class="sig-paren">(</span><em>operator</em>, <em>data_shape</em>, <em>auto_run=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/math/matrix.html#PowerMethod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.math.matrix.PowerMethod" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Power method class</p>
-<p>This method performs implements power method to calculate the spectral
-radius of the input data</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>operator</strong> (<em>class</em>) &#8211; Operator class instance</li>
-<li><strong>data_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; Shape of the data array</li>
-<li><strong>auto_run</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Option to automatically calcualte the spectral radius upon
-initialisation</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="sf_tools.math.matrix.PowerMethod.get_spec_rad">
-<code class="descname">get_spec_rad</code><span class="sig-paren">(</span><em>tolerance=1e-06</em>, <em>max_iter=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/math/matrix.html#PowerMethod.get_spec_rad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.math.matrix.PowerMethod.get_spec_rad" title="Permalink to this definition">¶</a></dt>
-<dd><p>Get spectral radius</p>
-<p>This method calculates the spectral radius</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>tolerance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>, </em><em>optional</em>) &#8211; Tolerance threshold for convergence (default is &#8220;1e-6&#8221;)</li>
-<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) &#8211; Maximum number of iterations</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="sf_tools.math.matrix.PowerMethod.set_initial_x">
-<code class="descname">set_initial_x</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/math/matrix.html#PowerMethod.set_initial_x"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.math.matrix.PowerMethod.set_initial_x" title="Permalink to this definition">¶</a></dt>
-<dd><p>Set initial value of x</p>
-<p>This method sets the initial value of x to an arrray of random values</p>
-</dd></dl>
-
-</dd></dl>
-
 <dl class="function">
 <dt id="sf_tools.math.matrix.gram_schmidt">
 <code class="descclassname">sf_tools.math.matrix.</code><code class="descname">gram_schmidt</code><span class="sig-paren">(</span><em>matrix</em>, <em>return_opt='orthonormal'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/math/matrix.html#gram_schmidt"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.math.matrix.gram_schmidt" title="Permalink to this definition">¶</a></dt>
@@ -248,8 +199,8 @@ initialisation</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>matrix</strong> (<em>np.ndarray</em>) &#8211; Input matrix array</li>
-<li><strong>return_opt</strong> (<em>str {orthonormal</em><em>, </em><em>orthogonal</em><em>, </em><em>both}</em>) &#8211; Option to return u, e or both.</li>
+<li><strong>matrix</strong> (<em>np.ndarray</em>) – Input matrix array</li>
+<li><strong>return_opt</strong> (<em>str {orthonormal</em><em>, </em><em>orthogonal</em><em>, </em><em>both}</em>) – Option to return u, e or both.</li>
 </ul>
 </td>
 </tr>
@@ -276,7 +227,7 @@ initialisation</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input data array</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) – Input data array</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
 </tr>
@@ -300,8 +251,8 @@ initialisation</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>u</strong> (<em>np.ndarray</em>) &#8211; Input vector</li>
-<li><strong>v</strong> (<em>np.ndarray</em>) &#8211; Input vector</li>
+<li><strong>u</strong> (<em>np.ndarray</em>) – Input vector</li>
+<li><strong>v</strong> (<em>np.ndarray</em>) – Input vector</li>
 </ul>
 </td>
 </tr>
@@ -328,7 +279,7 @@ initialisation</li>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Rotation angle</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Rotation angle</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
 </tr>
@@ -348,8 +299,8 @@ initialisation</li>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>matrix</strong> (<em>np.ndarray</em>) &#8211; Input matrix array</li>
-<li><strong>angle</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Rotation angle</li>
+<li><strong>matrix</strong> (<em>np.ndarray</em>) – Input matrix array</li>
+<li><strong>angle</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Rotation angle</li>
 </ul>
 </td>
 </tr>
@@ -359,11 +310,60 @@ initialisation</li>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">np.ndarray rotated matrix</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; For invalid matrix shape</p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> – For invalid matrix shape</p>
 </td>
 </tr>
 </tbody>
 </table>
+</dd></dl>
+
+<dl class="class">
+<dt id="sf_tools.math.matrix.PowerMethod">
+<em class="property">class </em><code class="descclassname">sf_tools.math.matrix.</code><code class="descname">PowerMethod</code><span class="sig-paren">(</span><em>operator</em>, <em>data_shape</em>, <em>auto_run=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/math/matrix.html#PowerMethod"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.math.matrix.PowerMethod" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Power method class</p>
+<p>This method performs implements power method to calculate the spectral
+radius of the input data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>operator</strong> (<em>class</em>) – Operator class instance</li>
+<li><strong>data_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) – Shape of the data array</li>
+<li><strong>auto_run</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) – Option to automatically calcualte the spectral radius upon
+initialisation</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="sf_tools.math.matrix.PowerMethod.set_initial_x">
+<code class="descname">set_initial_x</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/math/matrix.html#PowerMethod.set_initial_x"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.math.matrix.PowerMethod.set_initial_x" title="Permalink to this definition">¶</a></dt>
+<dd><p>Set initial value of x</p>
+<p>This method sets the initial value of x to an arrray of random values</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sf_tools.math.matrix.PowerMethod.get_spec_rad">
+<code class="descname">get_spec_rad</code><span class="sig-paren">(</span><em>tolerance=1e-06</em>, <em>max_iter=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/math/matrix.html#PowerMethod.get_spec_rad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.math.matrix.PowerMethod.get_spec_rad" title="Permalink to this definition">¶</a></dt>
+<dd><p>Get spectral radius</p>
+<p>This method calculates the spectral radius</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>tolerance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>, </em><em>optional</em>) – Tolerance threshold for convergence (default is “1e-6”)</li>
+<li><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Maximum number of iterations</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -422,7 +422,7 @@ initialisation</li>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

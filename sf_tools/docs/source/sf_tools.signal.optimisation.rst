@@ -1,5 +1,5 @@
-sf_tools.signal.optimisation module
-===================================
+sf\_tools\.signal\.optimisation module
+======================================
 
 .. automodule:: sf_tools.signal.optimisation
     :members:

@@ -1,5 +1,5 @@
-sf_tools.math.angle module
-==========================
+sf\_tools\.math\.angle module
+=============================
 
 .. automodule:: sf_tools.math.angle
     :members:

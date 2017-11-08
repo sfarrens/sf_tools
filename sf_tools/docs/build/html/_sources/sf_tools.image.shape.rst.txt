@@ -1,5 +1,5 @@
-sf_tools.image.shape module
-===========================
+sf\_tools\.image\.shape module
+==============================
 
 .. automodule:: sf_tools.image.shape
     :members:

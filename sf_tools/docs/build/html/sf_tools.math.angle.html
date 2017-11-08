@@ -190,44 +190,6 @@
 </tbody>
 </table>
 <dl class="function">
-<dt id="sf_tools.math.angle.ang_sep">
-<code class="descclassname">sf_tools.math.angle.</code><code class="descname">ang_sep</code><span class="sig-paren">(</span><em>point1</em>, <em>point2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/math/angle.html#ang_sep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.math.angle.ang_sep" title="Permalink to this definition">¶</a></dt>
-<dd><p>Angular separation</p>
-<p>This method calculates the angular separation in degrees between two
-points.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>point1</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; Angular position of point 1 in degrees</li>
-<li><strong>point1</strong> &#8211; Angular position of point 2 in degrees</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float angular separation in degrees</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sf_tools.math.angle</span> <span class="k">import</span> <span class="n">ang_sep</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">ang_sep</span><span class="p">((</span><span class="mf">30.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">47.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">))</span>
-<span class="go">19.647958606833164</span>
-</pre></div>
-</div>
-<p class="rubric">Notes</p>
-<p>Implements the following equation:</p>
-<div class="math">
-\[\theta = \cos^{-1}[\sin(\delta_1)\sin(\delta_2)+
-\cos(\delta_1)\cos(\delta_2)\cos(\alpha_1-\alpha_2)]\]</div>
-<p>See <a class="reference external" href="https://en.wikipedia.org/wiki/Angular_distance">https://en.wikipedia.org/wiki/Angular_distance</a></p>
-</dd></dl>
-
-<dl class="function">
 <dt id="sf_tools.math.angle.deg2rad">
 <code class="descclassname">sf_tools.math.angle.</code><code class="descname">deg2rad</code><span class="sig-paren">(</span><em>angle</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/math/angle.html#deg2rad"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.math.angle.deg2rad" title="Permalink to this definition">¶</a></dt>
 <dd><p>Degrees to radians</p>
@@ -236,7 +198,7 @@ points.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em> or </em><em>np.ndarray</em>) &#8211; Input angle in degrees</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em> or </em><em>np.ndarray</em>) – Input angle in degrees</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
 </tr>
@@ -265,7 +227,7 @@ points.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em> or </em><em>np.ndarray</em>) &#8211; Input angle in radians</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>angle</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em> or </em><em>np.ndarray</em>) – Input angle in radians</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
 </tr>
@@ -283,6 +245,44 @@ points.</p>
 <p>Implements the following equation:</p>
 <div class="math">
 \[\mathrm{degrees} = \mathrm{radians} \times \frac{180}{\pi}\]</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="sf_tools.math.angle.ang_sep">
+<code class="descclassname">sf_tools.math.angle.</code><code class="descname">ang_sep</code><span class="sig-paren">(</span><em>point1</em>, <em>point2</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/math/angle.html#ang_sep"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.math.angle.ang_sep" title="Permalink to this definition">¶</a></dt>
+<dd><p>Angular separation</p>
+<p>This method calculates the angular separation in degrees between two
+points.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>point1</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) – Angular position of point 1 in degrees</li>
+<li><strong>point1</strong> – Angular position of point 2 in degrees</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float angular separation in degrees</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">sf_tools.math.angle</span> <span class="k">import</span> <span class="n">ang_sep</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">ang_sep</span><span class="p">((</span><span class="mf">30.0</span><span class="p">,</span> <span class="mf">0.0</span><span class="p">),</span> <span class="p">(</span><span class="mf">47.0</span><span class="p">,</span> <span class="mf">10.0</span><span class="p">))</span>
+<span class="go">19.647958606833164</span>
+</pre></div>
+</div>
+<p class="rubric">Notes</p>
+<p>Implements the following equation:</p>
+<div class="math">
+\[\theta = \cos^{-1}[\sin(\delta_1)\sin(\delta_2)+
+\cos(\delta_1)\cos(\delta_2)\cos(\alpha_1-\alpha_2)]\]</div>
+<p>See <a class="reference external" href="https://en.wikipedia.org/wiki/Angular_distance">https://en.wikipedia.org/wiki/Angular_distance</a></p>
 </dd></dl>
 
 </div>
@@ -341,7 +341,7 @@ points.</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

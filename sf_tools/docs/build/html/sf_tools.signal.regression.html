@@ -190,68 +190,6 @@
 </tbody>
 </table>
 <dl class="function">
-<dt id="sf_tools.signal.regression.fit_odr">
-<code class="descclassname">sf_tools.signal.regression.</code><code class="descname">fit_odr</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>xerr</em>, <em>yerr</em>, <em>fit</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/regression.html#fit_odr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.regression.fit_odr" title="Permalink to this definition">¶</a></dt>
-<dd><p>Fit via ODR</p>
-<p>This method performs an orthogonal distance regression fit.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) &#8211; The 1D independent data vector</li>
-<li><strong>y</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) &#8211; The 1D dependent data vector</li>
-<li><strong>x_err</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) &#8211; 1D data vector of x value errors</li>
-<li><strong>y_err</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) &#8211; 1D data vector of y value errors</li>
-<li><strong>fit</strong> (<em>function</em>) &#8211; Fitting function</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple best fit parameters</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="sf_tools.signal.regression.least_squares">
-<code class="descclassname">sf_tools.signal.regression.</code><code class="descname">least_squares</code><span class="sig-paren">(</span><em>X</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/regression.html#least_squares"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.regression.least_squares" title="Permalink to this definition">¶</a></dt>
-<dd><p>Least squares</p>
-<p>This method performs an analytical least squares regression. Returns the
-values of the coefficients, a, given the input matrix X and the
-corresponding y values.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>X</strong> (<em>np.ndarray</em>) &#8211; The 2D independent data matrix.</li>
-<li><strong>y</strong> (<em>np.ndarray</em>) &#8211; The 1D dependent data vector</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">np.ndarray 1D array of coefficients a</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; If inputs are not numpy arrays</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition-todo admonition" id="index-0">
-<p class="first admonition-title">Todo</p>
-<p class="last">Add equation and example</p>
-</div>
-</dd></dl>
-
-<dl class="function">
 <dt id="sf_tools.signal.regression.linear_fit">
 <code class="descclassname">sf_tools.signal.regression.</code><code class="descname">linear_fit</code><span class="sig-paren">(</span><em>B</em>, <em>x</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/regression.html#linear_fit"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.regression.linear_fit" title="Permalink to this definition">¶</a></dt>
 <dd><p>Linear fit</p>
@@ -261,8 +199,8 @@ corresponding y values.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>B</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; Slope (m) and intercept (b) of the line.</li>
-<li><strong>x</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) &#8211; The 1D data vector</li>
+<li><strong>B</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) – Slope (m) and intercept (b) of the line.</li>
+<li><strong>x</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) – The 1D data vector</li>
 </ul>
 </td>
 </tr>
@@ -290,8 +228,8 @@ corresponding y values.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) &#8211; The 1D data vector</li>
-<li><strong>a</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) &#8211; The 1D polynomial coefficient vector</li>
+<li><strong>x</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) – The 1D data vector</li>
+<li><strong>a</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) – The 1D polynomial coefficient vector</li>
 </ul>
 </td>
 </tr>
@@ -320,9 +258,9 @@ data using least squares.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) &#8211; The 1D independent data vector</li>
-<li><strong>y</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) &#8211; The 1D dependent data vector</li>
-<li><strong>k</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) &#8211; Number of degrees of freedom. Default (k=1)</li>
+<li><strong>x</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) – The 1D independent data vector</li>
+<li><strong>y</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) – The 1D dependent data vector</li>
+<li><strong>k</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Number of degrees of freedom. Default (k=1)</li>
 </ul>
 </td>
 </tr>
@@ -337,6 +275,40 @@ data using least squares.</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="sf_tools.signal.regression.least_squares">
+<code class="descclassname">sf_tools.signal.regression.</code><code class="descname">least_squares</code><span class="sig-paren">(</span><em>X</em>, <em>y</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/regression.html#least_squares"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.regression.least_squares" title="Permalink to this definition">¶</a></dt>
+<dd><p>Least squares</p>
+<p>This method performs an analytical least squares regression. Returns the
+values of the coefficients, a, given the input matrix X and the
+corresponding y values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>X</strong> (<em>np.ndarray</em>) – The 2D independent data matrix.</li>
+<li><strong>y</strong> (<em>np.ndarray</em>) – The 1D dependent data vector</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">np.ndarray 1D array of coefficients a</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> – If inputs are not numpy arrays</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition-todo admonition" id="index-0">
+<p class="first admonition-title">Todo</p>
+<p class="last">Add equation and example</p>
+</div>
+</dd></dl>
+
+<dl class="function">
 <dt id="sf_tools.signal.regression.x_matrix">
 <code class="descclassname">sf_tools.signal.regression.</code><code class="descname">x_matrix</code><span class="sig-paren">(</span><em>x</em>, <em>k</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/regression.html#x_matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.regression.x_matrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Define X matrix</p>
@@ -347,8 +319,8 @@ polynomial with k degrees of freedom.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>x</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) &#8211; The 1D independent data vector</li>
-<li><strong>k</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Number of degrees of freedom</li>
+<li><strong>x</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) – The 1D independent data vector</li>
+<li><strong>k</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – Number of degrees of freedom</li>
 </ul>
 </td>
 </tr>
@@ -356,6 +328,34 @@ polynomial with k degrees of freedom.</p>
 </td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.ndarray the 2D independent variable matrix X</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sf_tools.signal.regression.fit_odr">
+<code class="descclassname">sf_tools.signal.regression.</code><code class="descname">fit_odr</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>xerr</em>, <em>yerr</em>, <em>fit</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/regression.html#fit_odr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.regression.fit_odr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Fit via ODR</p>
+<p>This method performs an orthogonal distance regression fit.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>x</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) – The 1D independent data vector</li>
+<li><strong>y</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) – The 1D dependent data vector</li>
+<li><strong>x_err</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) – 1D data vector of x value errors</li>
+<li><strong>y_err</strong> (<em>list</em><em> or </em><em>np.ndarray</em>) – 1D data vector of y value errors</li>
+<li><strong>fit</strong> (<em>function</em>) – Fitting function</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">tuple best fit parameters</p>
 </td>
 </tr>
 </tbody>
@@ -418,7 +418,7 @@ polynomial with k degrees of freedom.</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

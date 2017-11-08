@@ -1,5 +1,5 @@
-sf_tools.signal.filter module
-=============================
+sf\_tools\.signal\.filter module
+================================
 
 .. automodule:: sf_tools.signal.filter
     :members:

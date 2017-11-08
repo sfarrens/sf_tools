@@ -201,13 +201,13 @@ tests for convergence</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>costFunc</strong> (<em>class</em>) &#8211; Class for calculating the cost</li>
-<li><strong>initial_cost</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>, </em><em>optional</em>) &#8211; Initial value of the cost (default is &#8220;1e6&#8221;)</li>
-<li><strong>tolerance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>, </em><em>optional</em>) &#8211; Tolerance threshold for convergence (default is &#8220;1e-4&#8221;)</li>
-<li><strong>cost_interval</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) &#8211; Iteration interval to calculate cost (default is &#8220;1&#8221;)</li>
-<li><strong>test_range</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) &#8211; Number of cost values to be used in test (default is &#8220;4&#8221;)</li>
-<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) &#8211; Option for verbose output (default is &#8220;True&#8221;)</li>
-<li><strong>plot_output</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em>, </em><em>optional</em>) &#8211; Output file name for cost function plot</li>
+<li><strong>costFunc</strong> (<em>class</em>) – Class for calculating the cost</li>
+<li><strong>initial_cost</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>, </em><em>optional</em>) – Initial value of the cost (default is “1e6”)</li>
+<li><strong>tolerance</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>, </em><em>optional</em>) – Tolerance threshold for convergence (default is “1e-4”)</li>
+<li><strong>cost_interval</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Iteration interval to calculate cost (default is “1”)</li>
+<li><strong>test_range</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Number of cost values to be used in test (default is “4”)</li>
+<li><strong>verbose</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Option for verbose output (default is “True”)</li>
+<li><strong>plot_output</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em>, </em><em>optional</em>) – Output file name for cost function plot</li>
 </ul>
 </td>
 </tr>
@@ -215,6 +215,24 @@ tests for convergence</p>
 </table>
 <p class="rubric">Notes</p>
 <p>The costFunc class must contain a method called <cite>calc_cost()</cite>.</p>
+<dl class="method">
+<dt id="sf_tools.signal.cost.costObj._check_cost">
+<code class="descname">_check_cost</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/cost.html#costObj._check_cost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.cost.costObj._check_cost" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check cost function</p>
+<p>This method tests the cost function for convergence in the specified
+interval of iterations using the last n (test_range) cost values</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-even field"><th class="field-name">Return type:</th><td class="field-body">bool result of the convergence test</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
 <dl class="method">
 <dt id="sf_tools.signal.cost.costObj.get_cost">
 <code class="descname">get_cost</code><span class="sig-paren">(</span><em>*args</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/cost.html#costObj.get_cost"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.cost.costObj.get_cost" title="Permalink to this definition">¶</a></dt>
@@ -297,7 +315,7 @@ tests for convergence</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

@@ -1,5 +1,5 @@
-sf_tools.plot.cost_plot module
-==============================
+sf\_tools\.plot\.cost\_plot module
+==================================
 
 .. automodule:: sf_tools.plot.cost_plot
     :members:

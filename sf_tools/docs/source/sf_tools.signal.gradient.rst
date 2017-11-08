@@ -1,5 +1,5 @@
-sf_tools.signal.gradient module
-===============================
+sf\_tools\.signal\.gradient module
+==================================
 
 .. automodule:: sf_tools.signal.gradient
     :members:

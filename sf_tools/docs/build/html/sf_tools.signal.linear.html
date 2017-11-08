@@ -196,25 +196,6 @@
 <p>Identity operator class</p>
 <p>This is a dummy class that can be used in the optimisation classes</p>
 <dl class="method">
-<dt id="sf_tools.signal.linear.Identity.adj_op">
-<code class="descname">adj_op</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/linear.html#Identity.adj_op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.linear.Identity.adj_op" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adjoint operator</p>
-<p>Returns the input data unchanged</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input data array</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray input data</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
 <dt id="sf_tools.signal.linear.Identity.op">
 <code class="descname">op</code><span class="sig-paren">(</span><em>data</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/linear.html#Identity.op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.linear.Identity.op" title="Permalink to this definition">¶</a></dt>
 <dd><p>Operator</p>
@@ -224,8 +205,8 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input data array</li>
-<li><strong>**kwargs</strong> &#8211; Arbitrary keyword arguments</li>
+<li><strong>data</strong> (<em>np.ndarray</em>) – Input data array</li>
+<li><strong>**kwargs</strong> – Arbitrary keyword arguments</li>
 </ul>
 </td>
 </tr>
@@ -239,61 +220,20 @@
 </table>
 </dd></dl>
 
-</dd></dl>
-
-<dl class="class">
-<dt id="sf_tools.signal.linear.LinearCombo">
-<em class="property">class </em><code class="descclassname">sf_tools.signal.linear.</code><code class="descname">LinearCombo</code><span class="sig-paren">(</span><em>operators</em>, <em>weights=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/linear.html#LinearCombo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.linear.LinearCombo" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Linear combination class</p>
-<p>This class defines a combination of linear transform operators</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>operators</strong> (<em>list</em>) &#8211; List of linear operator class instances</li>
-<li><strong>weights</strong> (<em>list</em><em>, </em><em>optional</em>) &#8211; List of weights for combining the linear adjoint operator results</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
 <dl class="method">
-<dt id="sf_tools.signal.linear.LinearCombo.adj_op">
-<code class="descname">adj_op</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/linear.html#LinearCombo.adj_op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.linear.LinearCombo.adj_op" title="Permalink to this definition">¶</a></dt>
+<dt id="sf_tools.signal.linear.Identity.adj_op">
+<code class="descname">adj_op</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/linear.html#Identity.adj_op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.linear.Identity.adj_op" title="Permalink to this definition">¶</a></dt>
 <dd><p>Adjoint operator</p>
-<p>This method returns the combination of the result of all of the
-adjoint operators. If weights are provided the comibination is the sum
-of the weighted results, otherwise the combination is the mean.</p>
+<p>Returns the input data unchanged</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input data array, an array of coefficients</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) – Input data array</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray adjoint operation results</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="sf_tools.signal.linear.LinearCombo.op">
-<code class="descname">op</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/linear.html#LinearCombo.op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.linear.LinearCombo.op" title="Permalink to this definition">¶</a></dt>
-<dd><p>Operator</p>
-<p>This method returns the input data operated on by all of the operators</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input data array, a 2D image</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray linear operation results</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray input data</td>
 </tr>
 </tbody>
 </table>
@@ -312,24 +252,23 @@ of the weighted results, otherwise the combination is the mean.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input data array, normally an array of 2D images</li>
-<li><strong>wavelet_opt</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em>, </em><em>optional</em>) &#8211; Additional options for <cite>mr_transform</cite></li>
+<li><strong>data</strong> (<em>np.ndarray</em>) – Input data array, normally an array of 2D images</li>
+<li><strong>wavelet_opt</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#str" title="(in Python v2.7)"><em>str</em></a><em>, </em><em>optional</em>) – Additional options for <cite>mr_transform</cite></li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
-<dt id="sf_tools.signal.linear.Wavelet.adj_op">
-<code class="descname">adj_op</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/linear.html#Wavelet.adj_op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.linear.Wavelet.adj_op" title="Permalink to this definition">¶</a></dt>
-<dd><p>Adjoint operator</p>
-<p>This method returns the input data convolved with the wavelet filters
-rotated by 180 degrees</p>
+<dt id="sf_tools.signal.linear.Wavelet.op">
+<code class="descname">op</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/linear.html#Wavelet.op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.linear.Wavelet.op" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operator</p>
+<p>This method returns the input data convolved with the wavelet filters</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input data array, a 3D of wavelet coefficients</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) – Input data array, a 2D image</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
 </tr>
@@ -340,19 +279,80 @@ rotated by 180 degrees</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="sf_tools.signal.linear.Wavelet.op">
-<code class="descname">op</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/linear.html#Wavelet.op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.linear.Wavelet.op" title="Permalink to this definition">¶</a></dt>
-<dd><p>Operator</p>
-<p>This method returns the input data convolved with the wavelet filters</p>
+<dt id="sf_tools.signal.linear.Wavelet.adj_op">
+<code class="descname">adj_op</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/linear.html#Wavelet.adj_op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.linear.Wavelet.adj_op" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjoint operator</p>
+<p>This method returns the input data convolved with the wavelet filters
+rotated by 180 degrees</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input data array, a 2D image</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) – Input data array, a 3D of wavelet coefficients</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray wavelet convolved data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sf_tools.signal.linear.LinearCombo">
+<em class="property">class </em><code class="descclassname">sf_tools.signal.linear.</code><code class="descname">LinearCombo</code><span class="sig-paren">(</span><em>operators</em>, <em>weights=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/linear.html#LinearCombo"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.linear.LinearCombo" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Linear combination class</p>
+<p>This class defines a combination of linear transform operators</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>operators</strong> (<em>list</em>) – List of linear operator class instances</li>
+<li><strong>weights</strong> (<em>list</em><em>, </em><em>optional</em>) – List of weights for combining the linear adjoint operator results</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="sf_tools.signal.linear.LinearCombo.op">
+<code class="descname">op</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/linear.html#LinearCombo.op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.linear.LinearCombo.op" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operator</p>
+<p>This method returns the input data operated on by all of the operators</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) – Input data array, a 2D image</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray linear operation results</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sf_tools.signal.linear.LinearCombo.adj_op">
+<code class="descname">adj_op</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/linear.html#LinearCombo.adj_op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.linear.LinearCombo.adj_op" title="Permalink to this definition">¶</a></dt>
+<dd><p>Adjoint operator</p>
+<p>This method returns the combination of the result of all of the
+adjoint operators. If weights are provided the comibination is the sum
+of the weighted results, otherwise the combination is the mean.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) – Input data array, an array of coefficients</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray adjoint operation results</td>
 </tr>
 </tbody>
 </table>
@@ -416,7 +416,7 @@ rotated by 180 degrees</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

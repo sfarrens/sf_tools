@@ -45,6 +45,12 @@ extensions = [
 # Include init in class documentation.
 autoclass_content = 'both'
 
+# Order docstrings as in the source
+autodoc_member_order = 'bysource'
+
+# Include private class methods
+autodoc_default_flags = ['members', 'private-members']
+
 # Suppress class members in toctree.
 numpydoc_show_class_members = False
 
