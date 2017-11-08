@@ -21,6 +21,9 @@ References
     [https://www.osapublishing.org/oe/abstract.cfm?uri=oe-15-8-5147]
 
 .. [NS2016] Ngolé and Starck, PSFs field learning based on Optimal Transport
-    distances, 2016, SIAM
+    distances, 2016,
+
+.. [S2005] Schneider, Weak Gravitational Lensing, 2005, arXiv.
+    [https://arxiv.org/abs/astro-ph/0509252]
 
 """
