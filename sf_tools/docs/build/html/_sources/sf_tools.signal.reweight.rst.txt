@@ -1,5 +1,5 @@
-sf_tools.signal.reweight module
-===============================
+sf\_tools\.signal\.reweight module
+==================================
 
 .. automodule:: sf_tools.signal.reweight
     :members:

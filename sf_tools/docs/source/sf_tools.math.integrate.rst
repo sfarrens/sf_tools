@@ -1,5 +1,5 @@
-sf_tools.math.integrate module
-==============================
+sf\_tools\.math\.integrate module
+=================================
 
 .. automodule:: sf_tools.math.integrate
     :members:

@@ -1,5 +1,5 @@
-sf_tools.image.convolve module
-==============================
+sf\_tools\.image\.convolve module
+=================================
 
 .. automodule:: sf_tools.image.convolve
     :members:

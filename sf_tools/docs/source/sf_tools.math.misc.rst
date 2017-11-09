@@ -1,5 +1,5 @@
-sf_tools.math.misc module
-=========================
+sf\_tools\.math\.misc module
+============================
 
 .. automodule:: sf_tools.math.misc
     :members:

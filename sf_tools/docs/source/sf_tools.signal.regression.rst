@@ -1,5 +1,5 @@
-sf_tools.signal.regression module
-=================================
+sf\_tools\.signal\.regression module
+====================================
 
 .. automodule:: sf_tools.signal.regression
     :members:

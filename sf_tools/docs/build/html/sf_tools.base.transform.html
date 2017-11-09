@@ -200,8 +200,8 @@ specified layout</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data_cube</strong> (<em>np.ndarray</em>) &#8211; Input data cube, 3D array of 2D images</li>
-<li><strong>Layout</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; 2D layout of 2D images</li>
+<li><strong>data_cube</strong> (<em>np.ndarray</em>) – Input data cube, 3D array of 2D images</li>
+<li><strong>Layout</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) – 2D layout of 2D images</li>
 </ul>
 </td>
 </tr>
@@ -211,27 +211,8 @@ specified layout</p>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">np.ndarray 2D map</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; For invalid layout</p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> – For invalid layout</p>
 </td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="sf_tools.base.transform.cube2matrix">
-<code class="descclassname">sf_tools.base.transform.</code><code class="descname">cube2matrix</code><span class="sig-paren">(</span><em>data_cube</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/base/transform.html#cube2matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.base.transform.cube2matrix" title="Permalink to this definition">¶</a></dt>
-<dd><p>Cube to Matrix</p>
-<p>This method transforms a 3D cube to a 2D matrix</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data_cube</strong> (<em>np.ndarray</em>) &#8211; Input data cube, 3D array</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray 2D matrix</td>
 </tr>
 </tbody>
 </table>
@@ -248,8 +229,8 @@ a 3D cube</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data_map</strong> (<em>np.ndarray</em>) &#8211; Input data map, 2D array</li>
-<li><strong>layout</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; 2D layout of 2D images</li>
+<li><strong>data_map</strong> (<em>np.ndarray</em>) – Input data map, 2D array</li>
+<li><strong>layout</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) – 2D layout of 2D images</li>
 </ul>
 </td>
 </tr>
@@ -259,7 +240,7 @@ a 3D cube</p>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">np.ndarray 3D cube</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; For invalid layout</p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> – For invalid layout</p>
 </td>
 </tr>
 </tbody>
@@ -276,8 +257,8 @@ a 3D cube</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data_map</strong> (<em>np.ndarray</em>) &#8211; Input data map, 2D array</li>
-<li><strong>layout</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; 2D layout of 2D images</li>
+<li><strong>data_map</strong> (<em>np.ndarray</em>) – Input data map, 2D array</li>
+<li><strong>layout</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) – 2D layout of 2D images</li>
 </ul>
 </td>
 </tr>
@@ -287,32 +268,7 @@ a 3D cube</p>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">np.ndarray 2D matrix</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; For invalid layout</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="sf_tools.base.transform.matrix2cube">
-<code class="descclassname">sf_tools.base.transform.</code><code class="descname">matrix2cube</code><span class="sig-paren">(</span><em>data_matrix</em>, <em>im_shape</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/base/transform.html#matrix2cube"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.base.transform.matrix2cube" title="Permalink to this definition">¶</a></dt>
-<dd><p>Matrix to Cube</p>
-<p>This method transforms a 2D matrix to a 3D cube</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data_matrix</strong> (<em>np.ndarray</em>) &#8211; Input data cube, 2D array</li>
-<li><strong>im_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; 2D shape of the individual images</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.ndarray 3D cube</p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> – For invalid layout</p>
 </td>
 </tr>
 </tbody>
@@ -329,8 +285,8 @@ a 3D cube</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data_matrix</strong> (<em>np.ndarray</em>) &#8211; Input data matrix, 2D array</li>
-<li><strong>map_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; 2D shape of the output map</li>
+<li><strong>data_matrix</strong> (<em>np.ndarray</em>) – Input data matrix, 2D array</li>
+<li><strong>map_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) – 2D shape of the output map</li>
 </ul>
 </td>
 </tr>
@@ -340,7 +296,51 @@ a 3D cube</p>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">np.ndarray 2D map</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; For invalid layout</p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> – For invalid layout</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sf_tools.base.transform.cube2matrix">
+<code class="descclassname">sf_tools.base.transform.</code><code class="descname">cube2matrix</code><span class="sig-paren">(</span><em>data_cube</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/base/transform.html#cube2matrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.base.transform.cube2matrix" title="Permalink to this definition">¶</a></dt>
+<dd><p>Cube to Matrix</p>
+<p>This method transforms a 3D cube to a 2D matrix</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data_cube</strong> (<em>np.ndarray</em>) – Input data cube, 3D array</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray 2D matrix</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sf_tools.base.transform.matrix2cube">
+<code class="descclassname">sf_tools.base.transform.</code><code class="descname">matrix2cube</code><span class="sig-paren">(</span><em>data_matrix</em>, <em>im_shape</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/base/transform.html#matrix2cube"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.base.transform.matrix2cube" title="Permalink to this definition">¶</a></dt>
+<dd><p>Matrix to Cube</p>
+<p>This method transforms a 2D matrix to a 3D cube</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data_matrix</strong> (<em>np.ndarray</em>) – Input data cube, 2D array</li>
+<li><strong>im_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) – 2D shape of the individual images</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.ndarray 3D cube</p>
 </td>
 </tr>
 </tbody>
@@ -403,7 +403,7 @@ a 3D cube</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

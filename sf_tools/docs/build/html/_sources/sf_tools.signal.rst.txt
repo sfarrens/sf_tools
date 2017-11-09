@@ -1,5 +1,5 @@
-sf_tools.signal package
-=======================
+sf\_tools\.signal package
+=========================
 
 Submodules
 ----------

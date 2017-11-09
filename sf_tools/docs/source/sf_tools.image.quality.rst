@@ -1,5 +1,5 @@
-sf_tools.image.quality module
-=============================
+sf\_tools\.image\.quality module
+================================
 
 .. automodule:: sf_tools.image.quality
     :members:

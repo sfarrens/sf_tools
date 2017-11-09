@@ -183,6 +183,20 @@ class Ellipticity():
 
     This class calculates image ellipticities from quadrupole moments.
 
+    Parameters
+    ----------
+    data : np.ndarray
+        Input data array, the image to be analysed
+    sigma : int, optional
+        Estimation error (default is '1000')
+    centroid : np.ndarray, optional
+        Centroid positions [x, y] of the input image (defualt is 'None')
+    moments : np.ndarray, optional
+        Quadrupole moments [[q00, q01], [q10, q11]] of the input image
+        (defualt is 'None')
+    type : str {'chi', 'epsilon'}, optional
+        Ellipticity type (default is 'chi')
+
     Examples
     --------
     >>> from image.shape import Ellipticity
@@ -199,53 +213,53 @@ class Ellipticity():
 
     """
 
-    ##
-    #  Method that initialises the class.
-    #
-    def __init__(self, data, sigma=1000, centroid=None, moments=None):
-        """Class initialiser
+    def __init__(self, data, sigma=1000, centroid=None, moments=None,
+                 ellip_type='chi'):
 
-        Parameters
-        ----------
-        data : np.ndarray
-            Input data array, the image to be analysed
-        sigma : int, optional
-            Estimation error (default is '1000')
-        centroid : np.ndarray, optional
-            Centroid positions [x, y] of the input image (defualt is 'None')
-        moments : np.ndarray, optional
-            Quadrupole moments [[q00, q01], [q10, q11]] of the input image
-            (defualt is 'None')
+        self._data = data
+        self._sigma = sigma
+        self._ranges = np.array([np.arange(i) for i in data.shape])
+        self._ellip_type = ellip_type
+        self._check_ellip_type()
+
+        if not isinstance(moments, type(None)):
+            self.moments = np.array(moments).astype('complex').reshape(2, 2)
+            self._get_ellipse()
+        elif isinstance(centroid, type(None)):
+            self._get_centroid()
+        else:
+            self.centroid = centroid
+            self._update_weights()
+            self._get_moments()
+
+    def _check_ellip_type(self):
+        """Check Ellipticity Type
+
+        This method raises an error if ellip_type is not 'chi' or 'epsilon'.
+
+        Raises
+        ------
+        ValueError for invalid ellip_type
 
         """
 
-        self.data = data
-        self.sigma = sigma
-        self.ranges = np.array([np.arange(i) for i in data.shape])
+        if self._ellip_type not in ('chi', 'epsilon'):
+            raise ValueError('Invalid ellip_type, options are "chi" or '
+                             '"epsilon"')
 
-        if not isinstance(moments, type(None)):
-            self.moments = np.array(moments).reshape(2, 2)
-            self.get_ellipse()
-        elif isinstance(centroid, type(None)):
-            self.get_centroid()
-        else:
-            self.centroid = centroid
-            self.update_weights()
-            self.get_moments()
-
-    def update_xy(self):
+    def _update_xy(self):
         """Update the x and y values
 
         This method updates the values of x and y using the current centroid.
 
         """
 
-        self.x = np.outer(self.ranges[0] - self.centroid[0],
-                          np.ones(self.data.shape[1]))
-        self.y = np.outer(np.ones(self.data.shape[0]),
-                          self.ranges[1] - self.centroid[1])
+        self._x = np.outer(self._ranges[0] - self.centroid[0],
+                           np.ones(self._data.shape[1]))
+        self._y = np.outer(np.ones(self._data.shape[0]),
+                           self._ranges[1] - self.centroid[1])
 
-    def update_weights(self):
+    def _update_weights(self):
         """Update the weights
 
         This method updates the value of the weights using the current values
@@ -265,11 +279,11 @@ class Ellipticity():
 
         """
 
-        self.update_xy()
-        self.weights = np.exp(-(self.x ** 2 + self.y ** 2) /
-                              (2 * self.sigma ** 2))
+        self._update_xy()
+        self._weights = np.exp(-(self._x ** 2 + self._y ** 2) /
+                               (2 * self._sigma ** 2))
 
-    def update_centroid(self):
+    def _update_centroid(self):
         """Update the centroid
 
         This method updates the centroid value using the current weights.
@@ -299,15 +313,15 @@ class Ellipticity():
         """
 
         # Calculate the position moments.
-        iw = np.array([np.sum(self.data * self.weights, axis=i)
+        iw = np.array([np.sum(self._data * self._weights, axis=i)
                        for i in (1, 0)])
         sw = np.sum(iw, axis=1)
-        sxy = np.sum(iw * self.ranges, axis=1)
+        sxy = np.sum(iw * self._ranges, axis=1)
 
         # Update the centroid value.
         self.centroid = sxy / sw
 
-    def get_centroid(self, n_iter=10):
+    def _get_centroid(self, n_iter=10):
         """Calculate centroid
 
         This method iteratively calculates the centroid of the image.
@@ -320,21 +334,21 @@ class Ellipticity():
         """
 
         # Set initial value for the weights.
-        self.weights = np.ones(self.data.shape)
+        self._weights = np.ones(self._data.shape)
 
         # Iteratively calculate the centroid.
         for i in range(n_iter):
 
             # Update the centroid value.
-            self.update_centroid()
+            self._update_centroid()
 
             # Update the weights.
-            self.update_weights()
+            self._update_weights()
 
         # Calculate the quadrupole moments.
-        self.get_moments()
+        self._get_moments()
 
-    def get_moments(self):
+    def _get_moments(self):
         """ Calculate the quadrupole moments
 
         This method calculates the quadrupole moments.
@@ -354,15 +368,16 @@ class Ellipticity():
         """
 
         # Calculate moments.
-        q = np.array([np.sum(self.data * self.weights * xi * xj) for xi in
-                      (self.x, self.y) for xj in (self.x, self.y)])
+        q = np.array([np.sum(self._data * self._weights * xi * xj) for xi in
+                      (self._x, self._y) for xj in (self._x, self._y)])
 
-        self.moments = (q / np.sum(self.data * self.weights)).reshape(2, 2)
+        self.moments = (q / np.sum(self._data *
+                        self._weights)).reshape(2, 2).astype('complex')
 
         # Calculate the ellipticities.
-        self.get_ellipse()
+        self._get_ellipse()
 
-    def get_ellipse(self):
+    def _get_ellipse(self):
         """Calculate the ellipticities
 
         This method cacluates ellipticities from quadrupole moments.
@@ -375,20 +390,34 @@ class Ellipticity():
 
             .. math:: R^2 = Q_{00} + Q_{11}
 
-            - Equation 12 from [C2013]_ to calculate the ellipticities:
+            - Equation 7 from [S2005]_ to calculate the ellipticities:
 
             .. math::
 
-               \\varepsilon = [\\varepsilon_1,\\varepsilon_2] =
-                  \\left[\\frac{Q_{00}-Q_{11}}{R^2},
-                  \\frac{Q_{01}+Q_{10}}{R^2}\\right]
+               \\chi = \\frac{Q_{00}-Q_{11}+iQ_{01}+iQ_{10}}{R^2}
+
+               \\epsilon = \\frac{Q_{00}-Q_{11}+iQ_{01}+iQ_{10}}{R^2 +
+                   2\\sqrt{(Q_{00}Q_{11} - Q_{01}Q_{10})}}
 
         """
 
         # Calculate the size.
         self.r2 = self.moments[0, 0] + self.moments[1, 1]
 
-        # Calculate the ellipticities.
-        self.e = np.array([(self.moments[0, 0] - self.moments[1, 1]) / self.r2,
-                          (self.moments[0, 1] + self.moments[1, 0]) /
-                          self.r2])
+        # Calculate the numerator
+        numerator = (self.moments[0, 0] - self.moments[1, 1] + np.complex(0,
+                     self.moments[0, 1] + self.moments[1, 0]))
+
+        # Calculate the denominator
+        if self._ellip_type == 'epsilon':
+            denominator = (self.r2 + 2 * np.sqrt(self.moments[0, 0] *
+                           self.moments[1, 1] - self.moments[0, 1] *
+                           self.moments[1, 0]))
+
+        else:
+            denominator = self.r2
+
+        # Calculate the ellipticity
+        ellip = numerator / denominator
+
+        self.e = (ellip.real, ellip.imag)

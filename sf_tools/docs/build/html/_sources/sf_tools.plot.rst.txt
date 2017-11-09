@@ -1,5 +1,5 @@
-sf_tools.plot package
-=====================
+sf\_tools\.plot package
+=======================
 
 Submodules
 ----------

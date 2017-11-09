@@ -1,5 +1,5 @@
-sf_tools.signal.noise module
-============================
+sf\_tools\.signal\.noise module
+===============================
 
 .. automodule:: sf_tools.signal.noise
     :members:

@@ -1,5 +1,5 @@
-sf_tools.math package
-=====================
+sf\_tools\.math package
+=======================
 
 Submodules
 ----------

@@ -1,5 +1,5 @@
-sf_tools.math.matrix module
-===========================
+sf\_tools\.math\.matrix module
+==============================
 
 .. automodule:: sf_tools.math.matrix
     :members:

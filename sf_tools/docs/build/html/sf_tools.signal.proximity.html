@@ -190,6 +190,78 @@
 </tbody>
 </table>
 <dl class="class">
+<dt id="sf_tools.signal.proximity.Positive">
+<em class="property">class </em><code class="descclassname">sf_tools.signal.proximity.</code><code class="descname">Positive</code><a class="reference internal" href="_modules/sf_tools/signal/proximity.html#Positive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.proximity.Positive" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Positivity proximity operator</p>
+<p>This class defines the positivity proximity operator</p>
+<dl class="method">
+<dt id="sf_tools.signal.proximity.Positive.op">
+<code class="descname">op</code><span class="sig-paren">(</span><em>data</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/proximity.html#Positive.op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.proximity.Positive.op" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operator</p>
+<p>This method preserves only the positive coefficients of the input data</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) – Input data array</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray all positive elements from input data</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
+<dt id="sf_tools.signal.proximity.Threshold">
+<em class="property">class </em><code class="descclassname">sf_tools.signal.proximity.</code><code class="descname">Threshold</code><span class="sig-paren">(</span><em>weights</em>, <em>thresh_type='soft'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/proximity.html#Threshold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.proximity.Threshold" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Threshold proximity operator</p>
+<p>This class defines the threshold proximity operator</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>weights</strong> (<em>np.ndarray</em>) – Input array of weights</li>
+<li><strong>thresh_type</strong> (<em>str {'hard'</em><em>, </em><em>'soft'}</em><em>, </em><em>optional</em>) – Threshold type (default is ‘soft’)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<dl class="method">
+<dt id="sf_tools.signal.proximity.Threshold.op">
+<code class="descname">op</code><span class="sig-paren">(</span><em>data</em>, <em>extra_factor=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/proximity.html#Threshold.op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.proximity.Threshold.op" title="Permalink to this definition">¶</a></dt>
+<dd><p>Operator</p>
+<p>This method returns the input data thresholded by the weights</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data</strong> (<em>np.ndarray</em>) – Input data array</li>
+<li><strong>extra_factor</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Additional multiplication factor</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.ndarray thresholded data</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+</dd></dl>
+
+<dl class="class">
 <dt id="sf_tools.signal.proximity.LowRankMatrix">
 <em class="property">class </em><code class="descclassname">sf_tools.signal.proximity.</code><code class="descname">LowRankMatrix</code><span class="sig-paren">(</span><em>thresh</em>, <em>thresh_type='soft'</em>, <em>lowr_type='standard'</em>, <em>operator=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/proximity.html#LowRankMatrix"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.proximity.LowRankMatrix" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
@@ -200,10 +272,10 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>thresh</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Threshold value</li>
-<li><strong>treshold_type</strong> (<em>str {'hard'</em><em>, </em><em>'soft'}</em>) &#8211; Threshold type (options are &#8216;hard&#8217; or &#8216;soft&#8217;)</li>
-<li><strong>lowr_type</strong> (<em>str {'standard'</em><em>, </em><em>'ngole'}</em>) &#8211; Low-rank implementation (options are &#8216;standard&#8217; or &#8216;ngole&#8217;)</li>
-<li><strong>operator</strong> (<em>class</em>) &#8211; Operator class (&#8216;ngole&#8217; only)</li>
+<li><strong>thresh</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Threshold value</li>
+<li><strong>treshold_type</strong> (<em>str {'hard'</em><em>, </em><em>'soft'}</em>) – Threshold type (options are ‘hard’ or ‘soft’)</li>
+<li><strong>lowr_type</strong> (<em>str {'standard'</em><em>, </em><em>'ngole'}</em>) – Low-rank implementation (options are ‘standard’ or ‘ngole’)</li>
+<li><strong>operator</strong> (<em>class</em>) – Operator class (‘ngole’ only)</li>
 </ul>
 </td>
 </tr>
@@ -220,8 +292,8 @@ thresholded</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input data array</li>
-<li><strong>extra_factor</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Additional multiplication factor</li>
+<li><strong>data</strong> (<em>np.ndarray</em>) – Input data array</li>
+<li><strong>extra_factor</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Additional multiplication factor</li>
 </ul>
 </td>
 </tr>
@@ -230,33 +302,6 @@ thresholded</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.ndarray SVD thresholded data</p>
 </td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="sf_tools.signal.proximity.Positive">
-<em class="property">class </em><code class="descclassname">sf_tools.signal.proximity.</code><code class="descname">Positive</code><a class="reference internal" href="_modules/sf_tools/signal/proximity.html#Positive"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.proximity.Positive" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Positivity proximity operator</p>
-<p>This class defines the positivity proximity operator</p>
-<dl class="method">
-<dt id="sf_tools.signal.proximity.Positive.op">
-<code class="descname">op</code><span class="sig-paren">(</span><em>data</em>, <em>**kwargs</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/proximity.html#Positive.op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.proximity.Positive.op" title="Permalink to this definition">¶</a></dt>
-<dd><p>Operator</p>
-<p>This method preserves only the positive coefficients of the input data</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input data array</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray all positive elements from input data</td>
 </tr>
 </tbody>
 </table>
@@ -274,7 +319,7 @@ thresholded</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>operators</strong> (<em>list</em>) &#8211; List of proximity operator class instances</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>operators</strong> (<em>list</em>) – List of proximity operator class instances</td>
 </tr>
 </tbody>
 </table>
@@ -289,8 +334,8 @@ operators to the data</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input data array</li>
-<li><strong>extra_factor</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Additional multiplication factor</li>
+<li><strong>data</strong> (<em>np.ndarray</em>) – Input data array</li>
+<li><strong>extra_factor</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Additional multiplication factor</li>
 </ul>
 </td>
 </tr>
@@ -317,28 +362,25 @@ operators to the data</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>data_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; Shape of input data array</li>
-<li><strong>operator</strong> (<em>class</em>) &#8211; Proximity operator class</li>
-<li><strong>weights</strong> (<em>np.ndarray</em>) &#8211; Array of weights</li>
-<li><strong>u_init</strong> (<em>np.ndarray</em>) &#8211; Initial estimate of u</li>
+<li><strong>data_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) – Shape of input data array</li>
+<li><strong>operator</strong> (<em>class</em>) – Proximity operator class</li>
+<li><strong>weights</strong> (<em>np.ndarray</em>) – Array of weights</li>
+<li><strong>u_init</strong> (<em>np.ndarray</em>) – Initial estimate of u</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
 <dl class="method">
-<dt id="sf_tools.signal.proximity.SubIter.op">
-<code class="descname">op</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/proximity.html#SubIter.op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.proximity.SubIter.op" title="Permalink to this definition">¶</a></dt>
-<dd><p>Operator</p>
+<dt id="sf_tools.signal.proximity.SubIter.update_weights">
+<code class="descname">update_weights</code><span class="sig-paren">(</span><em>weights</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/proximity.html#SubIter.update_weights"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.proximity.SubIter.update_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update weights</p>
+<p>This method updates the values of the weights</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input data array</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray result</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>weights</strong> (<em>np.ndarray</em>) – Array of weights</td>
 </tr>
 </tbody>
 </table>
@@ -352,60 +394,18 @@ operators to the data</p>
 </dd></dl>
 
 <dl class="method">
-<dt id="sf_tools.signal.proximity.SubIter.update_weights">
-<code class="descname">update_weights</code><span class="sig-paren">(</span><em>weights</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/proximity.html#SubIter.update_weights"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.proximity.SubIter.update_weights" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update weights</p>
-<p>This method updates the values of the weights</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>weights</strong> (<em>np.ndarray</em>) &#8211; Array of weights</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
-<dt id="sf_tools.signal.proximity.Threshold">
-<em class="property">class </em><code class="descclassname">sf_tools.signal.proximity.</code><code class="descname">Threshold</code><span class="sig-paren">(</span><em>weights</em>, <em>thresh_type='soft'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/proximity.html#Threshold"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.proximity.Threshold" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Threshold proximity operator</p>
-<p>This class defines the threshold proximity operator</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>weights</strong> (<em>np.ndarray</em>) &#8211; Input array of weights</li>
-<li><strong>thresh_type</strong> (<em>str {'hard'</em><em>, </em><em>'soft'}</em><em>, </em><em>optional</em>) &#8211; Threshold type (default is &#8216;soft&#8217;)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="sf_tools.signal.proximity.Threshold.op">
-<code class="descname">op</code><span class="sig-paren">(</span><em>data</em>, <em>extra_factor=1.0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/proximity.html#Threshold.op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.proximity.Threshold.op" title="Permalink to this definition">¶</a></dt>
+<dt id="sf_tools.signal.proximity.SubIter.op">
+<code class="descname">op</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/proximity.html#SubIter.op"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.proximity.SubIter.op" title="Permalink to this definition">¶</a></dt>
 <dd><p>Operator</p>
-<p>This method returns the input data thresholded by the weights</p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input data array</li>
-<li><strong>extra_factor</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Additional multiplication factor</li>
-</ul>
-</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) – Input data array</td>
 </tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
-</td>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
 </tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.ndarray thresholded data</p>
-</td>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray result</td>
 </tr>
 </tbody>
 </table>
@@ -469,7 +469,7 @@ operators to the data</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

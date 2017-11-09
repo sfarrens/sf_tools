@@ -1,5 +1,5 @@
-sf_tools.image package
-======================
+sf\_tools\.image package
+========================
 
 Submodules
 ----------

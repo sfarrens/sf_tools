@@ -1,5 +1,5 @@
-sf_tools.image.distort module
-=============================
+sf\_tools\.image\.distort module
+================================
 
 .. automodule:: sf_tools.image.distort
     :members:

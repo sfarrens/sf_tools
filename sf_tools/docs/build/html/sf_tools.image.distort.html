@@ -199,8 +199,8 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>image</strong> (<em>np.ndarray</em>) &#8211; Input image array</li>
-<li><strong>factor</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Downsampling factor</li>
+<li><strong>image</strong> (<em>np.ndarray</em>) – Input image array</li>
+<li><strong>factor</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – Downsampling factor</li>
 </ul>
 </td>
 </tr>
@@ -210,8 +210,71 @@
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">np.ndarray downsampled image array</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; For invalid downsampling factor</p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> – For invalid downsampling factor</p>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sf_tools.image.distort.resize_even_image">
+<code class="descclassname">sf_tools.image.distort.</code><code class="descname">resize_even_image</code><span class="sig-paren">(</span><em>image</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/distort.html#resize_even_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.distort.resize_even_image" title="Permalink to this definition">¶</a></dt>
+<dd><p>Resize even image</p>
+<p>This method returns an image with odd dimensions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>image</strong> (<em>np.ndarray</em>) – Input image array</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray resized image array</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sf_tools.image.distort.roll_2d">
+<code class="descclassname">sf_tools.image.distort.</code><code class="descname">roll_2d</code><span class="sig-paren">(</span><em>data</em>, <em>roll_rad=(1</em>, <em>1)</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/distort.html#roll_2d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.distort.roll_2d" title="Permalink to this definition">¶</a></dt>
+<dd><p>Roll in 2D</p>
+<p>This method rolls an array in 2 dimensions.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>data</strong> (<em>np.ndarray</em>) – Input 2D data array</li>
+<li><strong>roll_rad</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) – Roll radius in each dimension</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.ndarray rolled array</p>
+</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sf_tools.image.distort.rot_and_roll">
+<code class="descclassname">sf_tools.image.distort.</code><code class="descname">rot_and_roll</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/distort.html#rot_and_roll"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.distort.rot_and_roll" title="Permalink to this definition">¶</a></dt>
+<dd><p>Rotate and roll</p>
+<p>This method rotates (by 180 deg) and rolls a 2D array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) – Input 2D data array</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray rotated and rolled array</td>
 </tr>
 </tbody>
 </table>
@@ -227,8 +290,8 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>kernel_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; Shape of kernel</li>
-<li><strong>image_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; Shape of image</li>
+<li><strong>kernel_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) – Shape of kernel</li>
+<li><strong>image_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) – Shape of image</li>
 </ul>
 </td>
 </tr>
@@ -237,6 +300,25 @@
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.ndarray boolean mask</p>
 </td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="function">
+<dt id="sf_tools.image.distort.roll_sequence">
+<code class="descclassname">sf_tools.image.distort.</code><code class="descname">roll_sequence</code><span class="sig-paren">(</span><em>data_shape</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/distort.html#roll_sequence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.distort.roll_sequence" title="Permalink to this definition">¶</a></dt>
+<dd><p>Roll sequence</p>
+<p>This method generates the roll sequence for a 2D array.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) – Shape of data</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of roll radii</td>
 </tr>
 </tbody>
 </table>
@@ -254,8 +336,8 @@ repitions of the base kernel patterns.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>kernel_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; Shape of kernel</li>
-<li><strong>mask</strong> (<em>np.ndarray</em>) &#8211; Boolean mask</li>
+<li><strong>kernel_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) – Shape of kernel</li>
+<li><strong>mask</strong> (<em>np.ndarray</em>) – Boolean mask</li>
 </ul>
 </td>
 </tr>
@@ -280,8 +362,8 @@ The input kernel is padded with zeroes to match the image size.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>kernel</strong> (<em>np.ndarray</em>) &#8211; Input kernel array</li>
-<li><strong>data_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; Shape of the data</li>
+<li><strong>kernel</strong> (<em>np.ndarray</em>) – Input kernel array</li>
+<li><strong>data_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) – Shape of the data</li>
 </ul>
 </td>
 </tr>
@@ -290,88 +372,6 @@ The input kernel is padded with zeroes to match the image size.</p>
 </tr>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.ndarray rearanged matrix of kernel elements</p>
 </td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="sf_tools.image.distort.resize_even_image">
-<code class="descclassname">sf_tools.image.distort.</code><code class="descname">resize_even_image</code><span class="sig-paren">(</span><em>image</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/distort.html#resize_even_image"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.distort.resize_even_image" title="Permalink to this definition">¶</a></dt>
-<dd><p>Resize even image</p>
-<p>This method returns an image with odd dimensions.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>image</strong> (<em>np.ndarray</em>) &#8211; Input image array</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray resized image array</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="sf_tools.image.distort.roll_2d">
-<code class="descclassname">sf_tools.image.distort.</code><code class="descname">roll_2d</code><span class="sig-paren">(</span><em>data</em>, <em>roll_rad=(1</em>, <em>1)</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/distort.html#roll_2d"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.distort.roll_2d" title="Permalink to this definition">¶</a></dt>
-<dd><p>Roll in 2D</p>
-<p>This method rolls an array in 2 dimensions.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input 2D data array</li>
-<li><strong>roll_rad</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; Roll radius in each dimension</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">np.ndarray rolled array</p>
-</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="sf_tools.image.distort.roll_sequence">
-<code class="descclassname">sf_tools.image.distort.</code><code class="descname">roll_sequence</code><span class="sig-paren">(</span><em>data_shape</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/distort.html#roll_sequence"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.distort.roll_sequence" title="Permalink to this definition">¶</a></dt>
-<dd><p>Roll sequence</p>
-<p>This method generates the roll sequence for a 2D array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; Shape of data</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">list of roll radii</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="function">
-<dt id="sf_tools.image.distort.rot_and_roll">
-<code class="descclassname">sf_tools.image.distort.</code><code class="descname">rot_and_roll</code><span class="sig-paren">(</span><em>data</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/distort.html#rot_and_roll"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.distort.rot_and_roll" title="Permalink to this definition">¶</a></dt>
-<dd><p>Rotate and roll</p>
-<p>This method rotates (by 180 deg) and rolls a 2D array.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input 2D data array</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body">np.ndarray rotated and rolled array</td>
 </tr>
 </tbody>
 </table>
@@ -433,7 +433,7 @@ The input kernel is padded with zeroes to match the image size.</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

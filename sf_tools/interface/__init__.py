@@ -11,3 +11,7 @@ This module contains submodules for error handling, logging and IO interaction.
 :Date: 06/04/2017
 
 """
+
+__all__ = ['errors', 'log']
+
+from . import *

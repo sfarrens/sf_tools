@@ -1,5 +1,5 @@
-sf_tools.signal.tests module
-============================
+sf\_tools\.signal\.tests module
+===============================
 
 .. automodule:: sf_tools.signal.tests
     :members:

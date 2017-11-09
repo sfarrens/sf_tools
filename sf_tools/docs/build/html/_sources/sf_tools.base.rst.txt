@@ -1,5 +1,5 @@
-sf_tools.base package
-=====================
+sf\_tools\.base package
+=======================
 
 Submodules
 ----------

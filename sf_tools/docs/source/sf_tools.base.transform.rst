@@ -1,5 +1,5 @@
-sf_tools.base.transform module
-==============================
+sf\_tools\.base\.transform module
+=================================
 
 .. automodule:: sf_tools.base.transform
     :members:
