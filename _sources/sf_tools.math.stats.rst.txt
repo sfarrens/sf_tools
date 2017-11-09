@@ -1,5 +1,5 @@
-sf_tools.math.stats module
-==========================
+sf\_tools\.math\.stats module
+=============================
 
 .. automodule:: sf_tools.math.stats
     :members:

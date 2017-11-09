@@ -244,75 +244,6 @@
 </ul>
 </div></blockquote>
 <dl class="class">
-<dt id="sf_tools.signal.optimisation.Condat">
-<em class="property">class </em><code class="descclassname">sf_tools.signal.optimisation.</code><code class="descname">Condat</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>grad</em>, <em>prox</em>, <em>prox_dual</em>, <em>linear</em>, <em>cost</em>, <em>rho</em>, <em>sigma</em>, <em>tau</em>, <em>rho_update=None</em>, <em>sigma_update=None</em>, <em>tau_update=None</em>, <em>auto_iterate=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/optimisation.html#Condat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.optimisation.Condat" title="Permalink to this definition">¶</a></dt>
-<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
-<p>Condat optimisation</p>
-<p>This class implements algorithm 10.7 from <a class="reference internal" href="sf_tools.signal.html#con2013" id="id1">[Con2013]</a></p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<em>np.ndarray</em>) &#8211; Initial guess for the primal variable</li>
-<li><strong>y</strong> (<em>np.ndarray</em>) &#8211; Initial guess for the dual variable</li>
-<li><strong>grad</strong> (<em>class</em>) &#8211; Gradient operator class</li>
-<li><strong>prox</strong> (<em>class</em>) &#8211; Proximity primal operator class</li>
-<li><strong>prox_dual</strong> (<em>class</em>) &#8211; Proximity dual operator class</li>
-<li><strong>linear</strong> (<em>class</em>) &#8211; Linear operator class</li>
-<li><strong>cost</strong> (<em>class</em>) &#8211; Cost function class</li>
-<li><strong>rho</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Relaxation parameter</li>
-<li><strong>sigma</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Proximal dual parameter</li>
-<li><strong>tau</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Proximal primal paramater</li>
-<li><strong>rho_update</strong> (<em>function</em><em>, </em><em>optional</em>) &#8211; Relaxation parameter update method</li>
-<li><strong>sigma_update</strong> (<em>function</em><em>, </em><em>optional</em>) &#8211; Proximal dual parameter update method</li>
-<li><strong>tau_update</strong> (<em>function</em><em>, </em><em>optional</em>) &#8211; Proximal primal parameter update method</li>
-<li><strong>auto_iterate</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) &#8211; Option to automatically begin iterations upon initialisation (default
-is &#8216;True&#8217;)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="sf_tools.signal.optimisation.Condat.iterate">
-<code class="descname">iterate</code><span class="sig-paren">(</span><em>max_iter=150</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/optimisation.html#Condat.iterate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.optimisation.Condat.iterate" title="Permalink to this definition">¶</a></dt>
-<dd><p>Iterate</p>
-<p>This method calls update until either convergence criteria is met or
-the maximum number of iterations is reached</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) &#8211; Maximum number of iterations (default is <code class="docutils literal"><span class="pre">150</span></code>)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="sf_tools.signal.optimisation.Condat.update">
-<code class="descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/optimisation.html#Condat.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.optimisation.Condat.update" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update</p>
-<p>This method updates the current reconstruction</p>
-<p class="rubric">Notes</p>
-<p>Implements equation 9 (algorithm 3.1) from <a class="reference internal" href="sf_tools.signal.html#con2013" id="id2">[Con2013]</a></p>
-<ul class="simple">
-<li>primal proximity operator set up for positivity constraint</li>
-</ul>
-</dd></dl>
-
-<dl class="method">
-<dt id="sf_tools.signal.optimisation.Condat.update_param">
-<code class="descname">update_param</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/optimisation.html#Condat.update_param"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.optimisation.Condat.update_param" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update parameters</p>
-<p>This method updates the values of <code class="docutils literal"><span class="pre">rho</span></code>, <code class="docutils literal"><span class="pre">sigma</span></code> and <code class="docutils literal"><span class="pre">tau</span></code> with
-the methods provided</p>
-</dd></dl>
-
-</dd></dl>
-
-<dl class="class">
 <dt id="sf_tools.signal.optimisation.FISTA">
 <em class="property">class </em><code class="descclassname">sf_tools.signal.optimisation.</code><code class="descname">FISTA</code><span class="sig-paren">(</span><em>lambda_init=None</em>, <em>active=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/optimisation.html#FISTA"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.optimisation.FISTA" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
@@ -322,8 +253,8 @@ the methods provided</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>lambda_init</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>, </em><em>optional</em>) &#8211; Initial value of the relaxation parameter</li>
-<li><strong>active</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) &#8211; Option to activate FISTA convergence speed-up (default is <code class="docutils literal"><span class="pre">True</span></code>)</li>
+<li><strong>lambda_init</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>, </em><em>optional</em>) – Initial value of the relaxation parameter</li>
+<li><strong>active</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to activate FISTA convergence speed-up (default is <code class="docutils literal"><span class="pre">True</span></code>)</li>
 </ul>
 </td>
 </tr>
@@ -338,17 +269,10 @@ the methods provided</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>turn_on</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) &#8211; Option to turn on speed-up (default is <code class="docutils literal"><span class="pre">True</span></code>)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>turn_on</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a>) – Option to turn on speed-up (default is <code class="docutils literal"><span class="pre">True</span></code>)</td>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="method">
-<dt id="sf_tools.signal.optimisation.FISTA.speed_up">
-<code class="descname">speed_up</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/optimisation.html#FISTA.speed_up"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.optimisation.FISTA.speed_up" title="Permalink to this definition">¶</a></dt>
-<dd><p>speed-up</p>
-<p>This method returns the update if the speed-up is active</p>
 </dd></dl>
 
 <dl class="method">
@@ -357,7 +281,14 @@ the methods provided</p>
 <dd><p>Update lambda</p>
 <p>This method updates the value of lambda</p>
 <p class="rubric">Notes</p>
-<p>Implements steps 3 and 4 from algoritm 10.7 in <a class="reference internal" href="sf_tools.signal.html#b2011" id="id3">[B2011]</a></p>
+<p>Implements steps 3 and 4 from algoritm 10.7 in <a class="reference internal" href="sf_tools.signal.html#b2011" id="id1">[B2011]</a></p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sf_tools.signal.optimisation.FISTA.speed_up">
+<code class="descname">speed_up</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/optimisation.html#FISTA.speed_up"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.optimisation.FISTA.speed_up" title="Permalink to this definition">¶</a></dt>
+<dd><p>speed-up</p>
+<p>This method returns the update if the speed-up is active</p>
 </dd></dl>
 
 </dd></dl>
@@ -374,20 +305,29 @@ option to use the FISTA speed-up</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<em>np.ndarray</em>) &#8211; Initial guess for the primal variable</li>
-<li><strong>grad</strong> (<em>class</em>) &#8211; Gradient operator class</li>
-<li><strong>prox</strong> (<em>class</em>) &#8211; Proximity operator class</li>
-<li><strong>cost</strong> (<em>class</em><em>, </em><em>optional</em>) &#8211; Cost function class</li>
-<li><strong>lambda_init</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>, </em><em>optional</em>) &#8211; Initial value of the relaxation parameter</li>
-<li><strong>lambda_update</strong> (<em>function</em><em>, </em><em>optional</em>) &#8211; Relaxation parameter update method</li>
-<li><strong>use_fista</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) &#8211; Option to use FISTA (default is <code class="docutils literal"><span class="pre">True</span></code>)</li>
-<li><strong>auto_iterate</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) &#8211; Option to automatically begin iterations upon initialisation (default
-is &#8216;True&#8217;)</li>
+<li><strong>x</strong> (<em>np.ndarray</em>) – Initial guess for the primal variable</li>
+<li><strong>grad</strong> (<em>class</em>) – Gradient operator class</li>
+<li><strong>prox</strong> (<em>class</em>) – Proximity operator class</li>
+<li><strong>cost</strong> (<em>class</em><em>, </em><em>optional</em>) – Cost function class</li>
+<li><strong>lambda_init</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>, </em><em>optional</em>) – Initial value of the relaxation parameter</li>
+<li><strong>lambda_update</strong> (<em>function</em><em>, </em><em>optional</em>) – Relaxation parameter update method</li>
+<li><strong>use_fista</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to use FISTA (default is <code class="docutils literal"><span class="pre">True</span></code>)</li>
+<li><strong>auto_iterate</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to automatically begin iterations upon initialisation (default
+is ‘True’)</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="sf_tools.signal.optimisation.ForwardBackward.update">
+<code class="descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/optimisation.html#ForwardBackward.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.optimisation.ForwardBackward.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update</p>
+<p>This method updates the current reconstruction</p>
+<p class="rubric">Notes</p>
+<p>Implements algorithm 10.7 (or 10.5) from <a class="reference internal" href="sf_tools.signal.html#b2011" id="id2">[B2011]</a></p>
+</dd></dl>
+
 <dl class="method">
 <dt id="sf_tools.signal.optimisation.ForwardBackward.iterate">
 <code class="descname">iterate</code><span class="sig-paren">(</span><em>max_iter=150</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/optimisation.html#ForwardBackward.iterate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.optimisation.ForwardBackward.iterate" title="Permalink to this definition">¶</a></dt>
@@ -398,19 +338,10 @@ the maximum number of iterations is reached</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) &#8211; Maximum number of iterations (default is <code class="docutils literal"><span class="pre">150</span></code>)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Maximum number of iterations (default is <code class="docutils literal"><span class="pre">150</span></code>)</td>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="method">
-<dt id="sf_tools.signal.optimisation.ForwardBackward.update">
-<code class="descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/optimisation.html#ForwardBackward.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.optimisation.ForwardBackward.update" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update</p>
-<p>This method updates the current reconstruction</p>
-<p class="rubric">Notes</p>
-<p>Implements algorithm 10.7 (or 10.5) from <a class="reference internal" href="sf_tools.signal.html#b2011" id="id4">[B2011]</a></p>
 </dd></dl>
 
 </dd></dl>
@@ -420,26 +351,35 @@ the maximum number of iterations is reached</p>
 <em class="property">class </em><code class="descclassname">sf_tools.signal.optimisation.</code><code class="descname">GenForwardBackward</code><span class="sig-paren">(</span><em>x</em>, <em>grad</em>, <em>prox_list</em>, <em>cost=None</em>, <em>lambda_init=1.0</em>, <em>lambda_update=None</em>, <em>weights=None</em>, <em>auto_iterate=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/optimisation.html#GenForwardBackward"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.optimisation.GenForwardBackward" title="Permalink to this definition">¶</a></dt>
 <dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
 <p>Generalized Forward-Backward optimisation</p>
-<p>This class implements algorithm 1 from <a class="reference internal" href="sf_tools.signal.html#r2012" id="id5">[R2012]</a></p>
+<p>This class implements algorithm 1 from <a class="reference internal" href="sf_tools.signal.html#r2012" id="id3">[R2012]</a></p>
 <table class="docutils field-list" frame="void" rules="none">
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>x</strong> (<em>np.ndarray</em>) &#8211; Initial guess for the primal variable</li>
-<li><strong>grad</strong> (<em>class</em>) &#8211; Gradient operator class</li>
-<li><strong>prox_list</strong> (<em>list</em>) &#8211; List of proximity operator classes</li>
-<li><strong>cost</strong> (<em>class</em><em>, </em><em>optional</em>) &#8211; Cost function class</li>
-<li><strong>lambda_init</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>, </em><em>optional</em>) &#8211; Initial value of the relaxation parameter</li>
-<li><strong>lambda_update</strong> (<em>function</em><em>, </em><em>optional</em>) &#8211; Relaxation parameter update method</li>
-<li><strong>weights</strong> (<em>np.ndarray</em><em>, </em><em>optional</em>) &#8211; Proximity operator weights</li>
-<li><strong>auto_iterate</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) &#8211; Option to automatically begin iterations upon initialisation (default
-is &#8216;True&#8217;)</li>
+<li><strong>x</strong> (<em>np.ndarray</em>) – Initial guess for the primal variable</li>
+<li><strong>grad</strong> (<em>class</em>) – Gradient operator class</li>
+<li><strong>prox_list</strong> (<em>list</em>) – List of proximity operator classes</li>
+<li><strong>cost</strong> (<em>class</em><em>, </em><em>optional</em>) – Cost function class</li>
+<li><strong>lambda_init</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a><em>, </em><em>optional</em>) – Initial value of the relaxation parameter</li>
+<li><strong>lambda_update</strong> (<em>function</em><em>, </em><em>optional</em>) – Relaxation parameter update method</li>
+<li><strong>weights</strong> (<em>np.ndarray</em><em>, </em><em>optional</em>) – Proximity operator weights</li>
+<li><strong>auto_iterate</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to automatically begin iterations upon initialisation (default
+is ‘True’)</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
+<dl class="method">
+<dt id="sf_tools.signal.optimisation.GenForwardBackward.update">
+<code class="descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/optimisation.html#GenForwardBackward.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.optimisation.GenForwardBackward.update" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update</p>
+<p>This method updates the current reconstruction</p>
+<p class="rubric">Notes</p>
+<p>Implements algorithm 1 from <a class="reference internal" href="sf_tools.signal.html#r2012" id="id4">[R2012]</a></p>
+</dd></dl>
+
 <dl class="method">
 <dt id="sf_tools.signal.optimisation.GenForwardBackward.iterate">
 <code class="descname">iterate</code><span class="sig-paren">(</span><em>max_iter=150</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/optimisation.html#GenForwardBackward.iterate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.optimisation.GenForwardBackward.iterate" title="Permalink to this definition">¶</a></dt>
@@ -450,19 +390,79 @@ the maximum number of iterations is reached</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) &#8211; Maximum number of iterations (default is <code class="docutils literal"><span class="pre">150</span></code>)</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Maximum number of iterations (default is <code class="docutils literal"><span class="pre">150</span></code>)</td>
 </tr>
 </tbody>
 </table>
 </dd></dl>
 
+</dd></dl>
+
+<dl class="class">
+<dt id="sf_tools.signal.optimisation.Condat">
+<em class="property">class </em><code class="descclassname">sf_tools.signal.optimisation.</code><code class="descname">Condat</code><span class="sig-paren">(</span><em>x</em>, <em>y</em>, <em>grad</em>, <em>prox</em>, <em>prox_dual</em>, <em>linear</em>, <em>cost</em>, <em>rho</em>, <em>sigma</em>, <em>tau</em>, <em>rho_update=None</em>, <em>sigma_update=None</em>, <em>tau_update=None</em>, <em>auto_iterate=True</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/optimisation.html#Condat"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.optimisation.Condat" title="Permalink to this definition">¶</a></dt>
+<dd><p>Bases: <a class="reference external" href="https://docs.python.org/2/library/functions.html#object" title="(in Python v2.7)"><code class="xref py py-class docutils literal"><span class="pre">object</span></code></a></p>
+<p>Condat optimisation</p>
+<p>This class implements algorithm 10.7 from <a class="reference internal" href="sf_tools.signal.html#con2013" id="id5">[Con2013]</a></p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>x</strong> (<em>np.ndarray</em>) – Initial guess for the primal variable</li>
+<li><strong>y</strong> (<em>np.ndarray</em>) – Initial guess for the dual variable</li>
+<li><strong>grad</strong> (<em>class</em>) – Gradient operator class</li>
+<li><strong>prox</strong> (<em>class</em>) – Proximity primal operator class</li>
+<li><strong>prox_dual</strong> (<em>class</em>) – Proximity dual operator class</li>
+<li><strong>linear</strong> (<em>class</em>) – Linear operator class</li>
+<li><strong>cost</strong> (<em>class</em>) – Cost function class</li>
+<li><strong>rho</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Relaxation parameter</li>
+<li><strong>sigma</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Proximal dual parameter</li>
+<li><strong>tau</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Proximal primal paramater</li>
+<li><strong>rho_update</strong> (<em>function</em><em>, </em><em>optional</em>) – Relaxation parameter update method</li>
+<li><strong>sigma_update</strong> (<em>function</em><em>, </em><em>optional</em>) – Proximal dual parameter update method</li>
+<li><strong>tau_update</strong> (<em>function</em><em>, </em><em>optional</em>) – Proximal primal parameter update method</li>
+<li><strong>auto_iterate</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to automatically begin iterations upon initialisation (default
+is ‘True’)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
 <dl class="method">
-<dt id="sf_tools.signal.optimisation.GenForwardBackward.update">
-<code class="descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/optimisation.html#GenForwardBackward.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.optimisation.GenForwardBackward.update" title="Permalink to this definition">¶</a></dt>
+<dt id="sf_tools.signal.optimisation.Condat.update_param">
+<code class="descname">update_param</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/optimisation.html#Condat.update_param"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.optimisation.Condat.update_param" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update parameters</p>
+<p>This method updates the values of <code class="docutils literal"><span class="pre">rho</span></code>, <code class="docutils literal"><span class="pre">sigma</span></code> and <code class="docutils literal"><span class="pre">tau</span></code> with
+the methods provided</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sf_tools.signal.optimisation.Condat.update">
+<code class="descname">update</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/optimisation.html#Condat.update"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.optimisation.Condat.update" title="Permalink to this definition">¶</a></dt>
 <dd><p>Update</p>
 <p>This method updates the current reconstruction</p>
 <p class="rubric">Notes</p>
-<p>Implements algorithm 1 from <a class="reference internal" href="sf_tools.signal.html#r2012" id="id6">[R2012]</a></p>
+<p>Implements equation 9 (algorithm 3.1) from <a class="reference internal" href="sf_tools.signal.html#con2013" id="id6">[Con2013]</a></p>
+<ul class="simple">
+<li>primal proximity operator set up for positivity constraint</li>
+</ul>
+</dd></dl>
+
+<dl class="method">
+<dt id="sf_tools.signal.optimisation.Condat.iterate">
+<code class="descname">iterate</code><span class="sig-paren">(</span><em>max_iter=150</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/signal/optimisation.html#Condat.iterate"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.signal.optimisation.Condat.iterate" title="Permalink to this definition">¶</a></dt>
+<dd><p>Iterate</p>
+<p>This method calls update until either convergence criteria is met or
+the maximum number of iterations is reached</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>max_iter</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Maximum number of iterations (default is <code class="docutils literal"><span class="pre">150</span></code>)</td>
+</tr>
+</tbody>
+</table>
 </dd></dl>
 
 </dd></dl>
@@ -523,7 +523,7 @@ the maximum number of iterations is reached</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

@@ -199,10 +199,10 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data_obs</strong> (<em>np.ndarray</em>) &#8211; Observed data array</li>
-<li><strong>data_exp</strong> (<em>np.ndarray</em>) &#8211; Expected data array</li>
-<li><strong>sigma</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Expected data error</li>
-<li><strong>ddof</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#input" title="(in Python v2.7)"><em>input</em></a>) &#8211; Delta degrees of freedom. Default (ddof = 1).</li>
+<li><strong>data_obs</strong> (<em>np.ndarray</em>) – Observed data array</li>
+<li><strong>data_exp</strong> (<em>np.ndarray</em>) – Expected data array</li>
+<li><strong>sigma</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Expected data error</li>
+<li><strong>ddof</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#input" title="(in Python v2.7)"><em>input</em></a>) – Delta degrees of freedom. Default (ddof = 1).</li>
 </ul>
 </td>
 </tr>
@@ -220,7 +220,7 @@
 <dt id="sf_tools.math.stats.gaussian">
 <code class="descclassname">sf_tools.math.stats.</code><code class="descname">gaussian</code><span class="sig-paren">(</span><em>point</em>, <em>mean</em>, <em>sigma</em>, <em>amplitude=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/math/stats.html#gaussian"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.math.stats.gaussian" title="Permalink to this definition">¶</a></dt>
 <dd><p>Gaussian distribution</p>
-<p>Method under development...</p>
+<p>Method under development…</p>
 </dd></dl>
 
 <dl class="function">
@@ -233,9 +233,9 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) &#8211; Desiered shape of the kernel</li>
-<li><strong>sigma</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) &#8211; Standard deviation of the kernel</li>
-<li><strong>norm</strong> (<em>str {'max'</em><em>, </em><em>'sum'}</em><em>, </em><em>optional</em>) &#8211; Normalisation of the kerenl (options are &#8216;max&#8217; or &#8216;sum&#8217;)</li>
+<li><strong>data_shape</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a>) – Desiered shape of the kernel</li>
+<li><strong>sigma</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#float" title="(in Python v2.7)"><em>float</em></a>) – Standard deviation of the kernel</li>
+<li><strong>norm</strong> (<em>str {'max'</em><em>, </em><em>'sum'}</em><em>, </em><em>optional</em>) – Normalisation of the kerenl (options are ‘max’ or ‘sum’)</li>
 </ul>
 </td>
 </tr>
@@ -258,7 +258,7 @@
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input data array</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) – Input data array</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
 </tr>
@@ -282,41 +282,13 @@
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>data1</strong> (<em>np.ndarray</em>) &#8211; First data set</li>
-<li><strong>data2</strong> (<em>np.ndarray</em>) &#8211; Second data set</li>
+<li><strong>data1</strong> (<em>np.ndarray</em>) – First data set</li>
+<li><strong>data2</strong> (<em>np.ndarray</em>) – Second data set</li>
 </ul>
 </td>
 </tr>
 </tbody>
 </table>
-</dd></dl>
-
-<dl class="function">
-<dt id="sf_tools.math.stats.psnr">
-<code class="descclassname">sf_tools.math.stats.</code><code class="descname">psnr</code><span class="sig-paren">(</span><em>image</em>, <em>recovered_image</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/math/stats.html#psnr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.math.stats.psnr" title="Permalink to this definition">¶</a></dt>
-<dd><p>Peak Signal-to-Noise Ratio</p>
-<p>This method calculates the PSNR between an image and the recovered version
-of that image</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>image</strong> (<em>np.ndarray</em>) &#8211; Input image, 2D array</li>
-<li><strong>recovered_image</strong> (<em>np.ndarray</em>) &#8211; Recovered image, 2D array</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float PSNR value</p>
-</td>
-</tr>
-</tbody>
-</table>
-<p class="rubric">Notes</p>
-<p>Implements eq.3.7 from _[S2010]</p>
 </dd></dl>
 
 <dl class="function">
@@ -330,9 +302,9 @@ of that image</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>image</strong> (<em>np.ndarray</em>) &#8211; Input image, 2D array</li>
-<li><strong>noisy_image</strong> (<em>np.ndarray</em>) &#8211; Noisy image, 2D array</li>
-<li><strong>max_pix</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) &#8211; Maximum number of pixels. Default (max_pix=255)</li>
+<li><strong>image</strong> (<em>np.ndarray</em>) – Input image, 2D array</li>
+<li><strong>noisy_image</strong> (<em>np.ndarray</em>) – Noisy image, 2D array</li>
+<li><strong>max_pix</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a>) – Maximum number of pixels. Default (max_pix=255)</li>
 </ul>
 </td>
 </tr>
@@ -352,6 +324,34 @@ of that image</p>
 </dd></dl>
 
 <dl class="function">
+<dt id="sf_tools.math.stats.psnr">
+<code class="descclassname">sf_tools.math.stats.</code><code class="descname">psnr</code><span class="sig-paren">(</span><em>image</em>, <em>recovered_image</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/math/stats.html#psnr"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.math.stats.psnr" title="Permalink to this definition">¶</a></dt>
+<dd><p>Peak Signal-to-Noise Ratio</p>
+<p>This method calculates the PSNR between an image and the recovered version
+of that image</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>image</strong> (<em>np.ndarray</em>) – Input image, 2D array</li>
+<li><strong>recovered_image</strong> (<em>np.ndarray</em>) – Recovered image, 2D array</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first last">float PSNR value</p>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Notes</p>
+<p>Implements eq.3.7 from _[S2010]</p>
+</dd></dl>
+
+<dl class="function">
 <dt id="sf_tools.math.stats.psnr_stack">
 <code class="descclassname">sf_tools.math.stats.</code><code class="descname">psnr_stack</code><span class="sig-paren">(</span><em>images</em>, <em>recoverd_images</em>, <em>metric=&lt;function mean&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/math/stats.html#psnr_stack"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.math.stats.psnr_stack" title="Permalink to this definition">¶</a></dt>
 <dd><p>Peak Signa-to-Noise for stack of images</p>
@@ -363,10 +363,10 @@ value of the PSNRs, but any other metric can be used.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>images</strong> (<em>np.ndarray</em>) &#8211; Stack of images, 3D array</li>
-<li><strong>recovered_images</strong> (<em>np.ndarray</em>) &#8211; Stack of recovered images, 3D array</li>
-<li><strong>metric</strong> (<em>function</em>) &#8211; The desired metric to be applied to the PSNR values (default is
-&#8216;np.mean&#8217;)</li>
+<li><strong>images</strong> (<em>np.ndarray</em>) – Stack of images, 3D array</li>
+<li><strong>recovered_images</strong> (<em>np.ndarray</em>) – Stack of recovered images, 3D array</li>
+<li><strong>metric</strong> (<em>function</em>) – The desired metric to be applied to the PSNR values (default is
+‘np.mean’)</li>
 </ul>
 </td>
 </tr>
@@ -376,7 +376,7 @@ value of the PSNRs, but any other metric can be used.</p>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float metric result of PSNR values</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; For invalid input data dimensions</p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> – For invalid input data dimensions</p>
 </td>
 </tr>
 </tbody>
@@ -393,7 +393,7 @@ MAD.</p>
 <col class="field-name" />
 <col class="field-body" />
 <tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input data array</td>
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>data</strong> (<em>np.ndarray</em>) – Input data array</td>
 </tr>
 <tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"></td>
 </tr>
@@ -465,7 +465,7 @@ imgaes.</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

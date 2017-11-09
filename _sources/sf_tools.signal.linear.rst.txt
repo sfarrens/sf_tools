@@ -1,5 +1,5 @@
-sf_tools.signal.linear module
-=============================
+sf\_tools\.signal\.linear module
+================================
 
 .. automodule:: sf_tools.signal.linear
     :members:

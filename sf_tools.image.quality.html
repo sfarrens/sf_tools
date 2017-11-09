@@ -193,58 +193,6 @@ reconstructions.</p>
 <p class="rubric">Notes</p>
 <p>Some of the methods in this module are based on work by Fred Ngole.</p>
 <dl class="function">
-<dt id="sf_tools.image.quality.e_error">
-<code class="descclassname">sf_tools.image.quality.</code><code class="descname">e_error</code><span class="sig-paren">(</span><em>image1</em>, <em>image2</em>, <em>metric=&lt;function mean&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/quality.html#e_error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.quality.e_error" title="Permalink to this definition">¶</a></dt>
-<dd><p>Normalised Mean Square Error</p>
-<p>This method computes the ellipticity error of two input images, or the
-result of the input metric on the ellipticity values.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>image1</strong> (<em>np.ndarray</em>) &#8211; First image to be analysed (original image)</li>
-<li><strong>image2</strong> (<em>np.ndarray</em>) &#8211; Second image to be analysed (reconstructed image)</li>
-<li><strong>metric</strong> (<em>function</em>) &#8211; Metric to be apllied to ellipticity error results (default is
-&#8216;np.mean&#8217;)</li>
-</ul>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
-</td>
-</tr>
-<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float ellipticity error value or metric value(s)</p>
-</td>
-</tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; For invalid input data dimensions</p>
-</td>
-</tr>
-</tbody>
-</table>
-<div class="admonition seealso">
-<p class="first admonition-title">See also</p>
-<dl class="last docutils">
-<dt><a class="reference internal" href="#sf_tools.image.quality.nmse" title="sf_tools.image.quality.nmse"><code class="xref py py-func docutils literal"><span class="pre">nmse()</span></code></a></dt>
-<dd>nmse error</dd>
-</dl>
-</div>
-<p class="rubric">Notes</p>
-<p>This method implements the following equation:</p>
-<blockquote>
-<div><ul class="simple">
-<li>Equations from <a class="reference internal" href="sf_tools.image.html#ns2016" id="id1">[NS2016]</a> sec 4.1:</li>
-</ul>
-<div class="math">
-\[\text{E}_\gamma = \frac{1}{D}\sum_{i=1}^D
-    \|\gamma(\text{Im}_i) - \gamma(\hat{\text{Im}}_i)\|_2\]</div>
-</div></blockquote>
-<p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">image.quality</span> <span class="k">import</span> <span class="n">e_error</span>
-</pre></div>
-</div>
-</dd></dl>
-
-<dl class="function">
 <dt id="sf_tools.image.quality.nmse">
 <code class="descclassname">sf_tools.image.quality.</code><code class="descname">nmse</code><span class="sig-paren">(</span><em>image1</em>, <em>image2</em>, <em>metric=&lt;function mean&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/quality.html#nmse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.quality.nmse" title="Permalink to this definition">¶</a></dt>
 <dd><p>Normalised Mean Square Error</p>
@@ -255,9 +203,9 @@ input metric on a stack of input images.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>image1</strong> (<em>np.ndarray</em>) &#8211; First image (or stack of images) to be analysed (original image)</li>
-<li><strong>image2</strong> (<em>np.ndarray</em>) &#8211; Second image (or stack of images) to be analysed (reconstructed image)</li>
-<li><strong>metric</strong> (<em>function</em>) &#8211; Metric to be apllied to NMSE results (default is &#8216;np.mean&#8217;)</li>
+<li><strong>image1</strong> (<em>np.ndarray</em>) – First image (or stack of images) to be analysed (original image)</li>
+<li><strong>image2</strong> (<em>np.ndarray</em>) – Second image (or stack of images) to be analysed (reconstructed image)</li>
+<li><strong>metric</strong> (<em>function</em>) – Metric to be apllied to NMSE results (default is ‘np.mean’)</li>
 </ul>
 </td>
 </tr>
@@ -267,7 +215,7 @@ input metric on a stack of input images.</p>
 <tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float NMSE value or metric value(s)</p>
 </td>
 </tr>
-<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> &#8211; For invalid input data dimensions</p>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> – For invalid input data dimensions</p>
 </td>
 </tr>
 </tbody>
@@ -283,7 +231,7 @@ input metric on a stack of input images.</p>
 <p>This method implements the following equation:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Equations from <a class="reference internal" href="sf_tools.image.html#ns2016" id="id2">[NS2016]</a> sec 4.1:</li>
+<li>Equations from <a class="reference internal" href="sf_tools.image.html#ns2016" id="id1">[NS2016]</a> sec 4.1:</li>
 </ul>
 <div class="math">
 \[\text{NMSE} = \frac{1}{D}\sum_{i=1}^D
@@ -292,6 +240,58 @@ input metric on a stack of input images.</p>
 </div></blockquote>
 <p class="rubric">Examples</p>
 <div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">image.quality</span> <span class="k">import</span> <span class="n">nmse</span>
+</pre></div>
+</div>
+</dd></dl>
+
+<dl class="function">
+<dt id="sf_tools.image.quality.e_error">
+<code class="descclassname">sf_tools.image.quality.</code><code class="descname">e_error</code><span class="sig-paren">(</span><em>image1</em>, <em>image2</em>, <em>metric=&lt;function mean&gt;</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/quality.html#e_error"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.quality.e_error" title="Permalink to this definition">¶</a></dt>
+<dd><p>Normalised Mean Square Error</p>
+<p>This method computes the ellipticity error of two input images, or the
+result of the input metric on the ellipticity values.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
+<li><strong>image1</strong> (<em>np.ndarray</em>) – First image to be analysed (original image)</li>
+<li><strong>image2</strong> (<em>np.ndarray</em>) – Second image to be analysed (reconstructed image)</li>
+<li><strong>metric</strong> (<em>function</em>) – Metric to be apllied to ellipticity error results (default is
+‘np.mean’)</li>
+</ul>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Returns:</th><td class="field-body"><p class="first"></p>
+</td>
+</tr>
+<tr class="field-odd field"><th class="field-name">Return type:</th><td class="field-body"><p class="first">float ellipticity error value or metric value(s)</p>
+</td>
+</tr>
+<tr class="field-even field"><th class="field-name">Raises:</th><td class="field-body"><p class="first last"><code class="xref py py-exc docutils literal"><span class="pre">ValueError</span></code> – For invalid input data dimensions</p>
+</td>
+</tr>
+</tbody>
+</table>
+<div class="admonition seealso">
+<p class="first admonition-title">See also</p>
+<dl class="last docutils">
+<dt><a class="reference internal" href="#sf_tools.image.quality.nmse" title="sf_tools.image.quality.nmse"><code class="xref py py-func docutils literal"><span class="pre">nmse()</span></code></a></dt>
+<dd>nmse error</dd>
+</dl>
+</div>
+<p class="rubric">Notes</p>
+<p>This method implements the following equation:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Equations from <a class="reference internal" href="sf_tools.image.html#ns2016" id="id2">[NS2016]</a> sec 4.1:</li>
+</ul>
+<div class="math">
+\[\text{E}_\gamma = \frac{1}{D}\sum_{i=1}^D
+    \|\gamma(\text{Im}_i) - \gamma(\hat{\text{Im}}_i)\|_2\]</div>
+</div></blockquote>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">image.quality</span> <span class="k">import</span> <span class="n">e_error</span>
 </pre></div>
 </div>
 </dd></dl>
@@ -352,7 +352,7 @@ input metric on a stack of input images.</p>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

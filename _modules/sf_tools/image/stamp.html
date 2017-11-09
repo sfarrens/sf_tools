@@ -322,7 +322,7 @@
         <span class="k">if</span> <span class="nb">all</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">n_pixels</span><span class="p">()</span>
 
-    <span class="k">def</span> <span class="nf">_check_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="FetchStamps._check_inputs"><a class="viewcode-back" href="../../../sf_tools.image.stamp.html#sf_tools.image.stamp.FetchStamps._check_inputs">[docs]</a>    <span class="k">def</span> <span class="nf">_check_inputs</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Check inputs</span>
 
 <span class="sd">        This method checks the class variable values.</span>
@@ -339,25 +339,25 @@
         <span class="k">if</span> <span class="bp">self</span><span class="o">.</span><span class="n">pixel_rad</span><span class="o">.</span><span class="n">size</span> <span class="o">==</span> <span class="mi">1</span><span class="p">:</span>
             <span class="bp">self</span><span class="o">.</span><span class="n">pixel_rad</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">repeat</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">pixel_rad</span><span class="p">,</span> <span class="mi">2</span><span class="p">)</span>
         <span class="k">elif</span> <span class="bp">self</span><span class="o">.</span><span class="n">pixel_rad</span><span class="o">.</span><span class="n">size</span> <span class="ow">not</span> <span class="ow">in</span> <span class="p">(</span><span class="mi">1</span><span class="p">,</span> <span class="mi">2</span><span class="p">):</span>
-            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;The pixel radius must have a size of 1 or 2.&#39;</span><span class="p">)</span>
+            <span class="k">raise</span> <span class="ne">ValueError</span><span class="p">(</span><span class="s1">&#39;The pixel radius must have a size of 1 or 2.&#39;</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">_pad_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="FetchStamps._pad_data"><a class="viewcode-back" href="../../../sf_tools.image.stamp.html#sf_tools.image.stamp.FetchStamps._pad_data">[docs]</a>    <span class="k">def</span> <span class="nf">_pad_data</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Pad data</span>
 
 <span class="sd">        This method pads the input array with zeros.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">pad_data</span> <span class="o">=</span> <span class="n">pad2d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pixel_rad</span><span class="p">)</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pad_data</span> <span class="o">=</span> <span class="n">pad2d</span><span class="p">(</span><span class="bp">self</span><span class="o">.</span><span class="n">data</span><span class="p">,</span> <span class="bp">self</span><span class="o">.</span><span class="n">pixel_rad</span><span class="p">)</span></div>
 
-    <span class="k">def</span> <span class="nf">_adjust_pixels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
+<div class="viewcode-block" id="FetchStamps._adjust_pixels"><a class="viewcode-back" href="../../../sf_tools.image.stamp.html#sf_tools.image.stamp.FetchStamps._adjust_pixels">[docs]</a>    <span class="k">def</span> <span class="nf">_adjust_pixels</span><span class="p">(</span><span class="bp">self</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Adjust pixels</span>
 
 <span class="sd">        This method adjusts the pixel positions according to the pixel radius.</span>
 
 <span class="sd">        &quot;&quot;&quot;</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">pixels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pixels</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">pixel_rad</span>
+        <span class="bp">self</span><span class="o">.</span><span class="n">pixels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pixels</span> <span class="o">%</span> <span class="bp">self</span><span class="o">.</span><span class="n">shape</span> <span class="o">+</span> <span class="bp">self</span><span class="o">.</span><span class="n">pixel_rad</span></div>
 
 <div class="viewcode-block" id="FetchStamps.get_pixels"><a class="viewcode-back" href="../../../sf_tools.image.stamp.html#sf_tools.image.stamp.FetchStamps.get_pixels">[docs]</a>    <span class="k">def</span> <span class="nf">get_pixels</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pixels</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Get pixels</span>
@@ -403,7 +403,7 @@
         <span class="bp">self</span><span class="o">.</span><span class="n">pixels</span> <span class="o">=</span> <span class="bp">self</span><span class="o">.</span><span class="n">pixels</span><span class="p">[:</span><span class="n">n_pixels</span><span class="p">]</span>
         <span class="bp">self</span><span class="o">.</span><span class="n">_adjust_pixels</span><span class="p">()</span></div>
 
-    <span class="k">def</span> <span class="nf">_stamp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
+<div class="viewcode-block" id="FetchStamps._stamp"><a class="viewcode-back" href="../../../sf_tools.image.stamp.html#sf_tools.image.stamp.FetchStamps._stamp">[docs]</a>    <span class="k">def</span> <span class="nf">_stamp</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">pos</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Stamp</span>
 
 <span class="sd">        This method retrieves a postage stamp from the padded input data at a</span>
@@ -435,7 +435,7 @@
         <span class="k">if</span> <span class="nb">isinstance</span><span class="p">(</span><span class="n">func</span><span class="p">,</span> <span class="nb">type</span><span class="p">(</span><span class="kc">None</span><span class="p">)):</span>
             <span class="k">return</span> <span class="n">stamp</span>
         <span class="k">else</span><span class="p">:</span>
-            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">stamp</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span>
+            <span class="k">return</span> <span class="n">func</span><span class="p">(</span><span class="n">stamp</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">)</span></div>
 
 <div class="viewcode-block" id="FetchStamps.scan"><a class="viewcode-back" href="../../../sf_tools.image.stamp.html#sf_tools.image.stamp.FetchStamps.scan">[docs]</a>    <span class="k">def</span> <span class="nf">scan</span><span class="p">(</span><span class="bp">self</span><span class="p">,</span> <span class="n">func</span><span class="o">=</span><span class="kc">None</span><span class="p">,</span> <span class="o">*</span><span class="n">args</span><span class="p">,</span> <span class="o">**</span><span class="n">kwargs</span><span class="p">):</span>
         <span class="sd">&quot;&quot;&quot;Scan stamps</span>
@@ -507,7 +507,7 @@
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

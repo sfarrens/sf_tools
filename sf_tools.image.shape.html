@@ -191,149 +191,6 @@
 </table>
 <p class="rubric">Notes</p>
 <p>Some of the methods in this module are based on work by Fred Ngole.</p>
-<dl class="class">
-<dt id="sf_tools.image.shape.Ellipticity">
-<em class="property">class </em><code class="descclassname">sf_tools.image.shape.</code><code class="descname">Ellipticity</code><span class="sig-paren">(</span><em>data</em>, <em>sigma=1000</em>, <em>centroid=None</em>, <em>moments=None</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/shape.html#Ellipticity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.shape.Ellipticity" title="Permalink to this definition">¶</a></dt>
-<dd><p>Image ellipticity class</p>
-<p>This class calculates image ellipticities from quadrupole moments.</p>
-<p class="rubric">Examples</p>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">image.shape</span> <span class="k">import</span> <span class="n">Ellipticity</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Ellipticity</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">e</span>
-<span class="go">array([-1.,  0.])</span>
-</pre></div>
-</div>
-<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
-<span class="gp">&gt;&gt;&gt; </span><span class="n">Ellipticity</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">e</span>
-<span class="go">array([ 1.,  0.])</span>
-</pre></div>
-</div>
-<p>Class initialiser</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
-<li><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input data array, the image to be analysed</li>
-<li><strong>sigma</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) &#8211; Estimation error (default is &#8216;1000&#8217;)</li>
-<li><strong>centroid</strong> (<em>np.ndarray</em><em>, </em><em>optional</em>) &#8211; Centroid positions [x, y] of the input image (defualt is &#8216;None&#8217;)</li>
-<li><strong>moments</strong> (<em>np.ndarray</em><em>, </em><em>optional</em>) &#8211; Quadrupole moments [[q00, q01], [q10, q11]] of the input image
-(defualt is &#8216;None&#8217;)</li>
-</ul>
-</td>
-</tr>
-</tbody>
-</table>
-<dl class="method">
-<dt id="sf_tools.image.shape.Ellipticity.get_centroid">
-<code class="descname">get_centroid</code><span class="sig-paren">(</span><em>n_iter=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/shape.html#Ellipticity.get_centroid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.shape.Ellipticity.get_centroid" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate centroid</p>
-<p>This method iteratively calculates the centroid of the image.</p>
-<table class="docutils field-list" frame="void" rules="none">
-<col class="field-name" />
-<col class="field-body" />
-<tbody valign="top">
-<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>n_iter</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) &#8211; Number of iterations (deafult is &#8216;10&#8217;)</td>
-</tr>
-</tbody>
-</table>
-</dd></dl>
-
-<dl class="method">
-<dt id="sf_tools.image.shape.Ellipticity.get_ellipse">
-<code class="descname">get_ellipse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/shape.html#Ellipticity.get_ellipse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.shape.Ellipticity.get_ellipse" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate the ellipticities</p>
-<p>This method cacluates ellipticities from quadrupole moments.</p>
-<p class="rubric">Notes</p>
-<p>This method implements the following equations:</p>
-<blockquote>
-<div><ul class="simple">
-<li>Equation 11 from <a class="reference internal" href="sf_tools.image.html#c2013" id="id1">[C2013]</a> to calculate the size:</li>
-</ul>
-<div class="math">
-\[R^2 = Q_{00} + Q_{11}\]</div>
-<ul class="simple">
-<li>Equation 12 from <a class="reference internal" href="sf_tools.image.html#c2013" id="id2">[C2013]</a> to calculate the ellipticities:</li>
-</ul>
-<div class="math">
-\[\varepsilon = [\varepsilon_1,\varepsilon_2] =
-   \left[\frac{Q_{00}-Q_{11}}{R^2},
-   \frac{Q_{01}+Q_{10}}{R^2}\right]\]</div>
-</div></blockquote>
-</dd></dl>
-
-<dl class="method">
-<dt id="sf_tools.image.shape.Ellipticity.get_moments">
-<code class="descname">get_moments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/shape.html#Ellipticity.get_moments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.shape.Ellipticity.get_moments" title="Permalink to this definition">¶</a></dt>
-<dd><p>Calculate the quadrupole moments</p>
-<p>This method calculates the quadrupole moments.</p>
-<p class="rubric">Notes</p>
-<p>This method implements the following equations:</p>
-<blockquote>
-<div><ul class="simple">
-<li>Equation 10 from <a class="reference internal" href="sf_tools.image.html#c2013" id="id3">[C2013]</a> to calculate the moments:</li>
-</ul>
-<div class="math">
-\[Q_{ij}=\frac{\int\int\Phi(x_i,x_j) w(x_i,x_j)
-    (x_i-\bar{x_i})(x_j-\bar{x_j}) dx_idx_j}
-    {\int\int\Phi(x_i,x_j)w(x_i,x_j)dx_idx_j}\]</div>
-</div></blockquote>
-</dd></dl>
-
-<dl class="method">
-<dt id="sf_tools.image.shape.Ellipticity.update_centroid">
-<code class="descname">update_centroid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/shape.html#Ellipticity.update_centroid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.shape.Ellipticity.update_centroid" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update the centroid</p>
-<p>This method updates the centroid value using the current weights.</p>
-<p class="rubric">Notes</p>
-<p>This method implements the following equations:</p>
-<blockquote>
-<div><ul class="simple">
-<li>Equation 2a, 2b and 2c from <a class="reference internal" href="sf_tools.image.html#bm2007" id="id4">[BM2007]</a> to calculate the position
-moments:</li>
-</ul>
-<div class="math">
-\[ \begin{align}\begin{aligned}S_w = \sum_{x,y} I(x,y)w(x,y)\\S_x = \sum_{x,y} xI(x,y)w(x,y)\\S_y = \sum_{x,y} yI(x,y)w(x,y)\end{aligned}\end{align} \]</div>
-<ul class="simple">
-<li>Equation 3 from <a class="reference internal" href="sf_tools.image.html#bm2007" id="id5">[BM2007]</a> to calculate the centroid:</li>
-</ul>
-<div class="math">
-\[X_c = S_x/S_w,\
-Y_c = S_y/S_w\]</div>
-</div></blockquote>
-</dd></dl>
-
-<dl class="method">
-<dt id="sf_tools.image.shape.Ellipticity.update_weights">
-<code class="descname">update_weights</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/shape.html#Ellipticity.update_weights"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.shape.Ellipticity.update_weights" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update the weights</p>
-<p>This method updates the value of the weights using the current values
-of x and y.</p>
-<p class="rubric">Notes</p>
-<p>This method implements the following equations:</p>
-<blockquote>
-<div><ul class="simple">
-<li>The exponential part of equation 1 from <a class="reference internal" href="sf_tools.image.html#bm2007" id="id6">[BM2007]</a> to calculate
-the weights:</li>
-</ul>
-<div class="math">
-\[w(x,y) = e^{-\frac{\left((x-x_c)^2+(y-y_c)^2\right)}
-    {2\sigma^2}}\]</div>
-</div></blockquote>
-</dd></dl>
-
-<dl class="method">
-<dt id="sf_tools.image.shape.Ellipticity.update_xy">
-<code class="descname">update_xy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/shape.html#Ellipticity.update_xy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.shape.Ellipticity.update_xy" title="Permalink to this definition">¶</a></dt>
-<dd><p>Update the x and y values</p>
-<p>This method updates the values of x and y using the current centroid.</p>
-</dd></dl>
-
-</dd></dl>
-
 <dl class="function">
 <dt id="sf_tools.image.shape.ellipticity_atoms">
 <code class="descclassname">sf_tools.image.shape.</code><code class="descname">ellipticity_atoms</code><span class="sig-paren">(</span><em>data</em>, <em>offset=0</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/shape.html#ellipticity_atoms"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.shape.ellipticity_atoms" title="Permalink to this definition">¶</a></dt>
@@ -345,8 +202,8 @@ projection components.</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>data</strong> (<em>np.ndarray</em>) &#8211; Input data array, the image to be analysed</li>
-<li><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) &#8211; Shape projection offset (default is &#8216;0&#8217;)</li>
+<li><strong>data</strong> (<em>np.ndarray</em>) – Input data array, the image to be analysed</li>
+<li><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Shape projection offset (default is ‘0’)</li>
 </ul>
 </td>
 </tr>
@@ -370,7 +227,7 @@ projection components.</p>
 equations:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Equations C.1 and C.2 from <a class="reference internal" href="sf_tools.image.html#ns2016" id="id7">[NS2016]</a> appendix:</li>
+<li>Equations C.1 and C.2 from <a class="reference internal" href="sf_tools.image.html#ns2016" id="id1">[NS2016]</a> appendix:</li>
 </ul>
 <div class="math">
 \[ \begin{align}\begin{aligned}e_1(\mathbf{X}_i) = \frac{&lt;\mathbf{X}_i, \mathbf{U}_4&gt;
@@ -418,10 +275,10 @@ equations:</p>
 <col class="field-body" />
 <tbody valign="top">
 <tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first simple">
-<li><strong>shape</strong> (<em>list</em><em>, </em><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a><em> or </em><em>np.ndarray</em>) &#8211; List of image dimensions</li>
-<li><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) &#8211; Shape projection offset (default is &#8216;0&#8217;)</li>
-<li><strong>return_norm</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) &#8211; Option to return l2 normalised shape projection components
-(default is &#8216;False&#8217;)</li>
+<li><strong>shape</strong> (<em>list</em><em>, </em><a class="reference external" href="https://docs.python.org/2/library/functions.html#tuple" title="(in Python v2.7)"><em>tuple</em></a><em> or </em><em>np.ndarray</em>) – List of image dimensions</li>
+<li><strong>offset</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Shape projection offset (default is ‘0’)</li>
+<li><strong>return_norm</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#bool" title="(in Python v2.7)"><em>bool</em></a><em>, </em><em>optional</em>) – Option to return l2 normalised shape projection components
+(default is ‘False’)</li>
 </ul>
 </td>
 </tr>
@@ -445,7 +302,7 @@ equations:</p>
 equations:</p>
 <blockquote>
 <div><ul class="simple">
-<li>Equations from <a class="reference internal" href="sf_tools.image.html#ns2016" id="id8">[NS2016]</a> appendix:</li>
+<li>Equations from <a class="reference internal" href="sf_tools.image.html#ns2016" id="id2">[NS2016]</a> appendix:</li>
 </ul>
 <div class="math">
 \[\begin{split}U_1 &amp;= (k)_{1 \leq k \leq N_l, 1 \leq l \leq N_c} \\
@@ -483,6 +340,163 @@ U_6 &amp;= (kl)_{1 \leq k \leq N_l, 1 \leq l \leq N_c}\end{split}\]</div>
 <span class="go">        [ 0.,  2.,  4.]]])</span>
 </pre></div>
 </div>
+</dd></dl>
+
+<dl class="class">
+<dt id="sf_tools.image.shape.Ellipticity">
+<em class="property">class </em><code class="descclassname">sf_tools.image.shape.</code><code class="descname">Ellipticity</code><span class="sig-paren">(</span><em>data</em>, <em>sigma=1000</em>, <em>centroid=None</em>, <em>moments=None</em>, <em>ellip_type='chi'</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/shape.html#Ellipticity"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.shape.Ellipticity" title="Permalink to this definition">¶</a></dt>
+<dd><p>Image ellipticity class</p>
+<p>This class calculates image ellipticities from quadrupole moments.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><ul class="first last simple">
+<li><strong>data</strong> (<em>np.ndarray</em>) – Input data array, the image to be analysed</li>
+<li><strong>sigma</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Estimation error (default is ‘1000’)</li>
+<li><strong>centroid</strong> (<em>np.ndarray</em><em>, </em><em>optional</em>) – Centroid positions [x, y] of the input image (defualt is ‘None’)</li>
+<li><strong>moments</strong> (<em>np.ndarray</em><em>, </em><em>optional</em>) – Quadrupole moments [[q00, q01], [q10, q11]] of the input image
+(defualt is ‘None’)</li>
+<li><strong>type</strong> (<em>str {'chi'</em><em>, </em><em>'epsilon'}</em><em>, </em><em>optional</em>) – Ellipticity type (default is ‘chi’)</li>
+</ul>
+</td>
+</tr>
+</tbody>
+</table>
+<p class="rubric">Examples</p>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="kn">from</span> <span class="nn">image.shape</span> <span class="k">import</span> <span class="n">Ellipticity</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="kn">import</span> <span class="nn">numpy</span> <span class="k">as</span> <span class="nn">np</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">a</span><span class="p">[</span><span class="mi">2</span><span class="p">,</span> <span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ellipticity</span><span class="p">(</span><span class="n">a</span><span class="p">)</span><span class="o">.</span><span class="n">e</span>
+<span class="go">array([-1.,  0.])</span>
+</pre></div>
+</div>
+<div class="highlight-default"><div class="highlight"><pre><span></span><span class="gp">&gt;&gt;&gt; </span><span class="n">b</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">zeros</span><span class="p">((</span><span class="mi">5</span><span class="p">,</span> <span class="mi">5</span><span class="p">))</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">b</span><span class="p">[</span><span class="mi">1</span><span class="p">:</span><span class="mi">4</span><span class="p">,</span> <span class="mi">2</span><span class="p">]</span> <span class="o">+=</span> <span class="mi">1</span>
+<span class="gp">&gt;&gt;&gt; </span><span class="n">Ellipticity</span><span class="p">(</span><span class="n">b</span><span class="p">)</span><span class="o">.</span><span class="n">e</span>
+<span class="go">array([ 1.,  0.])</span>
+</pre></div>
+</div>
+<dl class="method">
+<dt id="sf_tools.image.shape.Ellipticity._check_ellip_type">
+<code class="descname">_check_ellip_type</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/shape.html#Ellipticity._check_ellip_type"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.shape.Ellipticity._check_ellip_type" title="Permalink to this definition">¶</a></dt>
+<dd><p>Check Ellipticity Type</p>
+<p>This method raises an error if ellip_type is not ‘chi’ or ‘epsilon’.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Raises:</th><td class="field-body">ValueError for invalid ellip_type</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sf_tools.image.shape.Ellipticity._update_xy">
+<code class="descname">_update_xy</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/shape.html#Ellipticity._update_xy"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.shape.Ellipticity._update_xy" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the x and y values</p>
+<p>This method updates the values of x and y using the current centroid.</p>
+</dd></dl>
+
+<dl class="method">
+<dt id="sf_tools.image.shape.Ellipticity._update_weights">
+<code class="descname">_update_weights</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/shape.html#Ellipticity._update_weights"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.shape.Ellipticity._update_weights" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the weights</p>
+<p>This method updates the value of the weights using the current values
+of x and y.</p>
+<p class="rubric">Notes</p>
+<p>This method implements the following equations:</p>
+<blockquote>
+<div><ul class="simple">
+<li>The exponential part of equation 1 from <a class="reference internal" href="sf_tools.image.html#bm2007" id="id3">[BM2007]</a> to calculate
+the weights:</li>
+</ul>
+<div class="math">
+\[w(x,y) = e^{-\frac{\left((x-x_c)^2+(y-y_c)^2\right)}
+    {2\sigma^2}}\]</div>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="sf_tools.image.shape.Ellipticity._update_centroid">
+<code class="descname">_update_centroid</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/shape.html#Ellipticity._update_centroid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.shape.Ellipticity._update_centroid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Update the centroid</p>
+<p>This method updates the centroid value using the current weights.</p>
+<p class="rubric">Notes</p>
+<p>This method implements the following equations:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Equation 2a, 2b and 2c from <a class="reference internal" href="sf_tools.image.html#bm2007" id="id4">[BM2007]</a> to calculate the position
+moments:</li>
+</ul>
+<div class="math">
+\[ \begin{align}\begin{aligned}S_w = \sum_{x,y} I(x,y)w(x,y)\\S_x = \sum_{x,y} xI(x,y)w(x,y)\\S_y = \sum_{x,y} yI(x,y)w(x,y)\end{aligned}\end{align} \]</div>
+<ul class="simple">
+<li>Equation 3 from <a class="reference internal" href="sf_tools.image.html#bm2007" id="id5">[BM2007]</a> to calculate the centroid:</li>
+</ul>
+<div class="math">
+\[X_c = S_x/S_w,\
+Y_c = S_y/S_w\]</div>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="sf_tools.image.shape.Ellipticity._get_centroid">
+<code class="descname">_get_centroid</code><span class="sig-paren">(</span><em>n_iter=10</em><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/shape.html#Ellipticity._get_centroid"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.shape.Ellipticity._get_centroid" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate centroid</p>
+<p>This method iteratively calculates the centroid of the image.</p>
+<table class="docutils field-list" frame="void" rules="none">
+<col class="field-name" />
+<col class="field-body" />
+<tbody valign="top">
+<tr class="field-odd field"><th class="field-name">Parameters:</th><td class="field-body"><strong>n_iter</strong> (<a class="reference external" href="https://docs.python.org/2/library/functions.html#int" title="(in Python v2.7)"><em>int</em></a><em>, </em><em>optional</em>) – Number of iterations (deafult is ‘10’)</td>
+</tr>
+</tbody>
+</table>
+</dd></dl>
+
+<dl class="method">
+<dt id="sf_tools.image.shape.Ellipticity._get_moments">
+<code class="descname">_get_moments</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/shape.html#Ellipticity._get_moments"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.shape.Ellipticity._get_moments" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the quadrupole moments</p>
+<p>This method calculates the quadrupole moments.</p>
+<p class="rubric">Notes</p>
+<p>This method implements the following equations:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Equation 10 from <a class="reference internal" href="sf_tools.image.html#c2013" id="id6">[C2013]</a> to calculate the moments:</li>
+</ul>
+<div class="math">
+\[Q_{ij}=\frac{\int\int\Phi(x_i,x_j) w(x_i,x_j)
+    (x_i-\bar{x_i})(x_j-\bar{x_j}) dx_idx_j}
+    {\int\int\Phi(x_i,x_j)w(x_i,x_j)dx_idx_j}\]</div>
+</div></blockquote>
+</dd></dl>
+
+<dl class="method">
+<dt id="sf_tools.image.shape.Ellipticity._get_ellipse">
+<code class="descname">_get_ellipse</code><span class="sig-paren">(</span><span class="sig-paren">)</span><a class="reference internal" href="_modules/sf_tools/image/shape.html#Ellipticity._get_ellipse"><span class="viewcode-link">[source]</span></a><a class="headerlink" href="#sf_tools.image.shape.Ellipticity._get_ellipse" title="Permalink to this definition">¶</a></dt>
+<dd><p>Calculate the ellipticities</p>
+<p>This method cacluates ellipticities from quadrupole moments.</p>
+<p class="rubric">Notes</p>
+<p>This method implements the following equations:</p>
+<blockquote>
+<div><ul class="simple">
+<li>Equation 11 from <a class="reference internal" href="sf_tools.image.html#c2013" id="id7">[C2013]</a> to calculate the size:</li>
+</ul>
+<div class="math">
+\[R^2 = Q_{00} + Q_{11}\]</div>
+<ul class="simple">
+<li>Equation 7 from <a class="reference internal" href="sf_tools.image.html#s2005" id="id8">[S2005]</a> to calculate the ellipticities:</li>
+</ul>
+<div class="math">
+\[ \begin{align}\begin{aligned}\chi = \frac{Q_{00}-Q_{11}+iQ_{01}+iQ_{10}}{R^2}\\\epsilon = \frac{Q_{00}-Q_{11}+iQ_{01}+iQ_{10}}{R^2 +
+    2\sqrt{(Q_{00}Q_{11} - Q_{01}Q_{10})}}\end{aligned}\end{align} \]</div>
+</div></blockquote>
+</dd></dl>
+
 </dd></dl>
 
 </div>
@@ -541,7 +555,7 @@ U_6 &amp;= (kl)_{1 \leq k \leq N_l, 1 \leq l \leq N_c}\end{split}\]</div>
       <script type="text/javascript" src="_static/jquery.js"></script>
       <script type="text/javascript" src="_static/underscore.js"></script>
       <script type="text/javascript" src="_static/doctools.js"></script>
-      <script type="text/javascript" src="https://cdn.mathjax.org/mathjax/latest/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
 

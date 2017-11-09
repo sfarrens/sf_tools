@@ -1,5 +1,5 @@
-sf_tools.signal.wavelet module
-==============================
+sf\_tools\.signal\.wavelet module
+=================================
 
 .. automodule:: sf_tools.signal.wavelet
     :members:

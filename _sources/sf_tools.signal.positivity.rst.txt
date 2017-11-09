@@ -1,5 +1,5 @@
-sf_tools.signal.positivity module
-=================================
+sf\_tools\.signal\.positivity module
+====================================
 
 .. automodule:: sf_tools.signal.positivity
     :members:
