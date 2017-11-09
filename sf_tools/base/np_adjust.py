@@ -100,7 +100,7 @@ def pad2d(data, padding):
     ----------
     data : np.ndarray
         Input data array (at least 2D)
-    shape : tuple
+    padding : int, tuple
         Amount of padding in x and y directions, respectively
 
     Returns
@@ -129,12 +129,21 @@ def pad2d(data, padding):
     """
 
     data = np.array(data)
-    shape = np.array(data.shape)
 
-    if shape.ndim == 1:
-        shape = np.repeat(shape, 2)
+    if isinstance(padding, int):
+        padding = np.array([padding])
+    elif isinstance(padding, (tuple, list)):
+        padding = np.array(padding)
+    elif isinstance(padding, np.ndarray):
+        pass
+    else:
+        raise ValueError('Padding must be an integer or a tuple (or list, '
+                         'np.ndarray) of itegers')
 
-    return np.pad(data, ((shape[0], shape[0]), (shape[1], shape[1])),
+    if padding.ndim == 1:
+        padding = np.repeat(padding, 2)
+
+    return np.pad(data, ((padding[0], padding[0]), (padding[1], padding[1])),
                   'constant')
 
 
