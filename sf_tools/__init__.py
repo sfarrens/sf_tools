@@ -13,7 +13,10 @@ signal processing and statistics.
 
 """
 
-from sf_tools.base import *
+__all__ = ['base', 'image', 'interface', 'math', 'plot', 'signal']
+
+from . import *
+from .base import *
 
 version_info = (1, 0, 1)
 __version__ = '.'.join(str(c) for c in version_info)

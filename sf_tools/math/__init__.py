@@ -11,3 +11,7 @@ This module contains submodules for mathematical applications.
 :Date: 06/04/2017
 
 """
+
+__all__ = ['angle', 'integrate', 'matrix', 'misc', 'stats']
+
+from . import *

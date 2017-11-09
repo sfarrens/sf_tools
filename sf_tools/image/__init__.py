@@ -27,3 +27,7 @@ References
     [https://arxiv.org/abs/astro-ph/0509252]
 
 """
+
+__all__ = ['convolve', 'distort', 'quality', 'shape', 'stamp', 'stats']
+
+from . import *

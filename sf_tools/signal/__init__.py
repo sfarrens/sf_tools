@@ -30,3 +30,9 @@ References
     14(5):877-905. [https://arxiv.org/abs/0711.1612]
 
 """
+
+__all__ = ['cost', 'filter', 'gradient', 'linear', 'noise', 'optimisation',
+           'positivity', 'proximity', 'regression', 'reweight', 'svd', 'tests',
+           'wavelet']
+
+from . import *

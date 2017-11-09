@@ -11,3 +11,7 @@ This module contains submodules for plotting applications.
 :Date: 19/07/2017
 
 """
+
+__all__ = ['cost_plot']
+
+from . import *
