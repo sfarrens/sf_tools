@@ -149,7 +149,7 @@ def convolve_stack(data, kernel, rot_kernel=False, method='astropy'):
                     kernel_i in zip(data, kernel)])
 
 
-def psf_convolve(data, psf, psf_rot=False, psf_type='fixed', method='astropy'):
+def psf_convolve(data, psf, psf_rot=False, method='astropy'):
     """Convolve data with PSF
 
     This method convolves an image with a PSF
@@ -157,22 +157,15 @@ def psf_convolve(data, psf, psf_rot=False, psf_type='fixed', method='astropy'):
     Parameters
     ----------
     data : np.ndarray
-        Input data array, normally an array of 2D images
+        Input data array, either a single 2D image or an array of 2D
+        images
     psf : np.ndarray
         Input PSF array, normally either a single 2D PSF or an array of 2D
         PSFs
     psf_rot: bool
         Option to rotate PSF by 180 degrees
-    psf_type : str {'fixed', 'obj_var'}, optional
-        PSF type (default is 'fixed')
     method : str {'astropy', 'scipy'}, optional
         Convolution method (default is 'astropy')
-
-        'fixed':
-            The PSF is fixed, i.e. it is the same for each image
-
-        'obj_var':
-            The PSF is object variant, i.e. it is different for each image
 
     Returns
     -------
@@ -181,26 +174,31 @@ def psf_convolve(data, psf, psf_rot=False, psf_type='fixed', method='astropy'):
     Raises
     ------
     ValueError
-        If `psf_type` is not 'fixed' or 'obj_var'
 
     """
 
-    if psf_type not in ('fixed', 'obj_var'):
-        raise ValueError('Invalid PSF type. Options are "fixed" or "obj_var"')
+    if not data.ndim and psf.ndim in (2, 3):
+        raise ValueError('Invalid input dimensions. Input data and PSF must '
+                         'have dimensions of 2 or 3.')
 
-    if psf_rot and psf_type == 'fixed':
+    if data.ndim < psf.ndim:
+        raise ValueError('Cannot process multiple PSFs for a single image.')
+
+    if psf_rot and psf.ndim == 2:
         psf = rotate(psf)
 
     elif psf_rot:
         psf = rotate_stack(psf)
 
-    if psf_type == 'fixed':
+    if data.ndim == psf.ndim == 2:
+        return convolve(data, psf, method=method)
+
+    elif data.ndim == psf.ndim == 3:
+        return convolve_stack(data, psf, method=method)
+
+    else:
         return np.array([convolve(data_i, psf, method=method) for data_i in
                         data])
-
-    elif psf_type == 'obj_var':
-
-        return convolve_stack(data, psf)
 
 
 def pseudo_inverse(image, kernel, weight=None):
