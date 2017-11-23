@@ -18,14 +18,62 @@ from unittest import main, TestCase
 from sf_tools.image import *
 
 
+class ConvolveTestCase(TestCase):
+
+    def setUp(self):
+
+        self.data1 = np.arange(18).reshape(2, 3, 3)
+        self.data2 = self.data1 + 1
+
+    def tearDown(self):
+
+        self.data1 = None
+        self.data2 = None
+
+    def test_convolve_astropy(self):
+
+        assert_allclose(convolve.convolve(self.data1[0], self.data2[0],
+                        method='astropy'),
+                        np.array([[210., 201., 210.], [129., 120., 129.],
+                                 [210., 201., 210.]]),
+                        err_msg='Incorrect convolution: astropy')
+
+    def test_convolve_scipy(self):
+
+        assert_allclose(convolve.convolve(self.data1[0], self.data2[0],
+                        method='scipy'),
+                        np.array([[14., 35., 38.], [57., 120., 111.],
+                                 [110., 197., 158.]]),
+                        err_msg='Incorrect convolution: scipy')
+
+    def test_convolve_stack(self):
+
+        assert_allclose(convolve.convolve_stack(self.data1, self.data2),
+                        np.array([[[210., 201., 210.], [129., 120., 129.],
+                                  [210., 201., 210.]],
+                                 [[1668., 1659., 1668.], [1587., 1578., 1587.],
+                                  [1668., 1659., 1668.]]]),
+                        err_msg='Incorrect convolution: stack')
+
+    def test_convolve_stack_rot(self):
+
+        assert_allclose(convolve.convolve_stack(self.data1, self.data2,
+                        rot_kernel=True),
+                        np.array([[[150., 159., 150.], [231., 240., 231.],
+                                  [150., 159., 150.]],
+                                 [[1608., 1617., 1608.], [1689., 1698., 1689.],
+                                  [1608., 1617., 1608.]]]),
+                        err_msg='Incorrect convolution: stack rot')
+
+
 class QualityTestCase(TestCase):
 
     def setUp(self):
 
-        np.random.seed(1)
-        self.data1 = np.random.ranf((5, 5))
-        np.random.seed(2)
-        self.data2 = np.random.ranf((5, 5))
+        self.data1 = np.arange(25).reshape(5, 5)
+        data2 = np.copy(self.data1)
+        data2[2] = 0
+        self.data2 = data2
 
     def tearDown(self):
 
@@ -35,12 +83,12 @@ class QualityTestCase(TestCase):
     def test_nmse(self):
 
         assert_almost_equal(quality.nmse(self.data1, self.data2),
-                            0.57003829763446101, err_msg='Incorrect NMSE')
+                            0.1489795918367347, err_msg='Incorrect NMSE')
 
     def test_e_error(self):
 
         assert_almost_equal(quality.e_error(self.data1, self.data2),
-                            0.21172107960738937, err_msg='Incorrect '
+                            0.042727397878588612, err_msg='Incorrect '
                             'ellipticity error')
 
 
