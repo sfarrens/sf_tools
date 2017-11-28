@@ -3,8 +3,11 @@ SF_TOOLS
 
 |travis|
 
-.. |travis| image:: https://travis-ci.org/sfarrens/sf_tools.svg?branch=master
-  :target: https://travis-ci.org/sfarrens/sf_tools
+.. |travis| raw:: html
+
+  <a href="https://travis-ci.org/sfarrens/sf_tools"
+  target="_blank"><img
+  src="https://travis-ci.org/sfarrens/sf_tools.svg?branch=master"></a>
 
 :Author: Samuel Farrens `(samuel.farrens@gmail.com) <samuel.farrens@gmail.com>`_
 
