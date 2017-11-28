@@ -1,3 +1,4 @@
 # Ignore Python byte code
 *.pyc
 *.sh
+*.cache/

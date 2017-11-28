@@ -194,7 +194,7 @@ class Ellipticity():
     moments : np.ndarray, optional
         Quadrupole moments [[q00, q01], [q10, q11]] of the input image
         (defualt is 'None')
-    type : str {'chi', 'epsilon'}, optional
+    ellip_type : str {'chi', 'epsilon'}, optional
         Ellipticity type (default is 'chi')
 
     Examples
@@ -420,4 +420,4 @@ class Ellipticity():
         # Calculate the ellipticity
         ellip = numerator / denominator
 
-        self.e = (ellip.real, ellip.imag)
+        self.e = np.array([ellip.real, ellip.imag])
