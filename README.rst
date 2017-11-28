@@ -1,6 +1,11 @@
 SF_TOOLS
 ========
 
+|travis|
+
+.. |travis| image:: https://travis-ci.org/sfarrens/sf_tools.svg?branch=master
+  :target: https://travis-ci.org/sfarrens/sf_tools
+
 :Author: Samuel Farrens `(samuel.farrens@gmail.com) <samuel.farrens@gmail.com>`_
 
 :Version: 1.0.1
