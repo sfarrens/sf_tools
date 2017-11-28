@@ -12,8 +12,9 @@ This module contains unit tests for the sf_tools.image module.
 
 """
 
+import pytest
 import numpy as np
-from numpy.testing import *
+import numpy.testing as npt
 from unittest import main, TestCase
 from sf_tools.image import *
 
@@ -32,38 +33,41 @@ class ConvolveTestCase(TestCase):
 
     def test_convolve_astropy(self):
 
-        assert_allclose(convolve.convolve(self.data1[0], self.data2[0],
-                        method='astropy'),
-                        np.array([[210., 201., 210.], [129., 120., 129.],
-                                 [210., 201., 210.]]),
-                        err_msg='Incorrect convolution: astropy')
+        npt.assert_allclose(convolve.convolve(self.data1[0], self.data2[0],
+                            method='astropy'),
+                            np.array([[210., 201., 210.], [129., 120., 129.],
+                                     [210., 201., 210.]]),
+                            err_msg='Incorrect convolution: astropy')
 
     def test_convolve_scipy(self):
 
-        assert_allclose(convolve.convolve(self.data1[0], self.data2[0],
-                        method='scipy'),
-                        np.array([[14., 35., 38.], [57., 120., 111.],
-                                 [110., 197., 158.]]),
-                        err_msg='Incorrect convolution: scipy')
+        npt.assert_allclose(convolve.convolve(self.data1[0], self.data2[0],
+                            method='scipy'),
+                            np.array([[14., 35., 38.], [57., 120., 111.],
+                                     [110., 197., 158.]]),
+                            err_msg='Incorrect convolution: scipy')
 
     def test_convolve_stack(self):
 
-        assert_allclose(convolve.convolve_stack(self.data1, self.data2),
-                        np.array([[[210., 201., 210.], [129., 120., 129.],
-                                  [210., 201., 210.]],
-                                 [[1668., 1659., 1668.], [1587., 1578., 1587.],
-                                  [1668., 1659., 1668.]]]),
-                        err_msg='Incorrect convolution: stack')
+        npt.assert_allclose(convolve.convolve_stack(self.data1, self.data2),
+                            np.array([[[210., 201., 210.],
+                                      [129., 120., 129.],
+                                      [210., 201., 210.]],
+                                     [[1668., 1659., 1668.],
+                                      [1587., 1578., 1587.],
+                                      [1668., 1659., 1668.]]]),
+                            err_msg='Incorrect convolution: stack')
 
     def test_convolve_stack_rot(self):
 
-        assert_allclose(convolve.convolve_stack(self.data1, self.data2,
-                        rot_kernel=True),
-                        np.array([[[150., 159., 150.], [231., 240., 231.],
-                                  [150., 159., 150.]],
-                                 [[1608., 1617., 1608.], [1689., 1698., 1689.],
-                                  [1608., 1617., 1608.]]]),
-                        err_msg='Incorrect convolution: stack rot')
+        npt.assert_allclose(convolve.convolve_stack(self.data1, self.data2,
+                            rot_kernel=True),
+                            np.array([[[150., 159., 150.], [231., 240., 231.],
+                                      [150., 159., 150.]],
+                                     [[1608., 1617., 1608.],
+                                      [1689., 1698., 1689.],
+                                      [1608., 1617., 1608.]]]),
+                            err_msg='Incorrect convolution: stack rot')
 
 
 class QualityTestCase(TestCase):
@@ -82,14 +86,14 @@ class QualityTestCase(TestCase):
 
     def test_nmse(self):
 
-        assert_almost_equal(quality.nmse(self.data1, self.data2),
-                            0.1489795918367347, err_msg='Incorrect NMSE')
+        npt.assert_almost_equal(quality.nmse(self.data1, self.data2),
+                                0.1489795918367347, err_msg='Incorrect NMSE')
 
     def test_e_error(self):
 
-        assert_almost_equal(quality.e_error(self.data1, self.data2),
-                            0.042727397878588612, err_msg='Incorrect '
-                            'ellipticity error')
+        npt.assert_almost_equal(quality.e_error(self.data1, self.data2),
+                                0.042727397878588612, err_msg='Incorrect '
+                                'ellipticity error')
 
 
 class ShapeTestCase(TestCase):
@@ -110,32 +114,32 @@ class ShapeTestCase(TestCase):
 
     def test_ellipticity_chi(self):
 
-        assert_almost_equal(shape.Ellipticity(self.data,
-                            ellip_type='chi').e,
-                            np.array([-0.20338994, -0.08474559]),
-                            err_msg='Incorrect ellipticity: chi')
+        npt.assert_almost_equal(shape.Ellipticity(self.data,
+                                ellip_type='chi').e,
+                                np.array([-0.20338994, -0.08474559]),
+                                err_msg='Incorrect ellipticity: chi')
 
     def test_ellipticity_epsilon(self):
 
-        assert_almost_equal(shape.Ellipticity(self.data,
-                            ellip_type='epsilon').e,
-                            np.array([-0.10296018, -0.04289996]),
-                            err_msg='Incorrect ellipticity: epsilon')
+        npt.assert_almost_equal(shape.Ellipticity(self.data,
+                                ellip_type='epsilon').e,
+                                np.array([-0.10296018, -0.04289996]),
+                                err_msg='Incorrect ellipticity: epsilon')
 
     def test_ellipticity_atoms(self):
 
-        assert_almost_equal(shape.ellipticity_atoms(self.data),
-                            np.array([-0.20338983, -0.08474576]),
-                            err_msg='Incorrect ellipticity: atoms')
+        npt.assert_almost_equal(shape.ellipticity_atoms(self.data),
+                                np.array([-0.20338983, -0.08474576]),
+                                err_msg='Incorrect ellipticity: atoms')
 
     def test_shape_project(self):
 
-        assert_array_equal(shape.shape_project((2, 2)),
-                           (np.array([[[0.,  0.], [1.,  1.]], [[0.,  1.],
-                            [0.,  1.]], [[1.,  1.], [1.,  1.]],
-                            [[0.,  1.], [1.,  2.]], [[0., -1.], [1.,  0.]],
-                            [[0.,  0.], [0.,  1.]]])),
-                           err_msg='Incorrect shape projection')
+        npt.assert_array_equal(shape.shape_project((2, 2)),
+                               (np.array([[[0.,  0.], [1.,  1.]], [[0.,  1.],
+                                [0.,  1.]], [[1.,  1.], [1.,  1.]],
+                                [[0.,  1.], [1.,  2.]], [[0., -1.], [1.,  0.]],
+                                [[0.,  0.], [0.,  1.]]])),
+                               err_msg='Incorrect shape projection')
 
 
 if __name__ == '__main__':
