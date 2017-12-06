@@ -4,4 +4,5 @@ future==0.16.0
 astropy==2.0.2
 matplotlib==2.1.0
 termcolor==1.1.0
+covergae==4.0.3
 coveralls==1.2.0

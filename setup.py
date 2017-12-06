@@ -12,4 +12,6 @@ setup(
     license='MIT',
     description='Tools for image analysis, signal processing and statistics.',
     long_description=open('README.txt').read(),
+    setup_requires=['pytest-runner'],
+    tests_require=['pytest'],
 )

@@ -15,7 +15,7 @@ install:
 
 # run unit tests
 script:
-  - pytest
+  - coverage run setup.py pytest
 
 # run coverage tests
 after_success:
