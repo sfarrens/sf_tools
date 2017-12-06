@@ -41,5 +41,5 @@ sf_tools/signal/proximity.py
 sf_tools/signal/regression.py
 sf_tools/signal/reweight.py
 sf_tools/signal/svd.py
-sf_tools/signal/tests.py
+sf_tools/signal/validation.py
 sf_tools/signal/wavelet.py

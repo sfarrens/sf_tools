@@ -11,11 +11,10 @@ branches:
 # install package and dependencies
 install:
   - pip install -r requirements.txt
-  - python setup.py install
 
 # run unit tests
 script:
-  - coverage run setup.py pytest
+  - python setup.py nosetests
 
 # run coverage tests
 after_success:
