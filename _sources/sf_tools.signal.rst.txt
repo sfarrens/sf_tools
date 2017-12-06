@@ -17,7 +17,7 @@ Submodules
    sf_tools.signal.regression
    sf_tools.signal.reweight
    sf_tools.signal.svd
-   sf_tools.signal.tests
+   sf_tools.signal.validation
    sf_tools.signal.wavelet
 
 Module contents

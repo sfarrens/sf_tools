@@ -364,7 +364,7 @@
 <span class="sd">    moments : np.ndarray, optional</span>
 <span class="sd">        Quadrupole moments [[q00, q01], [q10, q11]] of the input image</span>
 <span class="sd">        (defualt is &#39;None&#39;)</span>
-<span class="sd">    type : str {&#39;chi&#39;, &#39;epsilon&#39;}, optional</span>
+<span class="sd">    ellip_type : str {&#39;chi&#39;, &#39;epsilon&#39;}, optional</span>
 <span class="sd">        Ellipticity type (default is &#39;chi&#39;)</span>
 
 <span class="sd">    Examples</span>
@@ -590,7 +590,7 @@
         <span class="c1"># Calculate the ellipticity</span>
         <span class="n">ellip</span> <span class="o">=</span> <span class="n">numerator</span> <span class="o">/</span> <span class="n">denominator</span>
 
-        <span class="bp">self</span><span class="o">.</span><span class="n">e</span> <span class="o">=</span> <span class="p">(</span><span class="n">ellip</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">ellip</span><span class="o">.</span><span class="n">imag</span><span class="p">)</span></div></div>
+        <span class="bp">self</span><span class="o">.</span><span class="n">e</span> <span class="o">=</span> <span class="n">np</span><span class="o">.</span><span class="n">array</span><span class="p">([</span><span class="n">ellip</span><span class="o">.</span><span class="n">real</span><span class="p">,</span> <span class="n">ellip</span><span class="o">.</span><span class="n">imag</span><span class="p">])</span></div></div>
 </pre></div>
 
            </div>
@@ -637,6 +637,7 @@
       <script type="text/javascript" src="../../../_static/jquery.js"></script>
       <script type="text/javascript" src="../../../_static/underscore.js"></script>
       <script type="text/javascript" src="../../../_static/doctools.js"></script>
+      <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
       <script type="text/javascript" src="https://cdnjs.cloudflare.com/ajax/libs/mathjax/2.7.1/MathJax.js?config=TeX-AMS-MML_HTMLorMML"></script>
 
   
