@@ -32,7 +32,7 @@ References
 """
 
 __all__ = ['cost', 'filter', 'gradient', 'linear', 'noise', 'optimisation',
-           'positivity', 'proximity', 'regression', 'reweight', 'svd', 'tests',
-           'wavelet']
+           'positivity', 'proximity', 'regression', 'reweight', 'svd',
+           'validation', 'wavelet']
 
 from . import *
