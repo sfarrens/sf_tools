@@ -13,3 +13,4 @@
 # Ignore installation
 .eggs/
 sf_tools.egg-info/
+dist/
