@@ -1,13 +1,16 @@
 SF_TOOLS
 ========
 
-|travis|
+|travis| |coveralls|
 
 .. |travis| raw:: html
 
   <a href="https://travis-ci.org/sfarrens/sf_tools"
   target="_blank"><img
   src="https://travis-ci.org/sfarrens/sf_tools.svg?branch=master"></a>
+
+.. |coveralls| image:: https://coveralls.io/repos/github/sfarrens/sf_tools/badge.svg
+  :target: https://coveralls.io/github/sfarrens/sf_tools
 
 :Author: Samuel Farrens `(samuel.farrens@gmail.com) <samuel.farrens@gmail.com>`_
 

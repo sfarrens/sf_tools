@@ -1,12 +1,12 @@
-"""TESTING ROUTINES
+"""VALIDATION ROUTINES
 
 This module contains methods for testing signal and operator properties.
 
 :Author: Samuel Farrens <samuel.farrens@gmail.com>
 
-:Version: 1.1
+:Version: 1.2
 
-:Date: 03/04/2017
+:Date: 06/12/2017
 
 """
 
