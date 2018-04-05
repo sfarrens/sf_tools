@@ -10,15 +10,19 @@ branches:
 
 # install package and dependencies
 install:
-  - pip install -r requirements.txt
+  - pip install coverage nose pytest pytest-cov
+  - if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then pip install numpy future scipy astropy sphinx==1.6.5 sphinx-rtd-theme numpydoc travis-sphinx coveralls; fi
 
 # run unit tests
 script:
-  - python setup.py nosetests
+  - python setup.py test
+  - if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then sphinx-apidoc -feo docs/source sf_tools/; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then travis-sphinx -v -o docs/build build -n -s docs/source; fi
 
 # run coverage tests
 after_success:
-  - coveralls
+  - if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then coveralls; fi
+  - if [[ $TRAVIS_PYTHON_VERSION == '2.7' ]]; then travis-sphinx -o docs/build deploy; fi
 
 # notification settings
 notification:
