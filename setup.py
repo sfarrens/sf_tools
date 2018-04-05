@@ -18,7 +18,7 @@ setup(
     url='https://github.com/sfarrens/sf_tools',
     download_url='https://github.com/sfarrens/sf_tools',
     packages=find_packages(),
-    install_requires=['numpy>=1.14.1', 'future>=0.16.0', 'scipy>=1.0.0', 'astropy==2.0.4', 'modopt>=1.1.4'],
+    install_requires=['numpy>=1.14.1', 'future>=0.16.0', 'modopt>=1.1.4'],
     license='MIT',
     description='Tools for image analysis, signal processing and statistics.',
     long_description=release_info["__about__"],

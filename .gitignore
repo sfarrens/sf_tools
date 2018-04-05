@@ -13,7 +13,7 @@
 
 # Ignore installation
 .eggs/
-modopt.egg-info/
+sf_tools.egg-info/
 dist/
 build/
 
