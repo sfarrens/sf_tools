@@ -14,7 +14,7 @@ This module contains methods for the statistical analysis of images.
 
 from __future__ import division
 import numpy as np
-from sf_tools.base.np_adjust import pad2d
+from modopt.base.np_adjust import pad2d
 
 
 class SAT():

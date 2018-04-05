@@ -15,7 +15,7 @@ This module contains methods for playing around with image properties.
 from __future__ import division
 import numpy as np
 from itertools import product
-from sf_tools.base.np_adjust import pad2d
+from modopt.base.np_adjust import pad2d
 
 
 def downsample(image, factor):
