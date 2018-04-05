@@ -17,7 +17,7 @@ from __future__ import division
 from builtins import zip
 import numpy as np
 from itertools import product
-from sf_tools.base.np_adjust import pad2d
+from modopt.base.np_adjust import pad2d
 
 
 def patch_centres(data_shape, layout):
