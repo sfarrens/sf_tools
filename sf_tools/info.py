@@ -11,7 +11,7 @@ This module provides some basic information about the sf_tools package.
 """
 
 # Package Version
-version_info = (2, 0, 0)
+version_info = (2, 0, 1)
 __version__ = '.'.join(str(c) for c in version_info)
 
 __about__ = ('sf_tools \n\n '

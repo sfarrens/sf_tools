@@ -13,3 +13,4 @@ __all__ = ['image']
 
 from . import *
 from .image import *
+from .info import __version__, __about__

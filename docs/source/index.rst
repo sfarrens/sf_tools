@@ -6,13 +6,20 @@
 SF_TOOLS Documentation
 ======================
 
-:Author: Samuel Farrens <samuel.farrens@gmail.com>
+:Author: Samuel Farrens `(samuel.farrens@cea.fr) <samuel.farrens@cea.fr>`_
 
-:Version: 1.0.1
+:Version: 2.0.1
 
-:Date: 25/10/2017
+:Date: 06/02/2019
 
-SF_TOOLS is a series of Python 2.7 modules with applications to image analysis,
+:Documentation: |link-to-docs|
+
+.. |link-to-docs| raw:: html
+
+  <a href="https://sfarrens.github.io/sf_tools/"
+  target="_blank">https://sfarrens.github.io/sf_tools/</a>
+
+SF_TOOLS is a series of Python modules with applications to image analysis,
 signal processing and statistics.
 
 Contents
@@ -25,8 +32,6 @@ Contents
 
 2. `Installation`_
 
-3. `Package Contents`_
-
 Dependencies
 ============
 
@@ -38,13 +43,9 @@ installed:
 
 * |link-to-python| [Tested with v 2.7.11 and 3.6.3]
 
-* |link-to-numpy| [Tested with v 1.13.3]
+* |link-to-numpy| [>=1.14.2]
 
-* |link-to-scipy| [Tested with v 0.18.1]
-
-* |link-to-future| [Tested with v 0.16.0]
-
-* |link-to-astropy| [Tested with v 1.3]
+* |link-to-modopt| [>=1.14.1]
 
 .. |link-to-python| raw:: html
 
@@ -56,39 +57,10 @@ installed:
   <a href="http://www.numpy.org/"
   target="_blank">Numpy</a>
 
-.. |link-to-scipy| raw:: html
+.. |link-to-modopt| raw:: html
 
-  <a href="http://www.scipy.org/"
-  target="_blank">Scipy</a>
-
-.. |link-to-future| raw:: html
-
-  <a href="http://python-future.org/quickstart.html"
-  target="_blank">Future</a>
-
-.. |link-to-astropy| raw:: html
-
-  <a href="http://www.astropy.org/"
-  target="_blank">Astropy</a>
-
-Optional Packages
------------------
-
-The following packages can optionally be installed to add extra functionality:
-
-* |link-to-matplotlib| [Tested with v 2.0.2]
-
-* |link-to-termcolor| [Tested with v 1.1.0]
-
-.. |link-to-matplotlib| raw:: html
-
-  <a href="http://matplotlib.org/"
-  target="_blank">Matplotlib</a>
-
-.. |link-to-termcolor| raw:: html
-
-  <a href="https://pypi.python.org/pypi/termcolor"
-  target="_blank">Termcolor</a>
+  <a href="https://cea-cosmic.github.io/ModOpt/"
+  target="_blank">ModOpt</a>
 
 Installation
 ============
