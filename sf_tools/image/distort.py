@@ -16,6 +16,7 @@ from __future__ import division
 import numpy as np
 from itertools import product
 from modopt.base.np_adjust import pad2d
+from .stamp import postage_stamp
 
 
 def downsample(image, factor):
