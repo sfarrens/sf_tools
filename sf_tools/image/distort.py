@@ -265,3 +265,54 @@ def rearrange_kernel(kernel, data_shape=None):
     return np.array([np.roll(np.roll(kernel_rot, i, axis=0), j,
                     axis=1).reshape(vec_length) for i in range(data_shape[0])
                     for j in range(data_shape[1])])
+
+
+def pad_shift(image, shift):
+    """ Pad Shift
+
+    Pad image by a given position shift.
+
+    Parameters
+    ----------
+    image :  np.ndarray
+        Input image
+    shift : tuple
+        Shift in x and y axes
+
+    Returns
+    -------
+    np.ndarray
+        Padded image
+
+    """
+
+    pad = [(_shift, 0) if _shift >= 0 else (0, -_shift)
+           for _shift in shift]
+
+    return np.pad(image, pad, 'constant')
+
+
+def recentre(image, pos):
+    """ Recentre
+
+    Recentre image to a given position.
+
+    Parameters
+    ----------
+    image :  np.ndarray
+        Input image
+    pos : tuple
+        Pos in x and y axes
+
+    Returns
+    -------
+    np.ndarray
+        Recentred image
+
+    """
+
+    image_centre = np.array(image.shape) // 2
+    image = pad_shift(image, 2 * (image_centre - pos))
+    pad_centre = np.array(image.shape) // 2
+
+    return postage_stamp(image, pad_centre, image_centre)

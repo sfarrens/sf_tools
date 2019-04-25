@@ -102,8 +102,8 @@ def postage_stamp(data, pos, pixel_rad):
                          'array. Array size: ' + str(data.shape))
 
     # Return postage stamp.
-    return pad2d(data, pixel_rad)[[slice(a, a + 2 * b + 1) for a, b in
-                                   zip(pos, pixel_rad)]]
+    return pad2d(data, pixel_rad)[tuple([slice(a, a + 2 * b + 1) for a, b in
+                                  zip(pos, pixel_rad)])]
 
 
 def pixel_pos(array_shape):
