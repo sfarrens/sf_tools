@@ -13,11 +13,8 @@ images.
 
 """
 
-from __future__ import division
-from builtins import zip
 import numpy as np
 from itertools import product
-from modopt.base.np_adjust import pad2d
 
 
 def patch_centres(data_shape, layout):
@@ -143,12 +140,12 @@ class FetchStamps(object):
 
     """
 
-    def __init__(self, data, pixel_rad, all=False):
+    def __init__(self, data, pixel_rad, all=False, pad_mode='constant'):
         self.data = np.array(data)
         self.shape = np.array(self.data.shape)
         self.pixel_rad = np.array(pixel_rad)
         self._check_inputs()
-        self._pad_data()
+        self._pad_data(pad_mode)
         if all:
             self.n_pixels()
 
@@ -171,14 +168,17 @@ class FetchStamps(object):
         elif self.pixel_rad.size not in (1, 2):
             raise ValueError('The pixel radius must have a size of 1 or 2.')
 
-    def _pad_data(self):
+    def _pad_data(self, pad_mode):
         """Pad data
 
         This method pads the input array with zeros.
 
         """
 
-        self.pad_data = pad2d(self.data, self.pixel_rad)
+        x_pad = np.repeat(self.pixel_rad[0], 2)
+        y_pad = np.repeat(self.pixel_rad[1], 2)
+
+        self.pad_data = np.pad(self.data, (x_pad, y_pad), pad_mode)
 
     def _adjust_pixels(self):
         """Adjust pixels
@@ -260,8 +260,8 @@ class FetchStamps(object):
         pos = np.array(pos)
         if pos.size != 2:
             raise ValueError('The pixel position must have a size of 2.')
-        stamp = self.pad_data[[slice(a - b, a + b + 1) for a, b in
-                              zip(pos, self.pixel_rad)]]
+        stamp = self.pad_data[tuple([slice(a - b, a + b + 1) for a, b in
+                              zip(pos, self.pixel_rad)])]
         if isinstance(func, type(None)):
             return stamp
         else:

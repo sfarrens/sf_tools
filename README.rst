@@ -14,7 +14,7 @@ SF_TOOLS
 
 :Author: Samuel Farrens `(samuel.farrens@cea.fr) <samuel.farrens@cea.fr>`_
 
-:Version: 2.0.2
+:Version: 2.0.3
 
 :Date: 25/04/2019
 
