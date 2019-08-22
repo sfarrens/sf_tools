@@ -6,12 +6,12 @@ This module provides some basic information about the sf_tools package.
 
 :Author: Samuel Farrens <samuel.farrens@cea.fr>
 
-:Version: 2.0.3
+:Version: 2.0.4
 
 """
 
 # Package Version
-version_info = (2, 0, 3)
+version_info = (2, 0, 4)
 __version__ = '.'.join(str(c) for c in version_info)
 
 __about__ = ('sf_tools \n\n '
