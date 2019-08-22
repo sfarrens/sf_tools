@@ -20,6 +20,6 @@ __about__ = ('sf_tools \n\n '
              'Email: samuel.farrens@cea.fr \n '
              'Website: https://sfarrens.github.io \n\n '
              'sf_tools is a series of Python modules with applications to '
-             'image analysis signal processing and statistics.. \n\n '
+             'image analysis signal processing and statistics. \n\n '
              'Full documentation available here: '
              'https://sfarrens.github.io/sf_tools/')
