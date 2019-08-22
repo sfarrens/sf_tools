@@ -41,7 +41,7 @@ Required Packages
 In order to run the code in this repository the following packages must be
 installed:
 
-* |link-to-python| [Tested with v 2.7.11 and 3.6.3]
+* |link-to-python| [>=3.5]
 
 * |link-to-numpy| [>=1.14.2]
 
