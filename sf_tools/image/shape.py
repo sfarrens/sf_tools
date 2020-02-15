@@ -28,14 +28,15 @@ def ellipticity_atoms(data, offset=0):
 
     Parameters
     ----------
-    data : np.ndarray
+    data : numpy.ndarray
         Input data array, the image to be analysed
     offset : int, optional
         Shape projection offset (default is '0')
 
     Returns
     -------
-    np.ndarray of the image ellipticity components
+    numpy.ndarray
+        Image ellipticity components
 
     See Also
     --------
@@ -102,7 +103,7 @@ def shape_project(shape, offset=0, return_norm=False):
 
     Parameters
     ----------
-    shape : list, tuple or np.ndarray
+    shape : list, tuple or numpy.ndarray
         List of image dimensions
     offset : int, optional
         Shape projection offset (default is '0')
@@ -112,7 +113,8 @@ def shape_project(shape, offset=0, return_norm=False):
 
     Returns
     -------
-    np.ndarray of shape projection components
+    numpy.ndarray
+        Shape projection components
 
     See Also
     --------
@@ -185,16 +187,16 @@ class Ellipticity():
 
     Parameters
     ----------
-    data : np.ndarray
+    data : numpy.ndarray
         Input data array, the image to be analysed
     sigma : int, optional
         Estimation error (default is '1000')
-    centroid : np.ndarray, optional
+    centroid : numpy.ndarray, optional
         Centroid positions [x, y] of the input image (defualt is 'None')
-    moments : np.ndarray, optional
+    moments : numpy.ndarray, optional
         Quadrupole moments [[q00, q01], [q10, q11]] of the input image
         (defualt is 'None')
-    ellip_type : str {'chi', 'epsilon'}, optional
+    ellip_type : {'chi', 'epsilon'}, optional
         Ellipticity type (default is 'chi')
 
     Examples
@@ -284,7 +286,7 @@ class Ellipticity():
                                (2 * self._sigma ** 2))
 
     def _update_centroid(self):
-        """Update the centroid
+        r"""Update the centroid
 
         This method updates the centroid value using the current weights.
 
@@ -349,7 +351,7 @@ class Ellipticity():
         self._get_moments()
 
     def _get_moments(self):
-        """ Calculate the quadrupole moments
+        r""" Calculate the quadrupole moments
 
         This method calculates the quadrupole moments.
 
@@ -378,7 +380,7 @@ class Ellipticity():
         self._get_ellipse()
 
     def _get_ellipse(self):
-        """Calculate the ellipticities
+        r"""Calculate the ellipticities
 
         This method cacluates ellipticities from quadrupole moments.
 

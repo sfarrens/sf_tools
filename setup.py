@@ -10,6 +10,10 @@ infopath = os.path.abspath(os.path.join(os.path.dirname(__file__),
 with open(infopath) as open_file:
     exec(open_file.read(), release_info)
 
+with open('requirements.txt') as open_file:
+    install_requires = open_file.read()
+
+
 setup(
     name='sf_tools',
     author='sfarrens',
@@ -18,7 +22,7 @@ setup(
     url='https://github.com/sfarrens/sf_tools',
     download_url='https://github.com/sfarrens/sf_tools',
     packages=find_packages(),
-    install_requires=['numpy>=1.14.1', 'future>=0.16.0', 'modopt>=1.1.4'],
+    install_requires=install_requires,
     license='MIT',
     description='Tools for image analysis, signal processing and statistics.',
     long_description=release_info["__about__"],

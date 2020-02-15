@@ -25,7 +25,7 @@ class SAT():
 
     Parameters
     ----------
-    data : np.ndarray
+    data : numpy.ndarray
         Input 2D data array
 
     Notes
@@ -54,14 +54,15 @@ class SAT():
 
         Parameters
         ----------
-        data : np.ndarray
+        data : numpy.ndarray
             Input 2D data array
         corners : tuple
             Positions of upper left and bottom right corners.
 
         Returns
         -------
-        float area
+        float
+            Area
 
         """
 
@@ -87,7 +88,8 @@ class SAT():
 
         Returns
         -------
-        int number of pixels
+        int
+            Number of pixels
 
         """
 
