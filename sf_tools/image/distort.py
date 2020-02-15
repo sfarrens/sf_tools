@@ -26,14 +26,15 @@ def downsample(image, factor):
 
     Parameters
     ----------
-    image : np.ndarray
+    image : numpy.ndarray
         Input image array
     factor : int
         Downsampling factor
 
     Returns
     -------
-    np.ndarray downsampled image array
+    numpy.ndarray
+        Downsampled image array
 
     Raises
     ------
@@ -65,12 +66,13 @@ def resize_even_image(image):
 
     Parameters
     ----------
-    image : np.ndarray
+    image : numpy.ndarray
         Input image array
 
     Returns
     -------
-    np.ndarray resized image array
+    numpy.ndarray
+        Resized image array
 
     """
 
@@ -85,14 +87,15 @@ def roll_2d(data, roll_rad=(1, 1)):
 
     Parameters
     ----------
-    data : np.ndarray
+    data : numpy.ndarray
         Input 2D data array
     roll_rad : tuple
         Roll radius in each dimension
 
     Returns
     -------
-    np.ndarray rolled array
+    numpy.ndarray
+        Rolled array
 
     """
 
@@ -106,12 +109,13 @@ def rot_and_roll(data):
 
     Parameters
     ----------
-    data : np.ndarray
+    data : numpy.ndarray
         Input 2D data array
 
     Returns
     -------
-    np.ndarray rotated and rolled array
+    numpy.ndarray
+        Rotated and rolled array
 
     """
 
@@ -132,7 +136,8 @@ def gen_mask(kernel_shape, image_shape):
 
     Returns
     -------
-    np.ndarray boolean mask
+    numpy.ndarray
+        Boolean mask
 
     """
 
@@ -163,7 +168,8 @@ def roll_sequence(data_shape):
 
     Returns
     -------
-    list of roll radii
+    list
+        Roll radii
 
     """
 
@@ -183,12 +189,13 @@ def kernel_pattern(kernel_shape, mask):
     ----------
     kernel_shape : tuple
         Shape of kernel
-    mask : np.ndarray
+    mask : numpy.ndarray
         Boolean mask
 
     Returns
     -------
-    np.ndarray kernel pattern
+    numpy.ndarray
+        Kernel pattern
 
     """
 
@@ -231,7 +238,8 @@ def rearrange_kernel(kernel, data_shape=None):
 
     Returns
     -------
-    np.ndarray rearanged matrix of kernel elements
+    numpy.ndarray
+        Rearanged matrix of kernel elements
 
     """
 
@@ -275,14 +283,14 @@ def pad_shift(image, shift):
 
     Parameters
     ----------
-    image :  np.ndarray
+    image :  numpy.ndarray
         Input image
     shift : tuple
         Shift in x and y axes
 
     Returns
     -------
-    np.ndarray
+    numpy.ndarray
         Padded image
 
     """
@@ -300,14 +308,14 @@ def recentre(image, pos):
 
     Parameters
     ----------
-    image :  np.ndarray
+    image :  numpy.ndarray
         Input image
     pos : tuple
         Pos in x and y axes
 
     Returns
     -------
-    np.ndarray
+    numpy.ndarray
         Recentred image
 
     """

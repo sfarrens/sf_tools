@@ -30,16 +30,17 @@ def nmse(image1, image2, metric=np.mean):
 
     Parameters
     ----------
-    image1 : np.ndarray
+    image1 : numpy.ndarray
         First image (or stack of images) to be analysed (original image)
-    image2 : np.ndarray
+    image2 : numpy.ndarray
         Second image (or stack of images) to be analysed (reconstructed image)
     metric : function
-        Metric to be apllied to NMSE results (default is 'np.mean')
+        Metric to be apllied to NMSE results (default is 'numpy.mean')
 
     Returns
     -------
-    float NMSE value or metric value(s)
+    float
+        NMSE value or metric value(s)
 
     Raises
     ------
@@ -95,17 +96,18 @@ def e_error(image1, image2, metric=np.mean):
 
     Parameters
     ----------
-    image1 : np.ndarray
+    image1 : numpy.ndarray
         First image to be analysed (original image)
-    image2 : np.ndarray
+    image2 : numpy.ndarray
         Second image to be analysed (reconstructed image)
     metric : function
         Metric to be apllied to ellipticity error results (default is
-        'np.mean')
+        'numpy.mean')
 
     Returns
     -------
-    float ellipticity error value or metric value(s)
+    float
+        Ellipticity error value or metric value(s)
 
     Raises
     ------

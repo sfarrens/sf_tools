@@ -31,7 +31,7 @@ def patch_centres(data_shape, layout):
 
     Returns
     -------
-    np.ndarray array of patch centres
+    numpy.ndarray array of patch centres
 
     """
 
@@ -57,7 +57,7 @@ def postage_stamp(data, pos, pixel_rad):
 
     Parameters
     ----------
-    data : np.ndarray
+    data : numpy.ndarray
         Input data array
     pos : tuple
         Position of postage stamp centre
@@ -66,7 +66,8 @@ def postage_stamp(data, pos, pixel_rad):
 
     Returns
     -------
-    np.ndarray rearanged matrix of kernel elements
+    numpy.ndarray
+        Rearanged matrix of kernel elements
 
     Notes
     -----
@@ -115,7 +116,8 @@ def pixel_pos(array_shape):
 
     Returns
     -------
-    list of pixel positions
+    list
+        Pixel positions
 
     """
 
@@ -131,7 +133,7 @@ class FetchStamps(object):
 
     Parameters
     ----------
-    data : np.ndarray
+    data : numpy.ndarray
         Input 2D data array
     pixel_rad : tuple
         Pixel radius in each dimension
@@ -248,7 +250,8 @@ class FetchStamps(object):
 
         Returns
         -------
-        np.ndarray postage stamp array or result of func
+        numpy.ndarray
+            Postage stamp array or result of func
 
         Raises
         ------
@@ -280,7 +283,8 @@ class FetchStamps(object):
 
         Returns
         -------
-        np.ndarray postage stamp arrays or results of func
+        numpy.ndarray
+            Postage stamp arrays or results of func
 
         """
 
